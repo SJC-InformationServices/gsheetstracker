@@ -1,6 +1,8 @@
 var SCRIPT_PROP = PropertiesService.getScriptProperties(); // new property service
-var productsTableId = "1I-CL4wliLPb_s6L8KTSTPbvaoGeGMQI-Pfo07aLlLts";
-var trackingTableId = "1SLl6FRFH90rcC36bkyxnjudfnUIwRIUIiX1mH-LljGQ";
+var productsTableId = SCRIPT_PROP.getProperty('PRODUCTS');
+var productsTableId = SCRIPT_PROP.getProperty('OFFERS');
+var trackingTableId = SCRIPT_PROP.getProperty('TRACKING');
+var trackingTableId = SCRIPT_PROP.getProperty('IMAGES');
 
 var lock = LockService.getPublicLock();
 lock.waitLock(30000);  // wait 30 seconds before conceding defeat.

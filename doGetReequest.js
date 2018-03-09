@@ -1,7 +1,6 @@
 function handleGet(e) {
       
   try{
-  
    return HtmlService.createHtmlOutputFromFile('index.html'); 
   }
   catch(e){
