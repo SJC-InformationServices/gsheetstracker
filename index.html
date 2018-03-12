@@ -1,34 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>SJC Mckesson Tracking</title>
-        <link rel="shortcut icon" href="https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
-
-<link rel="stylesheet" href="https://s3.amazonaws.com/sjcarchiveassets/lib/DataTables/Editor-1.7.2/css/editor.bootstrap4.min.css">
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
+ 
+<link rel="stylesheet" href="https://s3.amazonaws.com/sjcarchiveassets/lib/DataTables/Editor-1.7.2/css/dataTables.editor.css">
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
 
 <script type="text/javascript" src="https://s3.amazonaws.com/sjcarchiveassets/lib/DataTables/Editor-1.7.2/js/dataTables.editor.min.js"></script>
 
-
-
 </head>
 <body>
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" target="_blank" href="https://stjoseph.com/">
                   <img src="https://s3.amazonaws.com/sjcarchiveassets/lib/images/sjc_logo.svg" alt="">
@@ -51,7 +44,7 @@
                   </ul>
                 </div>
               </nav>
-              <div class="container">
+              
               <ul class="nav nav-tabs">
                     <li class="nav-item">
                       <a data-toggle="tab" class="nav-link active" href="#tracking">Tracking</a>
@@ -67,37 +60,41 @@
                     </li>
                   </ul>
                   <div class="tab-content">
-                        <div id="tracking" class="tab-pane active container">
-                          <h3>Tracking</h3><table id="trackingtable"><thead><tr>
-                          <? 
-                          var cols =  getTrackingFields(); 
-                            for (var i = 0; i<cols.length;i++){ ?>
-                                <th><?= cols[i] ?></th>
-                        <? } ?>
+                        <div id="tracking" class="tab-pane active">
+                            <? var tbl = renderTableTemplate("TRACKING"); ?>
+                            <?= tbl ?>
                          
-                          </tr></thead>                                                                     
-                          <tbody>
-                              <?
-                              var products = getTracking();
-                              for (var i = 0; i<products.length;i++){ var p_row = products[i].join("</td><td>">);?>
-                              <tr><td><?= p_row ?></td></tr>
-                              <? } ?>
-                          </tbody>
-                        </table>
+                        <script type="text/javascript" defer>
+                                var trackingDT = $('#TRACKINGTABLE').DataTable({
+                                    dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
+                                    paging:false,
+                                    processing:true,
+                                    autowidth:false,
+                                    deferRender: true,
+                                    keys:true,
+                                    select:{style:'single',items:'row',blurable:false},                                    
+                                    idSrc:"upc",
+                                    buttons: [
+                                        "excel"
+                                    ]
+                                });
+
+                        </script>
                         </div>
-                        <div id="images" class="tab-pane container">
-                          <h3>Images</h3>                    
+                        <div id="images" class="tab-pane">                               
+                        
                         </div>
-                        <div id="products" class="tab-pane container">
-                          <h3>Products</h3>                          
+                        <div id="products" class="tab-pane">
+                                <? var tbl = renderTableTemplate("PRODUCTS"); ?>
+                                <?= tbl ?>
                         </div>
-                        <div id="offers" class="tab-pane container">
-                                <h3>Offers</h3>
+                        <div id="offers" class="tab-pane">
                                 
-                              </div>
-                      </div></div>
                                 
-                      
+                         </div>
+                      </div>
+                                
+
 
 
 </body>

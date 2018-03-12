@@ -36,6 +36,9 @@ function handleGet(e) {
       var results = template.evaluate(); 
       results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
       results.setTitle('SJC McKesson Archive Manager');
+      results.addMetaTag('viewport', 'width=device-width, initial-scale=1');
+      results.addMetaTag('http-equiv','"X-UA-Compatible" content="IE=edge"');
+
       break;
     }   
    return results;

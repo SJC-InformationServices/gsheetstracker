@@ -9,7 +9,8 @@ function getProductFields(){
     }catch(e){
         return ["NO FIELDS",e.message,productsTableId];
     }
-}
+};
+
 function getProducts(upc)
 {
     if(upc == ""){

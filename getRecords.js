@@ -1,0 +1,18 @@
+function getRecords(type)
+{
+    try{
+        var prop = PropertiesService.getScriptProperties().getProperty(type);
+        if(prop)
+        {
+            var doc = SpreadsheetApp.openById(prop);
+            var sheet = doc.getSheetByName("Sheet1");
+            var cols = sheet.getRange(2,1,sheet.getLastRow(),sheet.getLastColumn());
+            var values = cols.getValues();
+            return values[0];
+        }else{
+            return false;
+        }}
+        catch(e){
+            return false;
+        }
+}
