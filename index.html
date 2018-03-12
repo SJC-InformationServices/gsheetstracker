@@ -28,5 +28,77 @@
 
 </head>
 <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" target="_blank" href="https://stjoseph.com/">
+                  <img src="https://s3.amazonaws.com/sjcarchiveassets/lib/images/sjc_logo.svg" alt="">
+              </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">Welcome, 
+                          
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="https://myaccount.google.com">My Account</a>
+                        <a class="dropdown-item" id="authorize" href="#">Google Authorize</a>
+                        <a class="dropdown-item" id="logout" href="#">Google Logout</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <div class="container">
+              <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a data-toggle="tab" class="nav-link active" href="#tracking">Tracking</a>
+                    </li>
+                    <li class="nav-item">
+                      <a data-toggle="tab" class="nav-link" href="#images">Images</a>
+                    </li>
+                    <li class="nav-item">
+                      <a data-toggle="tab" class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                      <a data-toggle="tab" class="nav-link" href="#offers">Offers</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content">
+                        <div id="tracking" class="tab-pane active container">
+                          <h3>Tracking</h3><table id="trackingtable"><thead><tr>
+                          <? 
+                          var cols =  getTrackingFields(); 
+                            for (var i = 0; i<cols.length;i++){ ?>
+                                <th><?= cols[i] ?></th>
+                        <? } ?>
+                         
+                          </tr></thead>                                                                     
+                          <tbody>
+                              <?
+                              var products = getTracking();
+                              for (var i = 0; i<products.length;i++){ var p_row = products[i].join("</td><td>">);?>
+                              <tr><td><?= p_row ?></td></tr>
+                              <? } ?>
+                          </tbody>
+                        </table>
+                        </div>
+                        <div id="images" class="tab-pane container">
+                          <h3>Images</h3>                    
+                        </div>
+                        <div id="products" class="tab-pane container">
+                          <h3>Products</h3>                          
+                        </div>
+                        <div id="offers" class="tab-pane container">
+                                <h3>Offers</h3>
+                                
+                              </div>
+                      </div></div>
+                                
+                      
+
+
 </body>
 </html>

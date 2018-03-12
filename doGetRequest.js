@@ -9,30 +9,33 @@ function handleGet(e) {
     {
       case "PRODUCTS":
 
-      var records = {'PRODUCTS': TRUE };
+      var records = getProducts();
       var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
       
       break;
       case 'OFFERS':
 
-      var records = {'PRODUCTS': TRUE };
+      var records = getOffers();
       var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
 
       break;
       case 'TRACKING':
 
-      var records = {'PRODUCTS': TRUE };
+      var records = getTracking();
       var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
 
       break;
       case 'IMAGES':
 
-      var records = {'PRODUCTS': TRUE };
+      var records = getImages();
       var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
 
       break;
       default:
-      var results = HtmlService.createHtmlOutputFromFile('index.html'); 
+      var template = HtmlService.createTemplateFromFile('index.html');
+      var results = template.evaluate(); 
+      results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
+      results.setTitle('SJC McKesson Archive Manager');
       break;
     }   
    return results;
