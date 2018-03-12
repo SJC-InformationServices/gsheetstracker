@@ -4,6 +4,9 @@ var productsTableId = SCRIPT_PROP.getProperty('OFFERS');
 var trackingTableId = SCRIPT_PROP.getProperty('TRACKING');
 var trackingTableId = SCRIPT_PROP.getProperty('IMAGES');
 
+var userProperties = PropertiesService.getUserProperties();
+
+
 var lock = LockService.getPublicLock();
 lock.waitLock(30000);  // wait 30 seconds before conceding defeat.
 
