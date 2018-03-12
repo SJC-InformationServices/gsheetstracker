@@ -3,7 +3,7 @@ var productsTableId = SCRIPT_PROP.getProperty('PRODUCTS');
 var productsTableId = SCRIPT_PROP.getProperty('OFFERS');
 var trackingTableId = SCRIPT_PROP.getProperty('TRACKING');
 var trackingTableId = SCRIPT_PROP.getProperty('IMAGES');
-
+var urls = ScriptApp.getService().getUrl().replace("https://script.google.com/a/stjoseph.com/macros/s/AKfycbx-uK4T9fjkJHiAgqouwqSnUXW1UVGW1XRyq9nO6RcGjNOlpomO/exec/","").split("/");
 var userProperties = PropertiesService.getUserProperties();
 
 

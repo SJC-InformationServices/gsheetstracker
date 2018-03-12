@@ -1,3 +1,3 @@
 function echoUrl(){
-Console.log(ScriptApp.getService().getUrl());
+console.log(ScriptApp.getService().getUrl());
 }
