@@ -1,7 +1,9 @@
 function handleGet(e) {
     Logger.log('getRequest :' + JSON.stringify(e));
   try{
-   var results = HtmlService.createHtmlOutputFromFile('index.html'); 
+    
+     var results = HtmlService.createHtmlOutputFromFile('index.html'); 
+    
    
    return results;
   }
