@@ -6,9 +6,11 @@ function getRecords(type)
         {
             var doc = SpreadsheetApp.openById(prop);
             var sheet = doc.getSheetByName("Sheet1");
-            var cols = sheet.getRange(2,1,sheet.getLastRow(),sheet.getLastColumn());
+            var lastRow = sheet.getLastRow(),lastCol=sheet.getLastColumn();
+            
+            var cols = sheet.getRange(2,1,lastRow-1,lastCol);
             var values = cols.getValues();
-            return values[0];
+            return values;
         }else{
             return false;
         }}

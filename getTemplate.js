@@ -1,9 +1,9 @@
-function renderTableTemplate(type)
+function renderTableTemplate(type,elid)
 {
     var attribs = getAttributes(type);
     var records = getRecords(type);
 
-    var tbl = '<table id="trackingtable" class="display compact" width="98%" cellspacing="0"><thead><tr>';
+    var tbl = '<table id="'+type+'TABLE" class="display compact" width="98%" cellspacing="0"><thead><tr>';
     
       for (var i = 0; i<attribs.length;i++)
       { 
@@ -13,11 +13,14 @@ function renderTableTemplate(type)
     
     for (var i=0; i<records.length;i++)
     { 
-      tbl += "<tr><td>";
+      tbl += "<tr>";
         var row = records[i]; 
-        tbl += row.join("</td><td>");          
-      tbl += "</td></tr>";
+        for(var y=0;y<row.length;y++){
+          tbl += "<td>" + row[y] + "</td>";
+        }
+      tbl += "</tr>";
     }
     tbl += "</tbody></table>";
-    return HtmlService.createHtmlOutPutFromBlob(tbl).getContent();
+    var x = [tbl,elid];
+    return x;
 }

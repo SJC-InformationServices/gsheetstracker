@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-        
-        
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
                 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -11,17 +7,8 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
  
 <link rel="stylesheet" href="https://s3.amazonaws.com/sjcarchiveassets/lib/DataTables/Editor-1.7.2/css/dataTables.editor.css">
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
-<script type="text/javascript" src="https://s3.amazonaws.com/sjcarchiveassets/lib/DataTables/Editor-1.7.2/js/dataTables.editor.min.js"></script>
-
-</head>
-<body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" target="_blank" href="https://stjoseph.com/">
                   <img src="https://s3.amazonaws.com/sjcarchiveassets/lib/images/sjc_logo.svg" alt="">
@@ -61,11 +48,40 @@
                   </ul>
                   <div class="tab-content">
                         <div id="tracking" class="tab-pane active">
-                            <? var tbl = renderTableTemplate("TRACKING"); ?>
-                            <?= tbl ?>
-                         
-                        <script type="text/javascript" defer>
-                                var trackingDT = $('#TRACKINGTABLE').DataTable({
+                          <script defer>
+                            function onSuccess(obj){
+                              var tbl = obj[0];
+                              var id = obj[1];
+                              $("#"+id).append(tbl);
+                              var trackingDT = $('#TRACKINGTABLE').DataTable({
+                                dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
+                                paging:false,
+                                processing:true,
+                                autowidth:false,
+                                deferRender: true,
+                                keys:true,
+                                select:{style:'single',items:'row',blurable:false},                                    
+                                idSrc:"upc",
+                                buttons: [
+                                    "excel"
+                                ]
+                            });
+                            }
+                            var tbl =  google.script.run.withSuccessHandler(onSuccess).renderTableTemplate("TRACKING","tracking");
+                            
+                          </script>
+                                                     
+                        </div>
+                        <div id="images" class="tab-pane">                               
+                        
+                        </div>
+                        <div id="products" class="tab-pane">
+                            <script defer>
+                                function onSuccess(obj){
+                                  var tbl = obj[0];
+                                  var id = obj[1];
+                                  $("#"+id).append(tbl);
+                                  var trackingDT = $('#PRODUCTSTABLE').DataTable({
                                     dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
                                     paging:false,
                                     processing:true,
@@ -78,24 +94,27 @@
                                         "excel"
                                     ]
                                 });
-
-                        </script>
-                        </div>
-                        <div id="images" class="tab-pane">                               
-                        
-                        </div>
-                        <div id="products" class="tab-pane">
-                                <? var tbl = renderTableTemplate("PRODUCTS"); ?>
-                                <?= tbl ?>
+                                }
+                                var tbl =  google.script.run.withSuccessHandler(onSuccess).renderTableTemplate("PRODUCTS","products");
+                                
+                              </script>
                         </div>
                         <div id="offers" class="tab-pane">
                                 
                                 
                          </div>
                       </div>
-                                
+                      <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
+
+                      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                      
+                      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                      
+                      
+                      <script type="text/javascript" src="https://s3.amazonaws.com/sjcarchiveassets/lib/DataTables/Editor-1.7.2/js/dataTables.editor.min.js"></script>                                
+
+                
 
 
 
-</body>
-</html>
+
