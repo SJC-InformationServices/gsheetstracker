@@ -9,25 +9,25 @@ function handleGet(e) {
     {
       case "PRODUCTS":
 
-      var records = getProducts();
+      var records = getRecords("PRODUCTS");
       var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
       
       break;
       case 'OFFERS':
 
-      var records = getOffers();
+      var records = getRecords("OFFERS");
       var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
 
       break;
       case 'TRACKING':
 
-      var records = getTracking();
+      var records = getRecords("TRACKING");
       var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
 
       break;
       case 'IMAGES':
 
-      var records = getImages();
+      var records = getRecords("IMAGES");
       var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
 
       break;

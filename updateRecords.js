@@ -1,4 +1,4 @@
-function getRecords(type,filters)
+function updateRecord(type,id,keyval)
 {
     try{
         var prop = PropertiesService.getScriptProperties().getProperty(type);

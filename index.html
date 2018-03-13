@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
  
 <link rel="stylesheet" href="https://s3.amazonaws.com/sjcarchiveassets/lib/DataTables/Editor-1.7.2/css/dataTables.editor.css">
-
+<?!= include('mainStyle.html'); ?>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" target="_blank" href="https://stjoseph.com/">
@@ -48,6 +48,33 @@
                   </ul>
                   <div class="tab-content">
                         <div id="tracking" class="tab-pane active">
+                            <div class="container-fluid">
+                                <div class="row">
+                                  <div class="col-md-4">
+                                    <legend>Merch In</legend>   
+                                    <form id="merchin" class="form-signin">
+                                        <input type="hidden" name="request" value="tracking" />  
+                                      <div class="form-label-group">
+                                          <input type="text" name="upc" placeholder="upc" id="merchinupc" class="form-control form-control-sm" required="" maxlength="14"/>
+                                          <label for="merchinupc">UPC</label>
+                                       </div>
+                                        <button type="submit" id="submit-merchin" class="btn btn-secondary btn-sm">Submit</button>
+                                    </form>
+                                  </div>
+                                  <div class="col-md-4" class="form-signin">
+                                      <legend>Merch Out</legend>
+                                      <form id="merchout" class="form-signin">
+                                          <input type="hidden" name="request" value="tracking" />
+                                          <div class="form-label-group">
+                                          <input type="text" name="upc" placeholder="upc" id="merchoutupc" class="form-control form-control-sm" required="" maxlength="14"/>
+                                          <label for="merchoutupc">UPC</label>                                        
+                                        </div>
+                                        <button type="submit" id="submit-merchout" class="btn btn-secondary btn-sm">Submit</button>
+                                      </form>
+                                  </div>
+                                </div>
+                              </div>
+                          
                           <script defer>
                             function onSuccess(obj){
                               var tbl = obj[0];
@@ -111,7 +138,47 @@
                       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
                       
                       
-                      <script type="text/javascript" src="https://s3.amazonaws.com/sjcarchiveassets/lib/DataTables/Editor-1.7.2/js/dataTables.editor.min.js"></script>                                
+                      <script type="text/javascript" src="https://s3.amazonaws.com/sjcarchiveassets/lib/DataTables/Editor-1.7.2/js/dataTables.editor.min.js"></script>  
+                      
+                      <script type="text/javascript" defer>
+                        var $merchin = $('#merchin'),
+                        $merchout = $('#merchout'),
+                        url = "https://script.google.com/a/stjoseph.com/macros/s/AKfycbx-uK4T9fjkJHiAgqouwqSnUXW1UVGW1XRyq9nO6RcGjNOlpomO/exec",
+                        $merchinupc = $('#merchin :text'),$merchoutupc = $('#merchout :text');
+
+                        $merchin.on('submit', function(e) {
+                          e.preventDefault();
+                          var t =  $(this).serialize()+"&callback=test";
+                          var jqxhr = $.ajax({
+                            headers:{"Content-Type": "JSONP"},
+                            url: url,
+                            method: "POST",
+                            dataType: "JSON",
+                            data: $(this).serialize()
+                          }).done(function(o){
+                            $merchinupc.val("");
+                            $merchinupc.focus();
+                          });
+                        });
+
+                        $merchout.on('submit', function(e) 
+                        {
+                          e.preventDefault();
+                          var t =  $(this).serialize();
+                          console.dir(t);
+                          var jqxhr = $.ajax({
+                            headers:{"Content-Type": "JSONP"},
+                            url: url,
+                            method: "POST",
+                            dataType: "JSON",
+                            data: $(this).serialize()
+                          }).done(function(o){
+                            $merchoutupc.val("");
+                            $merchoutupc.focus();
+                            
+                         });
+                          });
+                      </script>
 
                 
 

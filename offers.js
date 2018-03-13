@@ -1,1 +1,1 @@
-function getOffersBy(){}
+function getOffersById(){}

@@ -1,1 +1,1 @@
-fucntion getImagesById(id){}
+function getImagesById(){}
