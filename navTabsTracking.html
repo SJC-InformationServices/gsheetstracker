@@ -3,7 +3,7 @@
       <div class="col-md-4">
         <legend>Merch In</legend>   
         <form id="merchin" class="form-signin">
-            <input type="hidden" name="request" value="tracking" />  
+            <input type="hidden" name="type" value="tracking" />  
           <div class="form-label-group">
               <input type="text" name="upc" placeholder="upc" id="merchinupc" class="form-control form-control-sm" required="" maxlength="14"/>
               <label for="merchinupc">UPC</label>
@@ -14,16 +14,17 @@
       <div class="col-md-4" class="form-signin">
           <legend>Merch Out</legend>
           <form id="merchout" class="form-signin">
-              <input type="hidden" name="request" value="tracking" />
+              <input type="hidden" name="type" value="tracking" />
               <div class="form-label-group">
               <input type="text" name="upc" placeholder="upc" id="merchoutupc" class="form-control form-control-sm" required="" maxlength="14"/>
               <label for="merchoutupc">UPC</label>                                        
             </div>
-            <button type="submit" id="submit-merchout" class="btn btn-secondary btn-sm">Submit</button>
+            <button type="submit" id="submit-merchout" class="btn btn-secondary btn-sm" >Submit</button>
           </form>
       </div>
     </div>
   </div>
+
 
 <script defer>
 function onSuccess(obj){
@@ -48,4 +49,3 @@ var tbl =  google.script.run.withSuccessHandler(onSuccess).renderTableTemplate("
 
 </script>
                          
-</div>
