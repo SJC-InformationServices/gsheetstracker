@@ -23,8 +23,9 @@
                         $merchout = $('#merchout');
                     
                         function submitComplete(e){
-                          this.reset();
-                          this.focus();
+                        console.dir(e);console.dir(this);
+                          $(this).reset();
+                          $(this).focus();
                         }
                         
                         $merchin.on('submit', function(e) {
