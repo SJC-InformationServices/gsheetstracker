@@ -21,13 +21,7 @@ function doGet(e){
   if( authorize()){
   return handleGet(e);
   }else{
-  var template = HtmlService.createTemplateFromFile('unAuthorized');
-  var results = template.evaluate(); 
-  
-  results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
-  results.setTitle('SJC McKesson Archive Manager');
-  results.addMetaTag('viewport', 'width=device-width, initial-scale=1');
-  return results;
+  return doUnAuthorized(e);
   }
 }
 
@@ -35,13 +29,7 @@ function doPost(e){
   if( authorize()){
   return handlePost(e);
   }else{
-    var template = HtmlService.createTemplateFromFile('unAuthorized');
-    var results = template.evaluate(); 
-  
-  results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
-  results.setTitle('SJC McKesson Archive Manager');
-  results.addMetaTag('viewport', 'width=device-width, initial-scale=1');
-  return results;
+    return doUnAuthorized(e);
   }
 }
 

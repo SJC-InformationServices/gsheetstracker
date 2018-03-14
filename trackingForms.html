@@ -6,46 +6,10 @@
 
     $merchin.on('submit', function(e) {
       e.preventDefault();
-      var $form = $(e.target);
-      var bv = $form.data('bootstrapValidator');
-
-      
-      /*var jqxhr = $.ajax({
-        url: url,
-        method: "POST",                                                        
-        data: JSON.stringify($(this).serializeArray())
-      }).done(function(o){
-        
-      });*/
-      var jqxhr = $.post(url, $form.serialize(), function(data) {
-        jqxhr.crossDomain = true;
-        console.log("Success! Data: " + data.statusText);
-        //$(location).attr('href',redirectUrl);
-        }).fail(function(data) {
-            console.warn("Error! Data: " + data.statusText);
-            // HACK - check if browser is Safari - and redirect even if fail b/c we know the form submits.
-            if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-                //alert("Browser is Safari -- we get an error, but the form still submits -- continue.");
-                //$(location).attr('href',redirectUrl);                
-            }
-      });
-
     });
 
     $merchout.on('submit', function(e) 
     {
-      e.preventDefault();
-      var $form = $(e.target);
-
-            
-      var jqxhr = $.ajax({
-        url: url,
-        method: "POST",
-        dataType: "JSON",
-        data:JSON.stringify($(this).serializeArray())
-      }).done(function(o){
-      
-        
-     });
-      });
+      e.preventDefault();         
+    });
   </script>

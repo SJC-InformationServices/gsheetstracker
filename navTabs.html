@@ -15,86 +15,15 @@
                   </ul>
                   <div class="tab-content">
                         <div id="tracking" class="tab-pane active">
-                            <div class="container-fluid">
-                                <div class="row">
-                                  <div class="col-md-4">
-                                    <legend>Merch In</legend>   
-                                    <form id="merchin" class="form-signin">
-                                        <input type="hidden" name="request" value="tracking" />  
-                                      <div class="form-label-group">
-                                          <input type="text" name="upc" placeholder="upc" id="merchinupc" class="form-control form-control-sm" required="" maxlength="14"/>
-                                          <label for="merchinupc">UPC</label>
-                                       </div>
-                                        <button type="submit" id="submit-merchin" class="btn btn-secondary btn-sm">Submit</button>
-                                    </form>
-                                  </div>
-                                  <div class="col-md-4" class="form-signin">
-                                      <legend>Merch Out</legend>
-                                      <form id="merchout" class="form-signin">
-                                          <input type="hidden" name="request" value="tracking" />
-                                          <div class="form-label-group">
-                                          <input type="text" name="upc" placeholder="upc" id="merchoutupc" class="form-control form-control-sm" required="" maxlength="14"/>
-                                          <label for="merchoutupc">UPC</label>                                        
-                                        </div>
-                                        <button type="submit" id="submit-merchout" class="btn btn-secondary btn-sm">Submit</button>
-                                      </form>
-                                  </div>
-                                </div>
-                              </div>
-                          
-                          <script defer>
-                            function onSuccess(obj){
-                              var tbl = obj[0];
-                              var id = obj[1];
-                              $("#"+id).append(tbl);
-                              var trackingDT = $('#TRACKINGTABLE').DataTable({
-                                dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
-                                paging:false,
-                                processing:true,
-                                autowidth:false,
-                                deferRender: true,
-                                keys:true,
-                                select:{style:'single',items:'row',blurable:false},                                    
-                                idSrc:"upc",
-                                buttons: [
-                                    "excel"
-                                ]
-                            });
-                            }
-                            var tbl =  google.script.run.withSuccessHandler(onSuccess).renderTableTemplate("TRACKING","tracking");
-                            
-                          </script>
-                                                     
+                            <?!=HtmlService.createTemplateFromFile('navTabsTracking').evaluate().getContent() ?>                          
                         </div>
                         <div id="images" class="tab-pane">                               
-                        
+                            <?!=HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>
                         </div>
                         <div id="products" class="tab-pane">
-                            <script defer>
-                                function onSuccess(obj){
-                                  var tbl = obj[0];
-                                  var id = obj[1];
-                                  $("#"+id).append(tbl);
-                                  var trackingDT = $('#PRODUCTSTABLE').DataTable({
-                                    dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
-                                    paging:false,
-                                    processing:true,
-                                    autowidth:false,
-                                    deferRender: true,
-                                    keys:true,
-                                    select:{style:'single',items:'row',blurable:false},                                    
-                                    idSrc:"upc",
-                                    buttons: [
-                                        "excel"
-                                    ]
-                                });
-                                }
-                                var tbl =  google.script.run.withSuccessHandler(onSuccess).renderTableTemplate("PRODUCTS","products");
-                                
-                              </script>
+                            <?!=HtmlService.createTemplateFromFile('navTabsProducts').evaluate().getContent() ?>
                         </div>
                         <div id="offers" class="tab-pane">
-                                
-                                
+                            <?!=HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>
                          </div>
                       </div>
