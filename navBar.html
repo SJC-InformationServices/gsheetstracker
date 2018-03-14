@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" target="_blank" href="https://stjoseph.com/">
+          <img src="https://s3.amazonaws.com/sjcarchiveassets/lib/images/sjc_logo.svg" alt="">
+      </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="accountDropDown" data-toggle="dropdown">Welcome,<?!= Session.getActiveUser().getEmail() ?>
+                  
+              </a>
+              <div class="dropdown-menu" aria-labelledby="accountDropDown">
+                <a class="dropdown-item" href="https://myaccount.google.com">My Account</a>
+                <a class="dropdown-item" id="authorize" href="#">Google Authorize</a>
+                <a class="dropdown-item" id="logout" href="#">Google Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
