@@ -29,14 +29,14 @@
                         
                         $merchin.on('submit', function(e) {
                           e.preventDefault();
-                          google.script.run.withSuccessHandler(submitComplete).insertRecord(ev.target);
+                          google.script.run.withSuccessHandler(submitComplete).insertRecord(e.target);
                     
                         });
                     
                         $merchout.on('submit', function(e) 
                         {
                           e.preventDefault();         
-                          google.script.run.withSuccessHandler(submitComplete).updateRecord(ev.target);
+                          google.script.run.withSuccessHandler(submitComplete).updateRecord(e.target);
                         });
                       </script>
                       
