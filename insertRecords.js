@@ -7,12 +7,12 @@ function insertRecord(type,keyval)
             var sheet = doc.getSheetByName("Sheet1");
             var lastRow = sheet.getLastRow(),lastCol=sheet.getLastColumn();
 
-            var cols = sheet.getRange(1,1,1,lastCol).values();
-            return [type,keyval,cols];
+            var cols = sheet.getRange(1,1,1,lastCol).values()[0];
+            return JSON.stringify([type,keyval,cols]);
         }
-        return [type,keyval];        
+        return ["no prop",type,keyval];        
     }catch(e){
-        return [e, type,keyval];
+        return ["error", type,keyval];
     }
 
 }
