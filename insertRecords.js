@@ -18,17 +18,19 @@ function insertRecord(type,keyval)
     }catch(e){
         return JSON.stringify(["error", e.message,type,keyval]);
     }
-
 }
 
-function entityExists(type,keyval)
+function recordsExists(type,upc)
 {
     try{
         var prop = PropertiesService.getScriptProperties().getProperty(type);
         var keys = PropertiesService.getScriptProperties().getProperty('KEYFIELDS');
         var attributes = getAttributes(type);
-        var colIndexes = {};
-        
+        var colKey = attributes.indexOf("UPC");
+        var doc = SpreadsheetApp.openById(prop);
+        var sheet = doc.getSheetByName("Sheet1");
+        var lastRow = sheet.getLastRow(),lastCol=sheet.getLastColumn();
+        return colKey;
      }
      catch(e)
      {
