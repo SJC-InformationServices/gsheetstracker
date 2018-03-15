@@ -24,7 +24,7 @@
   </div>
   
   <? var et = new entity("TRACKING"); var dt = et.drawDataTable(); ?>
-  <?= HtmlService.createHtmlOutput(dt).getContent(); ?>
+  <?= HtmlService.createHtmlOutput(dt).asTemplate() ?>
 
 
                          
