@@ -12,7 +12,7 @@ function insertRecord(type,keyval)
         }
         return ["no prop",type,keyval];        
     }catch(e){
-        return ["error", type,keyval];
+        return ["error", e.message,type,keyval];
     }
 
 }
