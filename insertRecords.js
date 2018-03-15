@@ -12,7 +12,8 @@ function insertRecord(type,keyval)
             var cols = sheet.getRange(1,1,1,lastCol).getValues()[0];
             var id = sheet.getRange(2,1,lastRow,1).getValues();
             var ids = [].concat.apply([], id);
-            return JSON.stringify([type,kv,cols,Math.max.apply(null,ids)+1,[lastRow,lastCol]]);
+            var rec = recordsExists(type,kv["UPC"]);
+            return JSON.stringify([type,kv,cols,Math.max.apply(null,ids)+1,[lastRow,lastCol]],rec);
         }
         return JSON.stringify(["no prop",type,keyval]);        
     }catch(e){
@@ -30,7 +31,12 @@ function recordsExists(type,upc)
         var doc = SpreadsheetApp.openById(prop);
         var sheet = doc.getSheetByName("Sheet1");
         var lastRow = sheet.getLastRow(),lastCol=sheet.getLastColumn();
-        return colKey;
+        var lookup = sheet.getRange(2,colKey,lastRow,1).getValues().findIndex(upc);
+        if(lookup != -1){
+            return sheet.getRange(lookup+1,1,1,lastCol).getValues();
+        }else{
+            return false;
+        }        
      }
      catch(e)
      {
