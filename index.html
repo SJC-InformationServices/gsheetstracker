@@ -28,14 +28,14 @@
                         
                         $merchin.on('submit', function(e) {
                           e.preventDefault();
-                          google.script.run.withSuccessHandler(submitComplete).insertRecord("tracking",JSON.stringify($(this).serializeArray())
+                          google.script.run.withSuccessHandler(submitComplete).insertRecord("tracking",JSON.stringify($(this).serializeArray()));
                     
                         });
                     
                         $merchout.on('submit', function(e) 
                         {
                           e.preventDefault();         
-                          google.script.run.withSuccessHandler(submitComplete).updateRecord("tracking",JSON.stringify($(this).serializeArray())
+                          google.script.run.withSuccessHandler(submitComplete).updateRecord("tracking",JSON.stringify($(this).serializeArray()));
                         });
                       </script>
                       
