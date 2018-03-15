@@ -8,7 +8,7 @@ function handleGet(e) {
     if(parms.request != "")
     {
       var et = new entity(parms.request);
-      return results = ContentService.createTextOutput(JSON.stringify(et.records)).setMimeType(ContentService.MimeType.JSON);
+      results = ContentService.createTextOutput(JSON.stringify(et.records)).setMimeType(ContentService.MimeType.JSON);
     }else{
 
       var template = HtmlService.createTemplateFromFile('index.html');

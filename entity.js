@@ -9,7 +9,7 @@ function entity(type){
     this.attributes = this.sheet.getRange(1,1,1,this.lastCol).getValues();
     this.records = this.sheet.getRange(2,1,this.lastRow,this.lastCol).getValues();
 
-    this.drawDataTable()
+    this.drawDataTable = function()
     {
     var attribs = this.attributes;
     
@@ -22,7 +22,7 @@ function entity(type){
       tbl += "</tr></thead></table>";
          
     return tbl;
-    }
+    };
 
     }catch(e){
         this.doc = "";
