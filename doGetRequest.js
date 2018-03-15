@@ -4,36 +4,37 @@ function handleGet(e) {
     var parms = e.parameter;
 
   try{
-    
-    switch(parms['request'])
+    var records;
+    var results;
+    switch(parms.request)
     {
       case "PRODUCTS":
 
-      var records = getRecords("PRODUCTS");
-      var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
+      records = getRecords("PRODUCTS");
+      results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
       
       break;
       case 'OFFERS':
 
-      var records = getRecords("OFFERS");
-      var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
+      records = getRecords("OFFERS");
+      results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
 
       break;
       case 'TRACKING':
 
-      var records = getRecords("TRACKING");
-      var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
+      records = getRecords("TRACKING");
+      results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
 
       break;
       case 'IMAGES':
 
-      var records = getRecords("IMAGES");
-      var results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
+      records = getRecords("IMAGES");
+      results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
 
       break;
       default:
       var template = HtmlService.createTemplateFromFile('index.html');
-      var results = template.evaluate(); 
+      results = template.evaluate(); 
       
       results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
       results.setTitle('SJC McKesson Archive Manager');

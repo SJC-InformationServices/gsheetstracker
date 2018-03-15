@@ -1,7 +1,7 @@
 function insertRecord(type,keyval)
 {
     try{
-        
+        var keys = PropertiesService.getDocumentProperties().getProperty(PROPERTIES.KEYS);
         var prop = PropertiesService.getScriptProperties().getProperty(type);
         if(prop){
             var kv = JSON.parse(keyval);
@@ -12,7 +12,7 @@ function insertRecord(type,keyval)
             var cols = sheet.getRange(1,1,1,lastCol).getValues()[0];
             var id = sheet.getRange(2,1,lastRow,1).getValues();
             var ids = [].concat.apply([], id);
-            var rec = recordsExists(type,kv["UPC"]);
+            var rec = recordsExists(type,kv.UPC);
             return JSON.stringify([type,kv,cols,Math.max.apply(null,ids)+1,[lastRow,lastCol]],rec);
         }
         return JSON.stringify(["no prop",type,keyval]);        
