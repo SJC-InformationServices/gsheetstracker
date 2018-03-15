@@ -1,6 +1,8 @@
 function getRecords(type,filters)
 {
-    try{
+    var et = new entity(type);
+    return et.records;
+    /*try{
         var prop = PropertiesService.getScriptProperties().getProperty(type);
         if(prop)
         {
@@ -16,5 +18,5 @@ function getRecords(type,filters)
         }}
         catch(e){
             return false;
-        }
+        }*/
 }
