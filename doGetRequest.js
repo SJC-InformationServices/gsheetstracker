@@ -5,7 +5,7 @@ function handleGet(e) {
   try{
     var records;
     var results;
-    if(parms.request != "")
+    if(typeof parms.request != "undefined")
     {
       var et = new entity(parms.request);
       results = ContentService.createTextOutput(JSON.stringify(et.records)).setMimeType(ContentService.MimeType.JSON);
