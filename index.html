@@ -24,20 +24,20 @@
                     
                         function submitComplete(e){
                         console.dir(e);console.dir(this);
-                          $(this).reset();
-                          $(this).focus();
+                          
+                          
                         }
                         
                         $merchin.on('submit', function(e) {
                           e.preventDefault();
-                          google.script.run.withSuccessHandler(submitComplete).insertRecord(e.target);
+                          google.script.run.withSuccessHandler(submitComplete).insertRecord("tracking",$(this).serializeArray());
                     
                         });
                     
                         $merchout.on('submit', function(e) 
                         {
                           e.preventDefault();         
-                          google.script.run.withSuccessHandler(submitComplete).updateRecord(e.target);
+                          google.script.run.withSuccessHandler(submitComplete).updateRecord("tracking",$(this).serializeArray());
                         });
                       </script>
                       

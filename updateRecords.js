@@ -1,6 +1,7 @@
-function updateRecord(type,id,keyval)
+function updateRecord(type,keyval)
 {    
-try{
+return [type,keyval];
+/*try{
     var prop = PropertiesService.getScriptProperties().getProperty(type);
     if(prop)
     {
@@ -16,5 +17,5 @@ try{
     }}
     catch(e){
         return false;
-    }
+    }*/
 }

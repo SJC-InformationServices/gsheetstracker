@@ -1,4 +1,4 @@
-function insertRecord(keyval)
+function insertRecord(type,keyval)
 {
-return keyval;
+return [type,keyval];
 }
