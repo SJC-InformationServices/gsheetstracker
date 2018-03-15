@@ -24,11 +24,9 @@
   </div>
 
 
-<script defer>
-function onSuccess(obj){
-  var tbl = obj[0];
-  var id = obj[1];
-  $("#"+id).append(tbl);
+<script type="text/javascript" defer>
+function onTrackingSuccess(){
+  $("#TRACKINGTABLE").append(tbl);
   var trackingDT = $('#TRACKINGTABLE').DataTable({
     dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
     paging:false,
@@ -43,7 +41,7 @@ function onSuccess(obj){
     ]
 });
 }
-var tbl =  google.script.run.withSuccessHandler(onSuccess).renderTableTemplate("TRACKING","tracking");
+var tbl =  google.script.run.withSuccessHandler(onTrackingSuccess).renderEntityTable("TRACKING");
 
 </script>
                          
