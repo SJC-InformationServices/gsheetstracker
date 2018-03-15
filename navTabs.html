@@ -1,29 +1,29 @@
  
-              <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                      <a data-toggle="tab" class="nav-link active" href="#tracking">Tracking</a>
-                    </li>
-                    <li class="nav-item">
-                      <a data-toggle="tab" class="nav-link" href="#images">Images</a>
-                    </li>
-                    <li class="nav-item">
-                      <a data-toggle="tab" class="nav-link" href="#products">Products</a>
-                    </li>
-                    <li class="nav-item">
-                      <a data-toggle="tab" class="nav-link" href="#offers">Offers</a>
-                    </li>
-                  </ul>
-                  <div class="tab-content">
-                        <div id="tracking" class="tab-pane active">
-                            <?!= HtmlService.createTemplateFromFile('navTabsTracking').evaluate().getContent() ?>                          
-                        </div>
-                        <div id="images" class="tab-pane">                              
-                            <?!= HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>                          
-                        </div>
-                        <div id="products" class="tab-pane">
-                            <?!= HtmlService.createTemplateFromFile('navTabsProducts').evaluate().getContent() ?>                          
-                        </div>
-                        <div id="offers" class="tab-pane">
-                            <?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>                          
-                         </div>
-                      </div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link active" href="#tracking">Tracking</a>
+  </li>
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link" href="#images">Images</a>
+  </li>
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link" href="#products">Products</a>
+  </li>
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link" href="#offers">Offers</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div id="tracking" class="tab-pane active">
+    <?!= HtmlService.createTemplateFromFile('navTabsTracking').evaluate().getContent() ?>
+  </div>
+  <div id="images" class="tab-pane">            
+    <?!= HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>
+  </div>
+  <div id="products" class="tab-pane">
+    <?!= HtmlService.createTemplateFromFile('navTabsProducts').evaluate().getContent() ?>        
+  </div>
+  <div id="offers" class="tab-pane">
+    <?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        
+  </div>
+</div>
