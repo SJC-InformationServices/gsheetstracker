@@ -1,6 +1,7 @@
 function insertRecord(type,keyval)
 {
     try{
+        var db = new PouchDB(type);
         var prop = PropertiesService.getScriptProperties().getProperty(type);
         if(prop){
             var kv = JSON.parse(keyval);
@@ -28,7 +29,6 @@ function entityExists(type,keyval)
         var attributes = getAttributes(type);
         var colIndexes = {};
         
-
      }
      catch(e)
      {
