@@ -8,11 +8,11 @@ function insertRecord(type,keyval)
             var lastRow = sheet.getLastRow(),lastCol=sheet.getLastColumn();
 
             var cols = sheet.getRange(1,1,1,lastCol).getValues()[0];
-            return JSON.stringify([type,keyval,cols]);
+            return JSON.stringify([type,JSON.parse(keyval),cols]);
         }
-        return ["no prop",type,keyval];        
+        return JSON.stringify(["no prop",type,keyval]);        
     }catch(e){
-        return ["error", e.message,type,keyval];
+        return JSON.stringify(["error", e.message,type,keyval]);
     }
 
 }
