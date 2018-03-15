@@ -1,4 +1,4 @@
-function updateRecord(type,keyval)
+function updateRecord(type,keyval,row=null)
 {    
 return [type,keyval];
 /*try{
