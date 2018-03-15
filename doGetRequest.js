@@ -1,46 +1,22 @@
 function handleGet(e) {
-    Logger.log('getRequest :' + JSON.stringify(e));
-    
+       
     var parms = e.parameter;
 
   try{
     var records;
     var results;
-    switch(parms.request)
+    if(parms.request != "")
     {
-      case "PRODUCTS":
+      var et = new entity(parms.request);
+      return results = ContentService.createTextOutput(JSON.stringify(et.records)).setMimeType(ContentService.MimeType.JSON);
+    }else{
 
-      records = getRecords("PRODUCTS");
-      results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
-      
-      break;
-      case 'OFFERS':
-
-      records = getRecords("OFFERS");
-      results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
-
-      break;
-      case 'TRACKING':
-
-      records = getRecords("TRACKING");
-      results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
-
-      break;
-      case 'IMAGES':
-
-      records = getRecords("IMAGES");
-      results = ContentService.createTextOutput(JSON.stringify(records)).setMimeType(ContentService.MimeType.JSON);
-
-      break;
-      default:
       var template = HtmlService.createTemplateFromFile('index.html');
       results = template.evaluate(); 
       
       results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
       results.setTitle('SJC McKesson Archive Manager');
       results.addMetaTag('viewport', 'width=device-width, initial-scale=1');     
-
-      break;
     }   
    return results;
   }
