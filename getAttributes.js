@@ -1,5 +1,5 @@
 function getAttributes(type){
-    try{
+    /*try{
     var prop = PropertiesService.getScriptProperties().getProperty(type);
     if(prop)
     {
@@ -14,5 +14,5 @@ function getAttributes(type){
     catch(e){
         return false;
     }
-
+*/
 }
