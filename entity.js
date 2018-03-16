@@ -6,7 +6,7 @@ function entity(type){
     this.sheet = this.doc.getSheetByName("Sheet1");
     this.lastCol = this.sheet.getLastColumn();
     this.lastRow = this.sheet.getLastRow();
-    this.attributes = this.sheet.getRange(1,1,1,this.lastCol).getValues();
+    this.attributes = this.sheet.getRange(1,1,1,this.lastCol).getValues()[0];
     this.records = this.sheet.getRange(2,1,this.lastRow,this.lastCol).getValues();
     this.drawDataTable = function()
     {
