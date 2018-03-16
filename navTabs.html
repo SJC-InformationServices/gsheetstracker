@@ -22,15 +22,24 @@
       <? output.append(htmls) ?>
   </div>
   <div id="images" class="tab-pane">             
-      <?!= HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>        
+      <?!= HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>        <? var et = new entity("IMAGES") ?>
+      <? content.append(et.tableHead) ?>
+      <? var htmls = content.getContent() ?>
+      <? output.append(htmls) ?>
       
   </div>
   <div id="products" class="tab-pane">
-      <?!= HtmlService.createTemplateFromFile('navTabsProducts').evaluate().getContent() ?>        
+      <?!= HtmlService.createTemplateFromFile('navTabsProducts').evaluate().getContent() ?>     <? var et = new entity("PRODUCTS") ?>
+      <? content.append(et.tableHead) ?>
+      <? var htmls = content.getContent() ?>
+      <? output.append(htmls) ?>   
       
   </div>
   <div id="offers" class="tab-pane">
     <?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        
-    
+    <? var et = new entity("OFFERS") ?>
+      <? content.append(et.tableHead) ?>
+      <? var htmls = content.getContent() ?>
+      <? output.append(htmls) ?>
   </div>
 </div>
