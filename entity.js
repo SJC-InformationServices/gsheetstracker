@@ -8,8 +8,6 @@ function entity(type){
     this.lastRow = this.sheet.getLastRow();
     this.attributes = this.sheet.getRange(1,1,1,this.lastCol).getValues();
     this.records = this.sheet.getRange(2,1,this.lastRow,this.lastCol).getValues();
-    this.tableHead = this.drawDataTable();
-
     this.drawDataTable = function()
     {
     var attribs = this.attributes;
@@ -24,6 +22,7 @@ function entity(type){
          
     return tbl;
     };
+    this.tableHead = this.drawDataTable();
 
     }catch(e){
         this.doc = "";
