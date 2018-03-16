@@ -25,7 +25,8 @@
       </script>
   </div>
   <div id="images" class="tab-pane">             
-      <?!= HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>        <? var et = new entity("IMAGES") ?>
+      <? var content = HtmlService.createTemplateFromFile('navTabsImages').evaluate() ?> 
+      <? var et = new entity("Images") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
@@ -34,16 +35,17 @@
       </script>
   </div>
   <div id="products" class="tab-pane">
-      <?!= HtmlService.createTemplateFromFile('navTabsProducts').evaluate().getContent() ?>     <? var et = new entity("PRODUCTS") ?>
+      <? var content = HtmlService.createTemplateFromFile('navTabsProducts').evaluate() ?> 
+      <? var et = new entity("PRODUCTS") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
-      <? output.append(htmls) ?>   
+      <? output.append(htmls) ?>
       <script>
           google.script.run.withSuccessHandler(renderDataTable).renderDataTable("PRODUCTS");
       </script>
   </div>
   <div id="offers" class="tab-pane">
-    <?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        
+      <? var content = HtmlService.createTemplateFromFile('navTabsOffers').evaluate() ?> 
       <? var et = new entity("OFFERS") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
