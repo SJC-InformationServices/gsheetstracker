@@ -24,7 +24,7 @@
   </div>
   
   <? var et = new entity("TRACKING"); ?>
-  <?!= et.tableHead ?>  
+  <?!= HtmlService.createTemplate(et.tableHead).evaluate() ?>  
 
 
                          
