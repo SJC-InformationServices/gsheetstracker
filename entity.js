@@ -35,7 +35,9 @@ function entity(type){
 }
 function renderEntityTable(type){
     /*<?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        */
+    var file = 'navTabs'+type[0].toUpperCase()+type.toLowerCase().substr(1,type.length);
+    var content = HtmlService.createHtmlOutputFromFile(file);
     var et = new entity(type);
-    return et.drawDataTable();
-
+    content.appendUntrusted(et.tableHead) ;
+    return content;
 }
