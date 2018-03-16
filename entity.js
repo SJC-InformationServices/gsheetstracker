@@ -39,6 +39,22 @@ function entity(type){
         }
         return this.getRecordsByRange(index,1,1,this.lastCol);
     };
+    this.insert = function(keyval)
+    {
+        var rowVals = [];
+        var a = this.attributes;
+        for(var i=0;i<a.length;i++)
+        {
+            var attrib = a[i];
+            if(typeof keyval[attrib] != 'undefined')
+            {
+                rowVals.push(attrib);
+            }else{
+                rowVals.push("");
+            }
+        }
+        return rowVals;
+    }
 
     }catch(e){
         this.doc = "";
