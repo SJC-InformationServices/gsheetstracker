@@ -23,8 +23,8 @@
     </div>
   </div>
   
-  <? var et = new entity("TRACKING"); var dt = et.drawDataTable(); ?>
-  <?!= HtmlService.createTemplate(dt).evaluate().getContent() ?>  
+  <? var et = new entity("TRACKING"); ?>
+  <?!= et.tableHead ?>  
 
 
                          

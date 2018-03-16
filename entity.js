@@ -8,6 +8,7 @@ function entity(type){
     this.lastRow = this.sheet.getLastRow();
     this.attributes = this.sheet.getRange(1,1,1,this.lastCol).getValues();
     this.records = this.sheet.getRange(2,1,this.lastRow,this.lastCol).getValues();
+    this.tableHead = this.drawDataTable();
 
     this.drawDataTable = function()
     {
@@ -19,7 +20,7 @@ function entity(type){
       { 
             tbl+= "<th>"+attribs[i]+"</th>";
       }
-      tbl += "</tr></thead></table>";
+      tbl += "</tr></thead><tbody></tbody></table>";
          
     return tbl;
     };
