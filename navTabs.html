@@ -15,7 +15,10 @@
 </ul>
 <div class="tab-content">
   <div id="tracking" class="tab-pane active">
-    <? var trackContent = HtmlService.createTemplateFromFile('navTabsTracking').evaluate() ?>
+    <script>
+        var template = HtmlService.createTemplateFromFile('navTabsTracking').evaluate();
+    </script>
+    <? var trackContent =  ?>
     <? var et = new entity("TRACKING") ?>
     <? trackContent.append(et.getTableHead) ?>
     <?!= trackContent.getContent() ?>
