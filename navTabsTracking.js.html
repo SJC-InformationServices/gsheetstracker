@@ -17,26 +17,3 @@
       google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",JSON.stringify($(this).serializeArray()));
       });
   </script>
-
-<script type="text/javascript" defer>
-    var url = ""
-    var trackingDT = $('#TRACKINGTABLE').DataTable({
-      dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
-      ajax:{
-        contentType: "application/json",
-        url:url,
-        dataSrc:"",
-        type:"GET",
-        data:function(d){d.request="TRACKING";return $(d).serialize();}
-      },
-      paging:false,
-      processing:true,
-      autowidth:false,
-      deferRender: true,
-      keys:true,
-      select:{style:'single',items:'row',blurable:false},                                    
-      idSrc:"id",
-      buttons: ["excel"]
-  });
-  
-  </script>

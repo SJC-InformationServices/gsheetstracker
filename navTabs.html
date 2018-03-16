@@ -20,20 +20,27 @@
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
+      <script>
+      google.script.run.withSuccessHandler(renderDataTable).renderDataTable("TRACKING");
+      </script>
   </div>
   <div id="images" class="tab-pane">             
       <?!= HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>        <? var et = new entity("IMAGES") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
-      
+      <script>
+          google.script.run.withSuccessHandler(renderDataTable).renderDataTable("IMAGES");
+      </script>
   </div>
   <div id="products" class="tab-pane">
       <?!= HtmlService.createTemplateFromFile('navTabsProducts').evaluate().getContent() ?>     <? var et = new entity("PRODUCTS") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>   
-      
+      <script>
+          google.script.run.withSuccessHandler(renderDataTable).renderDataTable("PRODUCTS");
+      </script>
   </div>
   <div id="offers" class="tab-pane">
     <?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        
@@ -41,5 +48,8 @@
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
+      <script>
+          google.script.run.withSuccessHandler(renderDataTable).renderDataTable("OFFERS");
+      </script>
   </div>
 </div>
