@@ -28,8 +28,8 @@ function entity(type){
         return $this.sheet.getRange(frRow,frCol,toRow,toCol)[0];
     };
     this.findMatchByCol = function(col,value){
-        var c = attributes.indexOf(col);
-        var data = $this.sheet.getRange(2,c,this.lastRow,1)[0];
+        var c = this.attributes.indexOf(col);
+        var data = this.sheet.getRange(2,c,this.lastRow,1)[0];
         var index=-1;
         for(var i=0;i<data.length;i++){
             if(data[i]==value){
