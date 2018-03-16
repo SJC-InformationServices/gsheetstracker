@@ -15,20 +15,21 @@
 </ul>
 <div class="tab-content">
   <div id="tracking" class="tab-pane active">
-      <?!= HtmlService.createTemplateFromFile('navTabsTracking').evaluate().getContent() ?>        
-      <? var et = new entity("TRACKING");?>
-      <?= output.append(et.Head) ?>
+      <? var content = HtmlService.createTemplateFromFile('navTabsTracking').evaluate() ?> 
+      <? var et = new entity("TRACKING") ?>
+      <? content.append(this.tableHead) ?>
+      <?!= content.getContent() ?>
   </div>
   <div id="images" class="tab-pane">             
       <?!= HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>        
-      <? var et = new entity("TRACKING");?>
+      
   </div>
   <div id="products" class="tab-pane">
       <?!= HtmlService.createTemplateFromFile('navTabsProducts').evaluate().getContent() ?>        
-      <? var et = new entity("TRACKING");?>
+      
   </div>
   <div id="offers" class="tab-pane">
     <?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        
-    <? var et = new entity("TRACKING");?>
+    
   </div>
 </div>
