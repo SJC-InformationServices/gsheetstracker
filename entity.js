@@ -39,5 +39,5 @@ function renderEntityTable(type){
     var content = HtmlService.createHtmlOutputFromFile(file);
     var et = new entity(type);
     content.appendUntrusted(et.tableHead) ;
-    return content;
+    return content.getContent();
 }
