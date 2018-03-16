@@ -34,6 +34,7 @@ function entity(type){
     return this;
 }
 function renderEntityTable(type){
+    /*<?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        */
     var et = new entity(type);
     return et.drawDataTable();
 
