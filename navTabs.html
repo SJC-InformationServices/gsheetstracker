@@ -19,6 +19,9 @@
   </div>
   <div id="images" class="tab-pane">            
     <?!= HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>
+    <? var et = new entity("TRACKING"); ?>
+    <?!= HtmlService.createTemplate('<?= et.tableHead ?>');
+  
   </div>
   <div id="products" class="tab-pane">
     <?!= HtmlService.createTemplateFromFile('navTabsProducts').evaluate().getContent() ?>        
