@@ -18,7 +18,8 @@
       <? var content = HtmlService.createTemplateFromFile('navTabsTracking').evaluate() ?> 
       <? var et = new entity("TRACKING") ?>
       <? content.append(et.tableHead) ?>
-      <?!= content ?>
+      <? var htmls = content.getContent() ?>
+      <?= htmls ?>
   </div>
   <div id="images" class="tab-pane">             
       <?!= HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>        
