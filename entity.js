@@ -27,7 +27,8 @@ function entity(type){
     this.getRecordsByRange = function(frRow,frCol,toRow,toCol){
         return $this.sheet.getRange(frRow,frCol,toRow,toCol)[0];
     };
-    this.findMatchByCol = function(col,value){
+    this.findMatchByCol = function(col,value)
+    {
         var c = this.attributes.indexOf(col);
         var data = this.sheet.getRange(2,c,this.lastRow,1)[0];
         var index=-1;
@@ -36,7 +37,6 @@ function entity(type){
                 index = i+1;
             }
         }
-
         return this.getRecordsByRange(index,1,1,this.lastCol);
     };
 
