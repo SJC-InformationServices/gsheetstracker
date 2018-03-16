@@ -17,7 +17,7 @@
   <div id="tracking" class="tab-pane active">
       <? var content = HtmlService.createTemplateFromFile('navTabsTracking').evaluate() ?> 
       <? var et = new entity("TRACKING") ?>
-      <? content.append(this.tableHead) ?>
+      <? content.append(et.tableHead) ?>
       <?= content.getContent() ?>
   </div>
   <div id="images" class="tab-pane">             
