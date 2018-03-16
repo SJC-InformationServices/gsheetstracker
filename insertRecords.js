@@ -1,8 +1,8 @@
 function insertRecord(type,keyval)
 {
     try{
-        var keys = PropertiesService.getDocumentProperties().getProperty(PROPERTIES.KEYS);
-        var prop = PropertiesService.getScriptProperties().getProperty(type);
+        var et = new entity(type);
+        
         if(prop){
             var kv = JSON.parse(keyval);
             var doc = SpreadsheetApp.openById(prop);
