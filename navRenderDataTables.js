@@ -1,5 +1,5 @@
 function renderDataTable(type)
 {
     var et = new entity(type);
-    return et.records();
+    return et.records;
 }
