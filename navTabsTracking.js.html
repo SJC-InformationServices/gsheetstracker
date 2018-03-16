@@ -13,7 +13,7 @@
       
       $merchout.on('submit', function(e) 
       {
-      e.preventDefault();         
-      google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",JSON.stringify($(this).serializeArray()));
+      e.preventDefault();
+      google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",$(this).serializeArray());
       });
   </script>
