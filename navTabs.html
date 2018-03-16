@@ -15,24 +15,20 @@
 </ul>
 <div class="tab-content">
   <div id="tracking" class="tab-pane active">
-      <?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        
-    <script>
-        google.script.run.renderEntityTable("TRACKING");
-    </script>
+      <?!= HtmlService.createTemplateFromFile('navTabsTracking').evaluate().getContent() ?>        
+      <? var et = new entity("TRACKING");?>
+      <?= output.append(et.Head) ?>
   </div>
   <div id="images" class="tab-pane">             
       <?!= HtmlService.createTemplateFromFile('navTabsImages').evaluate().getContent() ?>        
-      <script>
-          google.script.run.renderEntityTable("IMAGES");
-      </script>
+      <? var et = new entity("TRACKING");?>
   </div>
   <div id="products" class="tab-pane">
-      <?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        
-      <script>
-          google.script.run.renderEntityTable("PRODUCTS");
-      </script>
+      <?!= HtmlService.createTemplateFromFile('navTabsProducts').evaluate().getContent() ?>        
+      <? var et = new entity("TRACKING");?>
   </div>
   <div id="offers" class="tab-pane">
     <?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        
+    <? var et = new entity("TRACKING");?>
   </div>
 </div>
