@@ -1,4 +1,19 @@
 <script type="text/javascript" defer>
+ $.fn.serializeObject = function () {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
     var $merchin = $('#merchin'),$merchout = $('#merchout');
                   
       function submitComplete(e){
@@ -8,12 +23,13 @@
       $merchin.on('submit', function(e) 
       {
       e.preventDefault();
-      google.script.run.withSuccessHandler(submitComplete).insertRecord("TRACKING",$(this).serializeArray());
+      google.script.run.withSuccessHandler(submitComplete).insertRecord("TRACKING",$(this).serializeObject());
       });
       
       $merchout.on('submit', function(e) 
       {
       e.preventDefault();
-      google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",$(this).serializeArray());
+
+      google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",$(this).serializeObject());
       });
   </script>

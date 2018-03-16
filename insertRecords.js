@@ -1,7 +1,8 @@
 function insertRecord(type,keyval)
 {
     try{
-        var kv = JSON.parse(keyval);
+        var keys = keyval.filter();
+        
         var et = new entity(type);
         var exists = et.findMatchByCol("UPC",kv);
         return exists;
