@@ -19,9 +19,15 @@
   </script>
 
 <script type="text/javascript" defer>
-
+    var url = "https://script.google.com/macros/s/AKfycbx-uK4T9fjkJHiAgqouwqSnUXW1UVGW1XRyq9nO6RcGjNOlpomO/exec"
     var trackingDT = $('#TRACKINGTABLE').DataTable({
       dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
+      ajax:{
+        url:url,
+        dataSrc:"",
+        type:"GET",
+        data:function(d){d.request="TRACKING";return $(d).serialize();}
+      },
       paging:false,
       processing:true,
       autowidth:false,

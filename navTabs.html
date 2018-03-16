@@ -37,7 +37,7 @@
   </div>
   <div id="offers" class="tab-pane">
     <?!= HtmlService.createTemplateFromFile('navTabsOffers').evaluate().getContent() ?>        
-    <? var et = new entity("OFFERS") ?>
+      <? var et = new entity("OFFERS") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
