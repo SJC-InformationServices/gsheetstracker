@@ -48,7 +48,7 @@ function entity(type){
             var attrib = a[i];
             if(typeof keyval[attrib] != 'undefined')
             {
-                rowVals.push(attrib);
+                rowVals.push(keyval[attrib]);
             }else{
                 rowVals.push("");
             }
