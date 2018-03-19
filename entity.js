@@ -54,7 +54,7 @@ function entity(type){
             }
         }
         return rowVals;
-    }
+    };
 
     }catch(e){
         this.doc = "";
