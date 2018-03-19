@@ -30,7 +30,7 @@ function entity(type){
     this.findMatchByCol = function(col,value)
     {
         var c = this.attributes.indexOf(col);
-        var rec = this.sheet.getRange(2,c,this.lastRow,1)[0];
+        var rec = this.sheet.getRange(2,c,this.lastRow,1)[0][0];
         var foundIndex = rec.findIndex(val);
         if(foundIndex != -1)
         {
