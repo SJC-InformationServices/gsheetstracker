@@ -33,7 +33,7 @@ function entity(type){
                 
         if(foundIndex != -1)
         {
-            var nextRow = this.sheet.getRange(foundIndex+2,1).getRowIndex;
+            var nextRow = this.sheet.getRange(foundIndex+2,1).getRowIndex();
         return this.sheet.getRange(nextRow,1,1,this.lastCol).getValues()[0];
         }else{
             return false;
