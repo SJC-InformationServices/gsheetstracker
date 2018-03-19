@@ -36,7 +36,8 @@ function entity(type){
                 
         if(foundIndex != -1)
         {
-        return this.getRecordsByRange(foundIndex+1,1,1,this.lastCol).getValues();
+            var nextRow = this.getRecordsByRange(foundIndex+2,1).getRowIndex;
+        return this.sheet.getRange(nextRow,1,1,this.lastCol).getValues()[0];
         }else{
             return false;
         }
