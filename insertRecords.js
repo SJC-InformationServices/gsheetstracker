@@ -1,13 +1,9 @@
-function insertRecord(type,keyval)
+function insertRecord(obj)
 {
-    
+
     try{
-        var o = {};
-        for(var i in keyval)
-        {
-            o[keyval[i].name]=keyval[i].value;
-        }
-        var et = new entity(type);
+        var type = obj[0];
+        var et = new entity(obj)[1];
         return et.insert(o);
     }catch(e){
         return JSON.stringify(["error", e.message,type,keyval]);

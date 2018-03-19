@@ -29,6 +29,6 @@
         var v = rec[i].value;
         obj.record[n] = v;
       }
-      google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",$(this).serializeArray());
+      google.script.run.withSuccessHandler(submitComplete).insertRecord("TRACKING",JSON.stringify(obj));
       });
   </script>
