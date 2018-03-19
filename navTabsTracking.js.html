@@ -11,6 +11,8 @@
       var obj = {};
       obj.type = "TRACKING";
       obj.record = {};
+      obj.record.IN_SJC = new Date();
+      
       var rec= $(this).serializeArray();
       for(var i = 0; i < rec.length; i++){
         var n = rec[i].name;
@@ -26,6 +28,7 @@
         var obj = {};
         obj.type = "TRACKING";
         obj.record = {};
+        obj.record.OUT_SJC = new Date();
         var rec= $(this).serializeArray();
         for(var i = 0; i < rec.length; i++){
           var n = rec[i].name;

@@ -43,6 +43,9 @@ function entity(type){
     {
         var rowVals = [];
         var a = this.attributes;
+        if(typeof keyval.UPC){
+            
+        }
         for(var i=0;i<a.length;i++)
         {
             var attrib = a[i];
@@ -56,7 +59,7 @@ function entity(type){
         return [rowVals,keyval,a];
     };
     this.update =function(keyval){
-        
+
     };
 
     }catch(e){
