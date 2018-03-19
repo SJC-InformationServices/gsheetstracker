@@ -8,12 +8,12 @@
       $merchin.on('submit', function(e) 
       {
       e.preventDefault();
-      google.script.run.withSuccessHandler(submitComplete).insertRecord("TRACKING",$(this).serializeArray());
+      google.script.run.withSuccessHandler(submitComplete).insertRecord("TRACKING",JSON.stringify($(this).serializeArray()));
       });
       
       $merchout.on('submit', function(e) 
       {
       e.preventDefault();
-      google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",$(this).serializeArray());
+      google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",JSON$(this).serializeArray());
       });
   </script>
