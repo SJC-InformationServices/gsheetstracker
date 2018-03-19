@@ -11,7 +11,16 @@
       var obj = {};
       obj.type = "TRACKING";
       obj.record = {};
-      obj.record.IN_SJC = new Date().toDateString("yyyy-mm-dd H:i:s");
+      var d = new Date();
+      obj.record.IN_SJC = 
+      [
+      d.getFullYear(),
+      (d.getMonth()+1).padStart(2,0),
+      d.getDate().padStart(2,0)
+      ].join('/')+' '+
+     [d.getHours().padStart(2,0),
+      d.getMinutes().padStart(2,0),
+      d.getSeconds()].join(':');
       
       var rec= $(this).serializeArray();
       for(var i = 0; i < rec.length; i++){
@@ -28,7 +37,15 @@
         var obj = {};
         obj.type = "TRACKING";
         obj.record = {};
-        obj.record.OUT_SJC = new Date().toDateString("yyyy-mm-dd H:i:s");
+        var d = new Date();
+        obj.record.OUT_SJC =  [
+        d.getFullYear(),
+        (d.getMonth()+1).padStart(2,0),
+        d.getDate().padStart(2,0)
+        ].join('/')+' '+
+       [d.getHours().padStart(2,0),
+        d.getMinutes().padStart(2,0),
+        d.getSeconds()].join(':');
         var rec= $(this).serializeArray();
         for(var i = 0; i < rec.length; i++){
           var n = rec[i].name;
