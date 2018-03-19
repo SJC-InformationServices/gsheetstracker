@@ -32,15 +32,14 @@ function entity(type){
         var c = this.attributes.indexOf(col)+1;
         
         var rec = this.sheet.getRange(2,c+1,this.lastRow).getValues();
-        var foundIndex = rec.findIndex(value);
-        return [foundIndex + 1,rec];
-        /*
+        var foundIndex = rec.findIndex(value) + 1;
+                
         if(foundIndex != -1)
         {
-        return this.getRecordsByRange(index,1,1,this.lastCol);
+        return this.getRecordsByRange(2,1,foundIndex,this.lastCol).getValues();
         }else{
             return false;
-        }*/
+        }
     };
     this.insert = function(keyval)
     {
