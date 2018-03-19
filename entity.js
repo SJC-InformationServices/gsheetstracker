@@ -31,13 +31,14 @@ function entity(type){
     {
         var c = this.attributes.indexOf(col);
         var rec = this.sheet.getRange(2,c,this.lastRow,1)[0][0];
-        var foundIndex = rec.findIndex(val);
+        return rec;
+        /*var foundIndex = rec.findIndex(val);
         if(foundIndex != -1)
         {
         return this.getRecordsByRange(index,1,1,this.lastCol);
         }else{
             return false;
-        }
+        }*/
     };
     this.insert = function(keyval)
     {
