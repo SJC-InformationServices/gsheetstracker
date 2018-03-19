@@ -8,12 +8,27 @@
       $merchin.on('submit', function(e) 
       {
       e.preventDefault();
-      google.script.run.withSuccessHandler(submitComplete).insertRecord("TRACKING",$(this).serializeArray());
+      var obj = {};
+      obj.request = "TRACKING";
+      obj.record = {};
+      var rec= $(this).serializeArray();
+      for(var i = 0; i < rec.length; i++){
+        var n = rec[i].name;
+        var v = rec[i].value;
+        obj.record[n] = v;
+      }
+      google.script.run.withSuccessHandler(submitComplete).insertRecord("TRACKING",JSON.stringify(obj));
       });
       
       $merchout.on('submit', function(e) 
       {
       e.preventDefault();         
+      var rec= $(this).serializeArray();
+      for(var i = 0; i < rec.length; i++){
+        var n = rec[i].name;
+        var v = rec[i].value;
+        obj.record[n] = v;
+      }
       google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",$(this).serializeArray());
       });
   </script>
