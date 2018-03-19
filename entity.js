@@ -32,8 +32,9 @@ function entity(type){
         var c = this.attributes.indexOf(col)+1;
         
         var rec = this.sheet.getRange(2,c+1,this.lastRow).getValues();
-        return [rec,this.sheet.getRange(2,2,this.lastRow).getValues()];
-        /*var foundIndex = rec.findIndex(val);
+        var foundIndex = rec.findIndex(value);
+        return [foundIndex + 1,rec];
+        /*
         if(foundIndex != -1)
         {
         return this.getRecordsByRange(index,1,1,this.lastCol);
