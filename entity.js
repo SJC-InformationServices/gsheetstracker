@@ -32,11 +32,11 @@ function entity(type){
         var c = this.attributes.indexOf(col)+1;
         
         var rec = this.sheet.getRange(2,c+1,this.lastRow).getValues();
-        var foundIndex = rec.findIndex(value) + 1;
+        var foundIndex = rec.findIndex(value);
                 
         if(foundIndex != -1)
         {
-        return this.getRecordsByRange(foundIndex,1,1,this.lastCol).getValues();
+        return this.getRecordsByRange(foundIndex+1,1,foundIndex+1,this.lastCol).getValues();
         }else{
             return false;
         }
