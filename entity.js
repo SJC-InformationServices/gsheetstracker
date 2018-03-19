@@ -25,7 +25,7 @@ function entity(type){
     this.tableHead = this.drawDataTable();
 
     this.getRecordsByRange = function(frRow,frCol,toRow,toCol){
-        return $this.sheet.getRange(frRow,frCol,toRow,toCol);
+        return this.sheet.getRange(frRow,frCol,toRow,toCol);
     };
     this.findMatchByCol = function(col,value)
     {
