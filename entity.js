@@ -43,9 +43,7 @@ function entity(type){
     {
         var rowVals = [];
         var a = this.attributes;
-        if(typeof keyval.UPC){
-            
-        }
+        var findMatch = this.findMatchByCol("UPC",keyval.UPC);
         for(var i=0;i<a.length;i++)
         {
             var attrib = a[i];
@@ -56,12 +54,20 @@ function entity(type){
                 rowVals.push("");
             }
         }
-        return [rowVals,keyval,a];
+        return [rowVals,keyval,a,findMatch];
     };
     this.update =function(keyval){
+        if(typeof keyval.ID != 'undefined' || typeof keyval.UPC != 'undefined'){
+            if(keyval.ID > 0){
 
+            }else if(keyval != ""){
+
+            }
+            else{
+
+            }
+        }
     };
-
     }catch(e){
         this.doc = "";
         this.sheet ="";
