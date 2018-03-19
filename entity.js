@@ -29,10 +29,10 @@ function entity(type){
     };
     this.findMatchByCol = function(col,value)
     {
-        var c = this.attributes.indexOf(col);
+        var c = this.attributes.indexOf(col)+1;
         
-        var rec = this.sheet.getRange(1,c+1,this.lastRow).getValues()[0];
-        return [1,c,this.lastRow,rec,this.sheet.getRange(1,1,this.lastRow).getValues()];
+        var rec = this.sheet.getRange(2,c+1,this.lastRow).getValues();
+        return [rec,this.sheet.getRange(2,2,this.lastRow).getValues()];
         /*var foundIndex = rec.findIndex(val);
         if(foundIndex != -1)
         {
