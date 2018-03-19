@@ -1,4 +1,4 @@
-<script type="text/javascript" defer>
+<script type="text/javascript" async defer>
     var $merchin = $('#merchin'),$merchout = $('#merchout');
                   
       function submitComplete(e){
@@ -13,7 +13,7 @@
       
       $merchout.on('submit', function(e) 
       {
-      e.preventDefault();
-      google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",JSON($(this).serializeArray());
+      e.preventDefault();         
+      google.script.run.withSuccessHandler(submitComplete).updateRecord("TRACKING",JSON.stringify($(this).serializeArray()));
       });
   </script>
