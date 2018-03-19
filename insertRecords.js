@@ -1,7 +1,7 @@
 function insertRecord(obj)
 {
     try{
-        var type = obj[0];
+        var type = obj.type;
         var et = new entity(type);
         return et.insert(JSON_PARSE(obj[1]));
     }catch(e){

@@ -9,7 +9,7 @@
       {
       e.preventDefault();
       var obj = {};
-      obj.request = "TRACKING";
+      obj.type = "TRACKING";
       obj.record = {};
       var rec= $(this).serializeArray();
       for(var i = 0; i < rec.length; i++){
@@ -22,13 +22,16 @@
       
       $merchout.on('submit', function(e) 
       {
-      e.preventDefault();         
-      var rec= $(this).serializeArray();
-      for(var i = 0; i < rec.length; i++){
-        var n = rec[i].name;
-        var v = rec[i].value;
-        obj.record[n] = v;
-      }
-      google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
+        e.preventDefault();
+        var obj = {};
+        obj.type = "TRACKING";
+        obj.record = {};
+        var rec= $(this).serializeArray();
+        for(var i = 0; i < rec.length; i++){
+          var n = rec[i].name;
+          var v = rec[i].value;
+          obj.record[n] = v;
+        }
+        google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
       });
   </script>
