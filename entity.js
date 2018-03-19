@@ -44,6 +44,11 @@ function entity(type){
         var rowVals = [];
         var a = this.attributes;
         var findMatch = this.findMatchByCol("UPC",keyval.UPC);
+        if(findMatch){
+            return this.update(keyval);
+        }
+        keyval.CREATEDON = new Date();
+        keyval.UPDATEDON= new Date();
         for(var i=0;i<a.length;i++)
         {
             var attrib = a[i];
@@ -54,7 +59,7 @@ function entity(type){
                 rowVals.push("");
             }
         }
-        return [rowVals,findMatch];
+        return this.sheet.appendRow(rowVals);
     };
     this.update =function(keyval){
         if(typeof keyval.ID != 'undefined' || typeof keyval.UPC != 'undefined'){
