@@ -24,9 +24,6 @@ function entity(type){
     };
     this.tableHead = this.drawDataTable();
 
-    this.getRecordsByRange = function(frRow,frCol,toRow,toCol){
-        return this.sheet.getRange(frRow,frCol,toRow,toCol);
-    };
     this.findMatchByCol = function(col,value)
     {
         var c = this.attributes.indexOf(col)+1;
@@ -36,7 +33,7 @@ function entity(type){
                 
         if(foundIndex != -1)
         {
-            var nextRow = this.getRecordsByRange(foundIndex+2,1).getRowIndex;
+            var nextRow = this.sheet.getRange(foundIndex+2,1).getRowIndex;
         return this.sheet.getRange(nextRow,1,1,this.lastCol).getValues()[0];
         }else{
             return false;
