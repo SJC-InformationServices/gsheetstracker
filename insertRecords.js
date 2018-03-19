@@ -1,9 +1,8 @@
 function insertRecord(obj)
 {
-
     try{
         var type = obj[0];
-        var et = new entity(obj)[1];
+        var et = new entity(obj[1]);
         return et.insert(o);
     }catch(e){
         return JSON.stringify(["error", e.message,type,keyval]);
