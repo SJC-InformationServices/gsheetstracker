@@ -1,5 +1,6 @@
 function insertRecord(type,keyval)
 {
+    
     try{
         var o = {};
         for(var i in keyval)
