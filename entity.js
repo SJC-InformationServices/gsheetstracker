@@ -31,8 +31,8 @@ function entity(type){
     {
         var c = this.attributes.indexOf(col);
         
-        var rec = this.sheet.getRange(1,c+1,this.lastRow);
-        return [1,c,this.lastRow,rec,this.sheet.getRange(1,1,this.lastRow)];
+        var rec = this.sheet.getRange(1,c+1,this.lastRow).getValues()[0];
+        return [1,c,this.lastRow,rec,this.sheet.getRange(1,1,this.lastRow).getValues()];
         /*var foundIndex = rec.findIndex(val);
         if(foundIndex != -1)
         {
