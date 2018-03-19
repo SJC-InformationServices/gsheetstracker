@@ -55,6 +55,9 @@ function entity(type){
         }
         return [rowVals,keyval,a];
     };
+    this.update =function(keyval){
+        
+    };
 
     }catch(e){
         this.doc = "";
