@@ -31,7 +31,7 @@ function entity(type){
     {
         var c = this.attributes.indexOf(col);
         
-        var rec = this.sheet.getRange(2,c,this.lastRow,1);
+        var rec = this.sheet.getRange(2,c,this.lastRow);
         return rec;
         /*var foundIndex = rec.findIndex(val);
         if(foundIndex != -1)
@@ -56,7 +56,7 @@ function entity(type){
                 rowVals.push("");
             }
         }
-        return [rowVals,keyval,a,findMatch];
+        return [rowVals,findMatch];
     };
     this.update =function(keyval){
         if(typeof keyval.ID != 'undefined' || typeof keyval.UPC != 'undefined'){
