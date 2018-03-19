@@ -53,7 +53,7 @@ function entity(type){
                 rowVals.push("");
             }
         }
-        return [rowVals,keyval];
+        return [rowVals,keyval,a];
     };
 
     }catch(e){
