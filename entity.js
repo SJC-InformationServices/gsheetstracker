@@ -59,7 +59,9 @@ function entity(type){
                 rowVals.push("");
             }
         }
-        return this.sheet.appendRow(rowVals);
+        this.sheet.appendRow(rowVals);
+        
+        return this.sheets.getRange(this.lastRow+1,1,1,this.lastCol).getValues()[0];
     };
     this.update =function(keyval){
         if(typeof keyval.ID != 'undefined' || typeof keyval.UPC != 'undefined'){
