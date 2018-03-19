@@ -36,7 +36,7 @@ function entity(type){
                 
         if(foundIndex != -1)
         {
-        return this.getRecordsByRange(2,1,foundIndex,this.lastCol).getValues();
+        return this.getRecordsByRange(foundIndex,1,1,this.lastCol).getValues();
         }else{
             return false;
         }
