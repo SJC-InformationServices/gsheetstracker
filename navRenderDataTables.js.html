@@ -33,7 +33,12 @@
       keys:true,
       select:{style:'single',items:'row',blurable:false},                                    
       idSrc:"id",
-      buttons: ["excel"]
+      buttons: [
+			"excel",
+			{ extend: 'create', editor: clientEditor },
+			{ extend: 'edit',   editor: clientEditor },
+			{ extend: 'remove', editor: clientEditor }
+		]
   });
   
 
