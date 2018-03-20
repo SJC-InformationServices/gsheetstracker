@@ -1,6 +1,9 @@
 <script type="text/javascript" async defer>
-    function renderDataTable(x){
-        var tbl=x[0],d=x[1];
+    function renderDataTable(obj){
+      console.dir(obj);
+        var x = JSON.parse(obj);
+        console.dir(x);
+      var tbl=x.tbl,d=x.records;
         console.log(tbl);
         console.dir(d);
     var trackingDT = $('#'+tbl+'TABLE').DataTable({
