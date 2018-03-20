@@ -1,8 +1,11 @@
 <script type="text/javascript" async defer>
     function renderDataTable(x){
       
-        var tbl=x.type,d=x.rec,a=x.attributes;
-
+        var tbl=x.type,d=x.rec,attrib=x.attributes,a=[];
+        for(var i = 0;i<attrib.length;i++)
+        {
+          a.push({"name":attrib[i],"type":"text"});
+        }
         var editorObject = {
           idSrc:"ID",
           table:'#'+tbl+'TABLE',
