@@ -1,5 +1,5 @@
 var entityParent =this;
-function entity(type){
+function entity(type,model){
     this.type = type;
     try{
     var model = new entityParent[type]();
