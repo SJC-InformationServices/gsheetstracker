@@ -3,7 +3,7 @@
 var lock = LockService.getPublicLock();
 lock.waitLock(30000);  // wait 30 seconds before conceding defeat.
 var authorization =  authorize();
-var global=this;
+var GLOBAL=this;
 GLOBAL.ARCHIVE ={MODELS:{}};
 function doGet(e){
   if( authorize()){
