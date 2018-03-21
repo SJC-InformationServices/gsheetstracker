@@ -11,7 +11,7 @@ function handleGet(e) {
       results = ContentService.createTextOutput(JSON.stringify(et.records)).setMimeType(ContentService.MimeType.JSON);
     }else{
 
-      var template = HtmlService.createTemplateFromFile('index.html');
+      var template = HtmlService.createTemplateFromFile('html/index.html');
       results = template.evaluate(); 
       
       results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
