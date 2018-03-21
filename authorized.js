@@ -1,5 +1,5 @@
 function doUnAuthorized(){
-    var template = HtmlService.createTemplateFromFile('unAuthorized');
+    var template = HtmlService.createTemplateFromFile('html/unAuthorized');
     var results = template.evaluate(); 
     
     results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
