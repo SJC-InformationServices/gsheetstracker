@@ -44,8 +44,8 @@
   </div>
 </div>
 <script>
-        google.script.run.withSuccessHandler(renderDataTable).renderDataTable("TRACKING");
-        google.script.run.withSuccessHandler(renderDataTable).renderDataTable("IMAGES");
-        google.script.run.withSuccessHandler(renderDataTable).renderDataTable("PRODUCTS");
-        google.script.run.withSuccessHandler(renderDataTable).renderDataTable("OFFERS");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).renderDataTable("TRACKING");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).renderDataTable("IMAGES");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).renderDataTable("PRODUCTS");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).renderDataTable("OFFERS");
 </script>

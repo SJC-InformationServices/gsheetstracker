@@ -44,7 +44,7 @@ function entity(type){
     };
     this.insert = function(keyval)
     {
-        return keyval()
+        return keyval();
         /*for(var i in keyval)
         {
             this.model.set(i,keyval[i]);
