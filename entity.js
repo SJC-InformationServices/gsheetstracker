@@ -1,6 +1,6 @@
 function entity(type){
     this.type = type;
-
+    this.model = new ARCHIVE.MODEL[type]();
     this.apiUrl = PropertiesService.getScriptProperties().getProperty("APIURL");
     this.doc = SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty(type));
     this.sheet = this.doc.getSheetByName("Sheet1");
@@ -8,20 +8,6 @@ function entity(type){
     this.lastRow = this.sheet.getLastRow();
     this.attributes = this.sheet.getRange(1,1,1,this.lastCol).getValues()[0];
     this.records = this.sheet.getRange(2,1,this.lastRow,this.lastCol).getValues();
-    /*switch(type){
-        case "TRACKING":
-        this.model = new TRACKING();
-        break;
-        case "IMAGES":
-        this.model = new IMAGES();
-        break;
-        case "PRODUCTS":
-        this.model = new PRODUCTS();
-        break;
-        case "OFFERS":
-        this.model = new OFFERS();
-        break;
-    }*/
     this.drawDataTable = function()
     {
     var attribs = this.attributes;
