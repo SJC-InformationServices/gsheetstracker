@@ -39,28 +39,28 @@
             </div>
           </div>
         </div>      
-      <? var content = HtmlService.createTemplate().evaluate() ?> 
+      <? var content = HtmlService.createHtmlOutPut() ?> 
       <? var et = new entity("TRACKING") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
   </div>
   <div id="images" class="tab-pane">             
-      <? var content = HtmlService.createTemplate().evaluate() ?> 
+      <? var content = HtmlService.createHtmlOutPut() ?> 
       <? var et = new entity("IMAGES") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
   </div>
   <div id="products" class="tab-pane">
-      <? var content = HtmlService.createTemplate().evaluate() ?> 
+      <? var content = HtmlService.createHtmlOutPut() ?> 
       <? var et = new entity("PRODUCTS") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
   </div>
   <div id="offers" class="tab-pane">
-      <? var content = HtmlService.createTemplate().evaluate() ?> 
+      <? var content = HtmlService.createHtmlOutPut() ?> 
       <? var et = new entity("OFFERS") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
