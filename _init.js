@@ -1,8 +1,5 @@
 
 
-var userProperties = PropertiesService.getUserProperties();
-
-
 var lock = LockService.getPublicLock();
 lock.waitLock(30000);  // wait 30 seconds before conceding defeat.
 var authorization =  authorize();
