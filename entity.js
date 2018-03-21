@@ -1,7 +1,6 @@
 function entity(type){
     this.type = type;
-    try{
-    
+
     this.apiUrl = PropertiesService.getScriptProperties().getProperty("APIURL");
     this.doc = SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty(type));
     this.sheet = this.doc.getSheetByName("Sheet1");
@@ -9,7 +8,7 @@ function entity(type){
     this.lastRow = this.sheet.getLastRow();
     this.attributes = this.sheet.getRange(1,1,1,this.lastCol).getValues()[0];
     this.records = this.sheet.getRange(2,1,this.lastRow,this.lastCol).getValues();
-    switch(type){
+    /*switch(type){
         case "TRACKING":
         this.model = new TRACKING();
         break;
@@ -22,7 +21,7 @@ function entity(type){
         case "OFFERS":
         this.model = new OFFERS();
         break;
-    }
+    }*/
     this.drawDataTable = function()
     {
     var attribs = this.attributes;
@@ -45,7 +44,8 @@ function entity(type){
     };
     this.insert = function(keyval)
     {
-        for(var i in keyval)
+        return keyval()
+        /*for(var i in keyval)
         {
             this.model.set(i,keyval[i]);
         }
@@ -84,12 +84,7 @@ function entity(type){
             }
         }
     };
-    }catch(e){
-        this.doc = "";
-        this.sheet ="";
-        this.attributes ="";
-        this.records = "";
-    }
+    
     
     return this;
 }
