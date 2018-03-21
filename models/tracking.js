@@ -73,7 +73,6 @@ var TRACKING = {
         var nextKey = Math.max(...rng);
         return nextKey;
     },
-
     save:function(){
                 
     },
