@@ -1,3 +1,6 @@
+if(typeof ARCHIVE =="undefined"){
+    ARCHIVE={};
+}
 ARCHIVE.MODELS.TRACKING= TRACKING = {
     type:"TRACKING",
     docKey: PropertiesService.getScriptProperties().getProperty(this.type),
