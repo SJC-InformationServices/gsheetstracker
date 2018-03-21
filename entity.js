@@ -1,7 +1,8 @@
+var entityParent =this;
 function entity(type){
     this.type = type;
     try{
-    this.model = new this[type]();
+    var model = new entityParent[type]();
     this.apiUrl = PropertiesService.getScriptProperties().getProperty("APIURL");
     this.doc = SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty(type));
     this.sheet = this.doc.getSheetByName("Sheet1");
