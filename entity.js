@@ -1,6 +1,6 @@
 function entity(type){
     this.type = type;
-    this.model = new ARCHIVE.MODEL[type]();
+    this.model = new GLOBAL.ARCHIVE.MODEL[type]();
     this.apiUrl = PropertiesService.getScriptProperties().getProperty("APIURL");
     this.doc = SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty(type));
     this.sheet = this.doc.getSheetByName("Sheet1");
