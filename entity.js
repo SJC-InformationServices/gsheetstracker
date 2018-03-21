@@ -1,7 +1,7 @@
 function entity(type){
     this.type = type;
     try{
-    var model = new this[type]();
+    this.model = new this[type]();
     this.apiUrl = PropertiesService.getScriptProperties().getProperty("APIURL");
     this.doc = SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty(type));
     this.sheet = this.doc.getSheetByName("Sheet1");
