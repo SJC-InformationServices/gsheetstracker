@@ -79,7 +79,7 @@ var TRACKING = {
     update:function(){
 
     },
-    delete:function(){
+    remove:function(){
         
     },
     findMatchByCol: function(col,value){
