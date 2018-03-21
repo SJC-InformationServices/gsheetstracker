@@ -70,7 +70,7 @@ var TRACKING = {
     getNextId:function(){
         var r = this.lastRow();
         var rng = this.sheet.getRange(2,1,this.lastRow,1).getValues();
-        var nextKey = Math.max(...rng);
+        var nextKey = Math.max.apply(null,rng);
         return nextKey;
     },
     save:function(){
