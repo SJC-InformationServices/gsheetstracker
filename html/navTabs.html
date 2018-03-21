@@ -15,28 +15,52 @@
 </ul>
 <div class="tab-content">
   <div id="tracking" class="tab-pane active">
-      <? var content = HtmlService.createTemplateFromFile('html/navTabsTracking').evaluate() ?> 
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <legend>Merch In</legend>   
+              <form id="merchin" class="form-signin">
+                <div class="form-label-group">
+                    <input type="text" name="UPC" placeholder="upc" id="merchinupc" class="form-control form-control-sm" required="" maxlength="14"/>
+                    <label for="merchinupc">UPC</label>
+                 </div>
+                  <button type="submit" id="submit-merchin" class="btn btn-secondary btn-sm">Submit</button>
+              </form>
+            </div>
+            <div class="col-md-4" class="form-signin">
+                <legend>Merch Out</legend>
+                <form id="merchout" class="form-signin">              
+                    <div class="form-label-group">
+                    <input type="text" name="UPC" placeholder="upc" id="merchoutupc" class="form-control form-control-sm" required="" maxlength="14"/>
+                    <label for="merchoutupc">UPC</label>                                        
+                  </div>
+                  <button type="submit" id="submit-merchout" class="btn btn-secondary btn-sm" >Submit</button>
+                </form>
+            </div>
+          </div>
+        </div>      
+      <? var content = HtmlService.createTemplate().evaluate() ?> 
       <? var et = new entity("TRACKING") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
   </div>
   <div id="images" class="tab-pane">             
-      <? var content = HtmlService.createTemplateFromFile('html/navTabsImages').evaluate() ?> 
+      <? var content = HtmlService.createTemplate().evaluate() ?> 
       <? var et = new entity("IMAGES") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
   </div>
   <div id="products" class="tab-pane">
-      <? var content = HtmlService.createTemplateFromFile('html/navTabsProducts').evaluate() ?> 
+      <? var content = HtmlService.createTemplate().evaluate() ?> 
       <? var et = new entity("PRODUCTS") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
       <? output.append(htmls) ?>
   </div>
   <div id="offers" class="tab-pane">
-      <? var content = HtmlService.createTemplateFromFile('html/navTabsOffers').evaluate() ?> 
+      <? var content = HtmlService.createTemplate().evaluate() ?> 
       <? var et = new entity("OFFERS") ?>
       <? content.append(et.tableHead) ?>
       <? var htmls = content.getContent() ?>
@@ -44,8 +68,8 @@
   </div>
 </div>
 <script>
-        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).renderDataTable("TRACKING");
-        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).renderDataTable("IMAGES");
-        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).renderDataTable("PRODUCTS");
-        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).renderDataTable("OFFERS");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableAttributes("TRACKING");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableAttributes("IMAGES");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableAttributes("PRODUCTS");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableAttributes("OFFERS");
 </script>
