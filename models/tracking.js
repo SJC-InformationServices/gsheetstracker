@@ -1,5 +1,5 @@
 if(typeof ARCHIVE =="undefined"){
-    ARCHIVE={};
+    ARCHIVE={MODELS:{}};
 }
 ARCHIVE.MODELS.TRACKING= TRACKING = {
     type:"TRACKING",
