@@ -1,6 +1,7 @@
 function entity(type){
     this.type = type;
     try{
+    var model = new this[type]();
     this.apiUrl = PropertiesService.getScriptProperties().getProperty("APIURL");
     this.doc = SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty(type));
     this.sheet = this.doc.getSheetByName("Sheet1");
@@ -27,22 +28,16 @@ function entity(type){
 
     this.findMatchByCol = function(col,value)
     {
-        var c = this.attributes.indexOf(col)+1;
         
-        var rec = this.sheet.getRange(2,c+1,this.lastRow).getValues();
-        var foundIndex = rec.findIndex(value);
-                
-        if(foundIndex != -1)
-        {
-            var nextRow = this.sheet.getRange(foundIndex+2,1).getRowIndex();
-            return this.sheet.getRange(nextRow,1,1,this.lastCol).getValues()[0];
-        }else{
-            return false;
-        }
     };
     this.insert = function(keyval)
     {
-        var rowVals = [];
+        for(var i in keyval)
+        {
+            this.model.set(i,keyval[i]);
+        }
+        return this.model.toJson();
+        /*var rowVals = [];
         var a = this.attributes;
         var findMatch = this.findMatchByCol("UPC",keyval.UPC);
         if(findMatch){
@@ -62,7 +57,7 @@ function entity(type){
         }
         this.sheet.appendRow(rowVals);
         
-        return this.sheets.getRange(this.lastRow+1,1,1,this.lastCol).getValues()[0];
+        return this.sheets.getRange(this.lastRow+1,1,1,this.lastCol).getValues()[0];*/
     };
     this.update =function(keyval){
         if(typeof keyval.ID != 'undefined' || typeof keyval.UPC != 'undefined'){
