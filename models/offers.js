@@ -1,4 +1,2 @@
-if(typeof ARCHIVE =="undefined"){
-    ARCHIVE={};
-}
-ARCHIVE.MODELS.OFFERS = {};
+
+GLOBAL.ARCHIVE.MODELS.OFFERS = {};

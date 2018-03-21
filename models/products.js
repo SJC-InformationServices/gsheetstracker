@@ -1,4 +1,1 @@
-if(typeof ARCHIVE =="undefined"){
-    ARCHIVE={};
-}
-ARCHIVE.MODELS.PRODUCTS = {};
+GLOBAL.ARCHIVE.MODELS.PRODUCTS = {};

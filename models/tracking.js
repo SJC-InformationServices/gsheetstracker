@@ -1,7 +1,5 @@
-if(typeof ARCHIVE =="undefined"){
-    ARCHIVE={MODELS:{}};
-}
-ARCHIVE.MODELS.TRACKING= TRACKING = {
+
+GLOBAL.ARCHIVE.MODELS.TRACKING= TRACKING = {
     type:"TRACKING",
     docKey: PropertiesService.getScriptProperties().getProperty(this.type),
     doc:null,
