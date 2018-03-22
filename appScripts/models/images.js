@@ -1,1 +1,1 @@
-SJCARCHIVE.MODELS.IMAGES = Object.create(null,{});
+var IMAGES = Object.create(null,{});

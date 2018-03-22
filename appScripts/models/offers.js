@@ -1,2 +1,2 @@
 
-SJCARCHIVE.MODELS.OFFERS = Object.create(null,{});
+var OFFERS = Object.create(null,{});
