@@ -39,12 +39,12 @@ var sjcArchiveOutput = Object.create(null, {
       results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
       results.setTitle('SJC McKesson Archive Manager');
       results.addMetaTag('viewport', 'width=device-width, initial-scale=1');
+      return results;
     }
   }
 });
 function doGet(e) 
-{
-   
+{   
   try{
     var archiveOutPut = Object.create(sjcArchiveOutput,{});
     archiveOutPut.parameters=e.parameter;
@@ -53,7 +53,7 @@ function doGet(e)
   catch(e){
     // if error return this
     return ContentService
-          .createTextOutput(JSON.stringify({"result":"error", "error": e}))
+          .createTextOutput(JSON.stringify({"result":"error", "error": e.getMessage}))
           .setMimeType(ContentService.MimeType.JSON);
   } finally { //release lock
     lock.releaseLock();  
