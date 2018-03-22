@@ -46,7 +46,7 @@ var sjcArchiveOutput = Object.create(null, {
 function doGet(e) 
 {   
   try{
-    var archiveOutPut = Object.create(sjcArchiveOutput,{});
+    var archiveOutPut = Object.create(sjcArchiveOutput);
     archiveOutPut.parameters=e.parameter;
    return archiveOutPut.render();   
   }
