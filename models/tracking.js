@@ -1,5 +1,5 @@
 
-SJCARCHIVE.MODELS.TRACKING = TRACKING = {
+SJCARCHIVE.MODELS.TRACKING = Object.create(SJCARCHIVE.MODELS.BASE,{
     type:"TRACKING",
     docKey: PropertiesService.getScriptProperties().getProperty(this.type),
     doc:null,
@@ -34,20 +34,20 @@ SJCARCHIVE.MODELS.TRACKING = TRACKING = {
         return o;
     },
     properties:{
-        ID:{colIndex:1,setter:this.loadById,value:null,updatedable:false},
-        UPC:{colIndex:2,setter:this.loadByUpc,value:null,required:true,updatedable:true},
-        TRACKED_UPC:{colIndex:3,setter:false,value:null,updatedable:true},
-        DESCRIPTION:{colIndex:4,setter:false,value:null,updatedable:true},
-        IN_SJC:{colIndex:5,setter:false,value:null,updatedable:true},
-        IN_SJC_COUNT:{colIndex:6,setter:false,value:null,updatedable:true},
-        OUT_SJC:{colIndex:7,setter:false,value:null,updatedable:true},
-        OUT_SJC_COUNT:{colIndex:8,setter:false,value:null,updatedable:true},
-        PHOTODONE:{colIndex:9,setter:false,value:null,updatedable:true},
-        PHOTO_DONE_COUNT:{colIndex:10,setter:false,value:null,updatedable:true},
-        RECORD_COMPLETE:{colIndex:11,setter:false,value:null,updatedable:true},
-        LAST_USER:{colIndex:12,setter:false,value:null,updatedable:true},
-        CREATEDON:{colIndex:13,setter:false,value:null,updatedable:false},
-        UPDATEDON:{colIndex:14,setter:false,value:null,updatedable:false},
+        ID:{colIndex:1,setter:this.loadById,value:null,editable:false},
+        UPC:{colIndex:2,setter:this.loadByUpc,value:null,required:true,editable:true},
+        TRACKED_UPC:{colIndex:3,setter:false,value:null,editable:true},
+        DESCRIPTION:{colIndex:4,setter:false,value:null,editable:true},
+        IN_SJC:{colIndex:5,setter:false,value:null,editable:true},
+        IN_SJC_COUNT:{colIndex:6,setter:false,value:null,editable:true},
+        OUT_SJC:{colIndex:7,setter:false,value:null,editable:true},
+        OUT_SJC_COUNT:{colIndex:8,setter:false,value:null,editable:true},
+        PHOTODONE:{colIndex:9,setter:false,value:null,editable:true},
+        PHOTO_DONE_COUNT:{colIndex:10,setter:false,value:null,editable:true},
+        RECORD_COMPLETE:{colIndex:11,setter:false,value:null,editable:true},
+        LAST_USER:{colIndex:12,setter:false,value:null,editable:true},
+        CREATEDON:{colIndex:13,setter:false,value:null,editable:false},
+        UPDATEDON:{colIndex:14,setter:false,value:null,editable:false},
     },
     set:function(k,v)
     {
@@ -56,7 +56,7 @@ SJCARCHIVE.MODELS.TRACKING = TRACKING = {
             if(p.setter){
                 p.setter(v);
             }else{
-                if(p.updatedable){
+                if(p.editable){
                     this.properties[k].value = v;
                 }
             }
@@ -117,4 +117,4 @@ SJCARCHIVE.MODELS.TRACKING = TRACKING = {
         this.records = this.sheet.getRange(2,1,r-1,c).getValues();
         return this.records;
     }
-};
+});
