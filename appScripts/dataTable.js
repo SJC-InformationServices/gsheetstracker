@@ -13,7 +13,7 @@ function insertRecord(obj)
 {
     try{
                 
-        var etc = Object.create(SJCARCHIVE.MODELS[type]).build(obj);
+        var etc = Object.create(SJCARCHIVE.MODELS[obj.type]).build(JSON.parse(obj));
                 
         return JSON.stringify([etc,obj]);
     }catch(e){
