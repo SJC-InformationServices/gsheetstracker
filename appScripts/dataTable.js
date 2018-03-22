@@ -14,7 +14,7 @@ function insertRecord(obj)
     try{
         var type = obj.type;
         var keyval = obj.keyval;
-        var etc = Object.create(SJCARCHIVE.MODELS[type],keyval);
+        var etc = new SJCARCHIVE.MODELS[type]();
         
         return JSON.stringify(etc);
     }catch(e){
