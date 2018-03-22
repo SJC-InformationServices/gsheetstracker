@@ -89,13 +89,20 @@ var sjcSheetAdmin = Object.create(null,{
                     }
                 }
             this.sheet.appendRow(rowVals);
+            return keyval.ID;
         }
     },
     update:{
-        value:function(id,keyval){}
+        value:function(id,keyval){
+            var c_row = this.searchByCol("ID",id);
+
+        }
     },
    remove:{
-       value:function(id){}
+       value:function(id){
+           var c_row = this.searchByCol("ID",id);
+           
+       }
    }
 
 });
