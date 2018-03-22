@@ -1,4 +1,4 @@
-var TRACKING = Object.create(BASE, {
+var TRACKING = Object.create(null, {
     ID: {
         value: null,
         enumerable: true
