@@ -1,3 +1,5 @@
+
+(function (){
 SJCARCHIVE.MODELS.BASE = Object.create(sjcSheetAdmin, {
     toJson:{
         get:function(){
@@ -10,3 +12,4 @@ SJCARCHIVE.MODELS.BASE = Object.create(sjcSheetAdmin, {
         }
     }
 });
+})();
