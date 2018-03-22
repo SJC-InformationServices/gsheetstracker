@@ -1,24 +1,56 @@
-function handleGet(e) {
-       
-    var parms = e.parameter;
-
+var sjcArchiveOutput = Object.create(null,
+  {
+    parameters:{
+      value:{},
+    },
+    authorize:{
+      get:function(){
+        var email = Session.getActiveUser().getEmail();
+        if(email.indexOf("@stjoseph.com") !== -1)
+        {
+          return true;
+        }
+        else{
+          return false;
+        }
+      }
+    },
+    perms:{
+      get:function(){return true;}
+    },
+    unAuthorizedTemplate:{
+      value:'html/unAuthorized'
+    },
+    AuthorizedTemplate:{
+      value:'html/index.html'
+    },
+    template:{
+      get:function(){
+        if(this.authorize){
+          return this.AuthorizedTemplate;
+        }else{
+          return this.unAuthorizedTemplate;
+        }
+      }
+    },
+    render:{
+      value:function(){
+        var template = HtmlService.createTemplateFromFile(this.template);
+        results = template.evaluate(); 
+        results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
+        results.setTitle('SJC McKesson Archive Manager');
+        results.addMetaTag('viewport', 'width=device-width, initial-scale=1');       
+      }
+    }
+  }
+);
+function doGet(e) 
+{
+   
   try{
-    var records;
-    var results;
-    if(typeof parms.request != "undefined")
-    {
-      var et = new entity(parms.request);
-      results = ContentService.createTextOutput(JSON.stringify(et.records)).setMimeType(ContentService.MimeType.JSON);
-    }else{
-
-      var template = HtmlService.createTemplateFromFile('html/index.html');
-      results = template.evaluate(); 
-      
-      results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
-      results.setTitle('SJC McKesson Archive Manager');
-      results.addMetaTag('viewport', 'width=device-width, initial-scale=1');     
-    }   
-   return results;
+    var archiveOutPut = Object.create(sjcArchiveOutput,{});
+    archiveOutPut.parameters=e.parameter;
+   return archiveOutPut.render();   
   }
   catch(e){
     // if error return this
