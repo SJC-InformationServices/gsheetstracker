@@ -1,4 +1,4 @@
-var TRACKING = Object.create(SJCARCHIVE.MODELS.BASE, {
+var TRACKING = Object.create(BASE, {
     ID: {
         value: null,
         enumerable: true
