@@ -1,5 +1,3 @@
-
-
 function setup() {
 var SCRIPT_PROP = PropertiesService.getScriptProperties(); // new property service
 var docs = DriveApp.getFolderById('0BwcxSggYKA4DUnlaQzRrbDVmdHc').getFiles();
