@@ -4,7 +4,11 @@ var lock = LockService.getPublicLock();
 lock.waitLock(30000);  // wait 30 seconds before conceding defeat.
 var authorization =  authorize();
 
-var SJCARCHIVE=Object.create(null,{MODELS:{value:{}}});
+var SJCARCHIVE=Object.create(null,{
+  MODELS:{
+    value:{}
+  }
+});
 
 function doGet(e)
 {
