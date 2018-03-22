@@ -1,4 +1,4 @@
-var sjcSheetAdmin = Object.create(null,{
+SJCARCHIVE.MODELS.SJCSHEETADMIN = Object.create(null,{
     type:{value:null},
     sheetName:{value:"Sheet1"},
     uniqueKey:{value:"UPC"},
