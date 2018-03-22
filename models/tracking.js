@@ -1,5 +1,5 @@
 
-SJCARCHIVE.MODELS.TRACKING = Object.create(Null,
+SJCARCHIVE.MODELS.TRACKING = Object.create(null,
     {   
     ID:{value:null},
     UPC:{value:null},
