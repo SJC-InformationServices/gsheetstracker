@@ -55,8 +55,8 @@ function doGet(e)
     return ContentService
           .createTextOutput(JSON.stringify({"result":"error", "error": e.getMessage}))
           .setMimeType(ContentService.MimeType.JSON);
-  } finally { //release lock
-    lock.releaseLock();  
+  } finally { 
+    
   }
     
 }
