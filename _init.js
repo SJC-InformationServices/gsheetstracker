@@ -1,8 +1,5 @@
 
 
-var lock = LockService.getPublicLock();
-lock.waitLock(30000);  // wait 30 seconds before conceding defeat.
-
 function setup() {
 var SCRIPT_PROP = PropertiesService.getScriptProperties(); // new property service
 var docs = DriveApp.getFolderById('0BwcxSggYKA4DUnlaQzRrbDVmdHc').getFiles();
