@@ -103,6 +103,14 @@ var sjcSheetAdmin = Object.create(null,{
            var c_row = this.searchByCol("ID",id);
            
        }
-   }
+   },
+    build:{
+        value:function(obj){
+            for(var i in obj){
+                this[i] = obj[i]
+            }
+            return this;
+        }
+    }
 
 });

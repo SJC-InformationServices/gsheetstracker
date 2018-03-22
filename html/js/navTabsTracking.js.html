@@ -10,9 +10,9 @@
       e.preventDefault();
       var obj = {};
       obj.type = "TRACKING";
-      obj.record = {};
+      
       var d = new Date();
-      obj.record.IN_SJC = 
+      obj.IN_SJC = 
       [
       d.getFullYear(),
       d.getMonth()+1,
@@ -26,7 +26,7 @@
       for(var i = 0; i < rec.length; i++){
         var n = rec[i].name;
         var v = rec[i].value;
-        obj.record[n] = v;
+        obj[n] = v;
       }
       google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
       });
@@ -36,9 +36,10 @@
         e.preventDefault();
         var obj = {};
         obj.type = "TRACKING";
-        obj.record = {};
+        
         var d = new Date();
-        obj.record.OUT_SJC =  [
+        obj.IN_SJC = 
+        [
         d.getFullYear(),
         d.getMonth()+1,
         d.getDate()
@@ -46,12 +47,13 @@
        [d.getHours(),
         d.getMinutes(),
         d.getSeconds()].join(':');
+        
         var rec= $(this).serializeArray();
         for(var i = 0; i < rec.length; i++){
           var n = rec[i].name;
           var v = rec[i].value;
-          obj.record[n] = v;
+          obj[n] = v;
         }
-        google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
+        google.script.run.withSuccessHandler(submitComplete).updateRecord(obj);
       });
   </script>
