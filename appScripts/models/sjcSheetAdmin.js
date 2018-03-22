@@ -1,5 +1,8 @@
 (function (){
 var SJCSHEETADMIN = Object.create(null,{
+    cache:{
+        value:CacheService.getScriptCache()
+    },
     type:{value:null},
     sheetName:{value:"Sheet1"},
     uniqueKey:{value:"UPC"},
@@ -26,17 +29,31 @@ var SJCSHEETADMIN = Object.create(null,{
     },
     lastCol:{
         get:function(){
-            return this.sheet.getLastRow();
+            return this.sheet.getLastColumn();
         }
     },
     sheetKeys:{
         get:function(){
-        return this.sheet.getRange(1,1,1,this.lastCol).getValues()[0];
+            var cacheKey = this.type + "-sheetKeys";
+            var cached = this.cache.get(cacheKey);
+            if(cached != null){
+                return cached;
+            }
+            var recs = this.sheet.getRange(1,1,1,this.lastCol).getValues()[0];
+            this.cache.put(cacheKey,recs,180);
+            return recs;        
         }
     },
     records:{
         value:function(){
-            return this.sheet.getRange(2,1,this.lastRow,1).getValues();
+            var cacheKey = this.type + "-records";
+            var cached = this.cache.get(cacheKey);
+            if(cached != null){
+                return cached;
+            }
+            var recs = this.sheet.getRange(2,1,this.lastRow-1,1).getValues();
+            this.cache.put(cacheKey,recs,180);
+            return recs;
         }
     },
     nextId:{
@@ -51,7 +68,7 @@ var SJCSHEETADMIN = Object.create(null,{
             var c = this.properties[col].colIndex;
             var r = this.lastRow();
     
-            var rec = this.sheet.getRange(2,c+1,this.lastRow).getValues();
+            var rec = this.sheet.getRange(2,c+1,this.lastRow-1).getValues();
             var foundIndex = rec.findIndex(value);
                     
             if(foundIndex != -1)
