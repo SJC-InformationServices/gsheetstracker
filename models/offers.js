@@ -1,2 +1,2 @@
 
-SJCARCHIVE.MODELS.OFFERS = {};
+SJCARCHIVE.MODELS.OFFERS = Object.create(null,{});

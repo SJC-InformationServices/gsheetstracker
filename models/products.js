@@ -1,1 +1,1 @@
-SJCARCHIVE.MODELS.PRODUCTS = Object.create(Null,{});
+SJCARCHIVE.MODELS.PRODUCTS = Object.create(null,{});
