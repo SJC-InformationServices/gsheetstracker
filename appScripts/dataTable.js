@@ -8,7 +8,6 @@ function getDataTableAttributes(type)
     }
 }
 
-
 function insertRecord(obj)
 {
     try{

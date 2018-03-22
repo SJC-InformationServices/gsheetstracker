@@ -1,6 +1,6 @@
 
 (function (){
-SJCARCHIVE.MODELS.BASE = Object.create(SJCARCHIVE.MODELS.SJCSHEETADMIN, {
+var BASE = Object.create(SJCSHEETADMIN, {
     toJson:{
         get:function(){
             var obj = {};
