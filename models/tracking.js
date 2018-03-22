@@ -1,44 +1,58 @@
 SJCARCHIVE.MODELS.TRACKING = Object.create(sjcSheetAdmin, {
     ID: {
-        value: null
+        value: null,
+        enumerable: true
     },
     UPC: {
-        value: null
+        value: null,
+        enumerable: true
     },
     TRACKED_UPC: {
-        value: null
+        value: null,
+        enumerable: true
     },
     DESCRIPTION: {
-        value: null
+        value: null,
+        enumerable: true
     },
     IN_SJC: {
-        value: null
+        value: null,
+        enumerable: true
     },
     IN_SJC_COUNT: {
-        value: null
+        value: null,
+        enumerable: true
     },
     OUT_SJC: {
-        value: null
+        value: null,
+        enumerable: true
     },
     OUT_SJC_COUNT: {
-        value: null
+        value: null,
+        enumerable: true
     },
     PHOTODONE: {
-        value: null
+        value: null,
+        enumerable: true
     },
     PHOTO_DONE_COUNT: {
-        value: null
+        value: null,
+        enumerable: true
     },
     RECORD_COMPLETE: {
-        value: null
+        value: null,
+        enumerable: true
     },
     LAST_USER: {
-        value: null
+        value: null,
+        enumerable: true
     },
     CREATEDON: {
-        value: null
+        value: null,
+        enumerable: true
     },
     UPDATEDON: {
-        value: null
+        value: null,
+        enumerable: true
     }
 });
