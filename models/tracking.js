@@ -1,5 +1,5 @@
 
-GLOBAL.ARCHIVE.MODELS.TRACKING= TRACKING = {
+SJCARCHIVE.MODELS.TRACKING= TRACKING = {
     type:"TRACKING",
     docKey: PropertiesService.getScriptProperties().getProperty(this.type),
     doc:null,
