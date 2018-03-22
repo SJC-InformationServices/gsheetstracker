@@ -1,4 +1,4 @@
-SJCARCHIVE.MODELS.TRACKING = Object.create(sjcSheetAdmin, {
+SJCARCHIVE.MODELS.TRACKING = Object.create(SJCARCHIVE.MODELS.BASE, {
     ID: {
         value: null,
         enumerable: true

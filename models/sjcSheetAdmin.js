@@ -28,7 +28,7 @@ var sjcSheetAdmin = Object.create(null,{
             return this.sheet.getLastRow();
         }
     },
-    keys:{
+    sheetKeys:{
         get:function(){
         return this.sheet.getRange(1,1,1,this.lastCol).getValues()[0];
         }
@@ -74,7 +74,7 @@ var sjcSheetAdmin = Object.create(null,{
                 }
             }
             var rowVals = [];
-            var a = this.keys;
+            var a = this.sheetKeys;
             keyval.ID = this.nextId;
             keyval.CREATEDON = new Date();
             keyval.UPDATEDON= new Date();
@@ -107,7 +107,7 @@ var sjcSheetAdmin = Object.create(null,{
     build:{
         value:function(obj){
             for(var i in obj){
-                this[i] = obj[i]
+                this[i] = obj[i];
             }
             return this;
         }
