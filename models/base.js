@@ -1,3 +1,0 @@
-SJCARCHIVE.MODELS.BASE = {
-    
-};
