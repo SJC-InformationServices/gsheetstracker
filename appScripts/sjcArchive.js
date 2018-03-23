@@ -58,15 +58,19 @@ var sjcArchiveOutput = Object.create(null, {
     },
     createModel:{
       value:function(type,keyval){
-      var model = this.models[type],keyval);
+      var model = this[type];
         return model;
       }
     },
     updateModel:{
-      value:function(type,id,keyval){}
+      value:function(type,id,keyval){
+
+      }
     },
     deleteModel:{
-      value: function(type,id){}
+      value: function(type,id){
+          
+      }
     }
   });
 return sjcArchiveOutput;
