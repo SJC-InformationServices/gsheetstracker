@@ -4,7 +4,7 @@ var sjcArchiveOutput = Object.create(null, {
   },
   models:{
     value:{
-      "TRACKING":new tracking_model(),
+      
     },
   },
   modules:{
