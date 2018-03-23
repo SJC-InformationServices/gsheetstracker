@@ -20,7 +20,7 @@ function model_base(){
             value:function(){}
         },
         delete:{
-
+            value:function(){}
         }
     });
     return _BASE;
