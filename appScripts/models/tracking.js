@@ -1,5 +1,5 @@
 
-_TRACKING = Object.create(model_base(), {
+var _TRACKING = Object.create(model_base(), {
     ID: {
         value: null,
         enumerable: true

@@ -1,4 +1,4 @@
-_SJCSHEETADMIN = Object.create(null,{
+var _SJCSHEETADMIN = Object.create(null,{
     cache:{
         value:CacheService.getScriptCache()
     },
