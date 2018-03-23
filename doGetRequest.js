@@ -57,7 +57,7 @@ var sjcArchiveOutput = Object.create(null, {
   },
   createModel:{
     value:function(keyval){
-      return "yeah i work";
+      return ["yeah i work"];
     }
   },
   updateModel:{
