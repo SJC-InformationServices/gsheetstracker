@@ -3,17 +3,13 @@ function modules_sjcarchive() {
     parameters: {
       value: {},
     },
-    MODELS_TRACKING: {
-      value: new model_tracking()
-    },
-    MODELS_OFFERS: {
-      value: new model_offers()
-    },
-    MODELS_PRODUCTS: {
-      value: new model_products()
-    },
-    MODELS_IMAGES: {
-      value: new model_images()
+    MODELS:{
+      value:{
+        TRACKING:new model_tracking(),
+        OFFERS:new model_offers(),
+        PRODUCTS:new model_products(),
+        IMAGES:new model_images()
+      }
     },
     authorize: {
       get: function () {
