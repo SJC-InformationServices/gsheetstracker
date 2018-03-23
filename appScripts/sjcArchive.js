@@ -54,17 +54,21 @@ function modules_sjcarchive() {
     },
     createModel: {
       value: function (type, keyval) {
-        var model = this["MODELS_" + type];
+        var model = this.MODELS[type];
         return model;
       }
     },
     updateModel: {
       value: function (type, id, keyval) {
-
+        var model = this.MODELS[type];
+        return model;
       }
     },
     deleteModel: {
-      value: function (type, id) {}
+      value: function (type, id) {
+        var model = this.MODELS[type];
+        return model;
+      }
     }
   });
   return sjcArchiveOutput;
