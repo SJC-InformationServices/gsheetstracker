@@ -51,6 +51,15 @@ var sjcArchiveOutput = Object.create(null, {
       results.addMetaTag('viewport', 'width=device-width, initial-scale=1');
       return results;
     }
+  },
+  createModel:{
+    value:function(keyval){}
+  },
+  updateModel:{
+    value:function(type,id,keyval){}
+  },
+  deleteModel:{
+    value: function(type,id){}
   }
 });
 

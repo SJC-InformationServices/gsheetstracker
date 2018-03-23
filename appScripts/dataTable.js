@@ -11,12 +11,12 @@ function getDataTableAttributes(type)
 function insertRecord(obj)
 {
     try{
-                
-        var etc = Object.create(SJCARCHIVE.MODELS[obj.type]).build(JSON.parse(obj));
+                        
+        var etc = Object.create(sjcArchiveOutput,{}).build(JSON.parse(obj));
                 
         return etc.toJson();
     }catch(e){
-        return JSON.stringify(["error", e.message,obj]);
+        return JSON.stringify(["error", e.message,obj,this]);
     }
 }
 
