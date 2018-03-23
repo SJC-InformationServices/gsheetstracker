@@ -15,6 +15,12 @@ function model_base(){
             value:function(){
     
             }
+        },
+        update:{
+            value:function(){}
+        },
+        delete:{
+
         }
     });
     return _BASE;

@@ -12,7 +12,7 @@ function insertRecord(obj)
 {
     try
     {        
-        return this.sjcArchiveOutput.createModel(obj);
+        return JSON.stringify(this.sjcArchiveOutput.createModel(obj));
         //continue here
     }catch(e){
         return JSON.stringify(["error", e.message,obj,this.sjcArchiveOutput]);
