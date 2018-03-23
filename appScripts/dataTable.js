@@ -11,8 +11,9 @@ function getDataTableAttributes(type)
 function insertRecord(obj)
 {
     try
-    {        
-        return JSON.stringify(sjcArchiveOutput.createModel(obj));
+    {  
+        var archiveOutPut = new modules_sjcarchive();              
+        return JSON.stringify(archiveOutPut.createModel(obj));
         //continue here
     }catch(e){
         return JSON.stringify(["error", e.message,obj,this.sjcArchiveOutput]);
