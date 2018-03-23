@@ -58,7 +58,7 @@ var sjcArchiveOutput = this.assign(null, {
     },
     createModel:{
       value:function(type,keyval){
-      var model = this[type];
+      var model = this["MODESL_"+type];
         return model;
       }
     },
