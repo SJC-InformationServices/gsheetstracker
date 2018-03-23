@@ -59,12 +59,6 @@ function modules_sjcarchive() {
         results.addMetaTag('viewport', 'width=device-width, initial-scale=1');
         return results;
       }
-    },
-    createModel: {
-      value: function (type) {
-        
-        return this.MODELS[type];
-      }
     }
   });
   return sjcArchiveOutput;
@@ -91,9 +85,9 @@ function getDataTableAttributes(type) {
 function insertRecord(obj) {
   try {
     var archiveOutPut = new modules_sjcarchive();
-    var model = archiveOutPut.createModel(obj.type);
+    var model = archiveOutPut.MODELS[obj.type];
     model.build(obj);
-    return JSON.stringify(model);
+    return JSON.stringify([model,archiveOutPut]);
     //continue here
   } catch (e) {
     return JSON.stringify(["error", e.message, obj, this.sjcArchiveOutput]);
