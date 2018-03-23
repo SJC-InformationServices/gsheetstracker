@@ -23,6 +23,7 @@ var sjcArchiveOutput = Object.create(null, {
   },
   perms: {
     get: function () {
+      //TODO: dbl check permissions on gsheets
       return true;
     }
   },
@@ -52,10 +53,6 @@ var sjcArchiveOutput = Object.create(null, {
     }
   }
 });
-//DEFINE MODULES 
-
-//DEFINE MODELS Variables
-var _SJCSHEETADMIN,_BASE, _TRACKING ,_IMAGES,_PRODUCTS,_OFFERS;
 
 function doGet(e) 
 {   

@@ -16,3 +16,6 @@ _BASE = Object.create(_SJCSHEETADMIN, {
         }
     }
 });
+function model_base(){
+    return _BASE;
+}

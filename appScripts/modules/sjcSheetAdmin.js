@@ -131,3 +131,6 @@ _SJCSHEETADMIN = Object.create(null,{
     }
 
 });
+function model_sjcSheetAdmin(){
+    return _SJCSHEETADMIN;
+}
