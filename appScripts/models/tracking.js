@@ -4,7 +4,7 @@ function model_tracking(){
     var _TRACKING = Object.create(model_base(), {
         ID: {
             value: null,
-            enumerable: true
+            writable: true
         },
         UPC: {
             value: null,
@@ -12,51 +12,51 @@ function model_tracking(){
         },
         TRACKED_UPC: {
             value: null,
-            enumerable: true
+            writable: true
         },
         DESCRIPTION: {
             value: null,
-            enumerable: true
+            writable: true
         },
         IN_SJC: {
             value: null,
-            enumerable: true
+            writable: true
         },
         IN_SJC_COUNT: {
             value: null,
-            enumerable: true
+            writable: true
         },
         OUT_SJC: {
             value: null,
-            enumerable: true
+            writable: true
         },
         OUT_SJC_COUNT: {
             value: null,
-            enumerable: true
+            writable: true
         },
         PHOTODONE: {
             value: null,
-            enumerable: true
+            writable: true
         },
         PHOTO_DONE_COUNT: {
             value: null,
-            enumerable: true
+            writable: true
         },
         RECORD_COMPLETE: {
             value: null,
-            enumerable: true
+            writable: true
         },
         LAST_USER: {
             value: null,
-            enumerable: true
+            writable: true
         },
         CREATEDON: {
             value: null,
-            enumerable: true
+            writable: true
         },
         UPDATEDON: {
             value: null,
-            enumerable: true
+            writable: true
         }
     });
     return _TRACKING;

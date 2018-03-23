@@ -1,12 +1,15 @@
 function model_sjcSheetAdmin() {
     var _SJCSHEETADMIN = Object.create(null, {
         cache: {
-            value: CacheService.getScriptCache()
+            value: CacheService.getScriptCache(),
+            writable: false,
         },
         type: {
+            writable: true,
             value: null
         },
         sheetName: {
+            writable: "Sheet",
             value: "Sheet1"
         },
         uniqueKey: {
