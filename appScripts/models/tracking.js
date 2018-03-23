@@ -8,7 +8,7 @@ function model_tracking(){
         },
         UPC: {
             value: null,
-            enumerable: true
+            enumerable: false
         },
         TRACKED_UPC: {
             value: null,
