@@ -19,7 +19,7 @@ function model_base(){
         update:{
             value:function(){}
         },
-        delete:{
+        remove:{
             value:function(){}
         }
     });
