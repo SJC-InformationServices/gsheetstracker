@@ -1,5 +1,4 @@
-(function (){
-var SJCSHEETADMIN = Object.create(null,{
+_SJCSHEETADMIN = Object.create(null,{
     cache:{
         value:CacheService.getScriptCache()
     },
@@ -132,4 +131,3 @@ var SJCSHEETADMIN = Object.create(null,{
     }
 
 });
-})();

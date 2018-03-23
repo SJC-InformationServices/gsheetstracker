@@ -1,4 +1,4 @@
-_TRACKING = Object.create(null, {
+_TRACKING = Object.create(_BASE, {
     ID: {
         value: null,
         enumerable: true

@@ -1,5 +1,5 @@
 
-_BASE = Object.create(null, {
+_BASE = Object.create(_SJCSHEETADMIN, {
     toJson:{
         get:function(){
             var obj = {};
@@ -8,6 +8,11 @@ _BASE = Object.create(null, {
                 obj[k[i]] = this[k[i]];
             }
             return JSON.stringify(obj);
+        }
+    },
+    save:{
+        value:function(){
+
         }
     }
 });
