@@ -1,5 +1,4 @@
-function track_model(){};
-var TRACKING = Object.create(track_obj, {
+var TRACKING = Object.create(null, {
     ID: {
         value: null,
         enumerable: true
@@ -57,3 +56,4 @@ var TRACKING = Object.create(track_obj, {
         enumerable: true
     }
 });
+function tracking_model(){return tracking_model;};

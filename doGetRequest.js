@@ -4,8 +4,12 @@ var sjcArchiveOutput = Object.create(null, {
   },
   models:{
     value:{
-      "TRACKING":new track_model(),
+      "TRACKING":new tracking_model(),
     },
+  },
+  modules:{
+    value:{
+    }
   },
   authorize: {
     get: function () {
