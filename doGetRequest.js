@@ -12,7 +12,7 @@ function doGet(e)
   catch(e){
     // if error return this
     return ContentService
-          .createTextOutput(JSON.stringify({"result":"error", "error": e.getMessage()}))
+          .createTextOutput(JSON.stringify({"result":"error", "error": e.message}))
           .setMimeType(ContentService.MimeType.JSON);
   } finally { //release lock
     lock.releaseLock();  
