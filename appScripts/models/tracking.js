@@ -56,4 +56,3 @@ _TRACKING = Object.create(null, {
         enumerable: true
     }
 });
-function tracking_model(){return Object.create(tracking_model;};
