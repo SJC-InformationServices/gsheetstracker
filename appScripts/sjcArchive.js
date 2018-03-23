@@ -3,12 +3,12 @@ function modules_sjcarchive() {
     parameters: {
       value: {},
     },
-    MODELS:{
-      value:{
-        TRACKING:new model_tracking(),
-        OFFERS:new model_offers(),
-        PRODUCTS:new model_products(),
-        IMAGES:new model_images()
+    MODELS: {
+      value: {
+        TRACKING: new model_tracking(),
+        OFFERS: new model_offers(),
+        PRODUCTS: new model_products(),
+        IMAGES: new model_images()
       }
     },
     authorize: {
@@ -54,19 +54,7 @@ function modules_sjcarchive() {
     },
     createModel: {
       value: function (type, keyval) {
-        var model = Object.create(this.MODELS[type],keyval);
-        return model;
-      }
-    },
-    updateModel: {
-      value: function (type, id, keyval) {
-        var model = this.MODELS[type];
-        return model;
-      }
-    },
-    deleteModel: {
-      value: function (type, id) {
-        var model = this.MODELS[type];
+        var model = Object.create(this.MODELS[type], keyval);
         return model;
       }
     }
@@ -95,7 +83,9 @@ function getDataTableAttributes(type) {
 function insertRecord(obj) {
   try {
     var archiveOutPut = new modules_sjcarchive();
-    return JSON.stringify(archiveOutPut.createModel(obj.type,obj));
+    var model = archiveOutPut.createModel(obj.type);
+    model.build();
+    return JSON.stringify(model);
     //continue here
   } catch (e) {
     return JSON.stringify(["error", e.message, obj, this.sjcArchiveOutput]);

@@ -1,59 +1,56 @@
 <script type="text/javascript" async defer>
-    var $merchin = $('#merchin'),$merchout = $('#merchout');
-                  
-      function submitComplete(e){
-        console.dir(e);
-      }
-      
-      $merchin.on('submit', function(e) 
-      {
-      e.preventDefault();
-      var obj = {};
-      obj.type = "TRACKING";
-      
-      var d = new Date();
-      obj.IN_SJC = 
-      [
+  var $merchin = $('#merchin'),
+    $merchout = $('#merchout');
+
+  function submitComplete(e) {
+    console.dir(e);
+  }
+
+  $merchin.on('submit', function (e) {
+    e.preventDefault();
+    var obj = {};
+    obj.type = "TRACKING";
+
+    var d = new Date();
+    obj.IN_SJC = [
       d.getFullYear(),
-      d.getMonth()+1,
+      d.getMonth() + 1,
       d.getDate()
-      ].join('/')+' '+
-     [d.getHours(),
+    ].join('/') + ' ' + [d.getHours(),
       d.getMinutes(),
-      d.getSeconds()].join(':');
-      
-      var rec= $(this).serializeArray();
-      for(var i = 0; i < rec.length; i++){
-        var n = rec[i].name;
-        var v = rec[i].value;
-        obj[n] = v;
-      }
-      google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
-      });
-      
-      $merchout.on('submit', function(e) 
-      {
-        e.preventDefault();
-        var obj = {};
-        obj.type = "TRACKING";
-        
-        var d = new Date();
-        obj.IN_SJC = 
-        [
-        d.getFullYear(),
-        d.getMonth()+1,
-        d.getDate()
-        ].join('/')+' '+
-       [d.getHours(),
-        d.getMinutes(),
-        d.getSeconds()].join(':');
-        
-        var rec= $(this).serializeArray();
-        for(var i = 0; i < rec.length; i++){
-          var n = rec[i].name;
-          var v = rec[i].value;
-          obj[n] = v;
-        }
-        google.script.run.withSuccessHandler(submitComplete).updateRecord(obj);
-      });
-  </script>
+      d.getSeconds()
+    ].join(':');
+
+    var rec = $(this).serializeArray();
+    for (var i = 0; i < rec.length; i++) {
+      var n = rec[i].name;
+      var v = rec[i].value;
+      obj[n] = v;
+    }
+    google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
+  });
+
+  $merchout.on('submit', function (e) {
+    e.preventDefault();
+    var obj = {};
+    obj.type = "TRACKING";
+
+    var d = new Date();
+    obj.IN_SJC = [
+      d.getFullYear(),
+      d.getMonth() + 1,
+      d.getDate()
+    ].join('/') + ' ' + [d.getHours(),
+      d.getMinutes(),
+      d.getSeconds()
+    ].join(':');
+
+    var rec = $(this).serializeArray();
+    for (var i = 0; i < rec.length; i++) {
+      var n = rec[i].name;
+      var v = rec[i].value;
+      obj[n] = v;
+    }
+    google.script.run.withSuccessHandler(submitComplete).updateRecord(obj);
+  });
+</script>
