@@ -4,12 +4,28 @@ function modules_sjcarchive() {
       value: {},
     },
     MODELS: {
-      value: {
-        TRACKING: new model_tracking(),
-        OFFERS: new model_offers(),
-        PRODUCTS: new model_products(),
-        IMAGES: new model_images()
-      }
+      value: Object.create(null, {
+            TRACKING: {
+              get: function () {
+                return new model_tracking()
+              }
+            },
+            OFFERS:  {
+              get: function () {
+                return new model_offers();
+              }
+            },
+            PRODUCTS:  {
+              get: function () {
+                return new model_products();
+              }
+            },
+            IMAGES:  {
+              get: function () {
+                return new model_images();
+              }
+            },
+      })
     },
     authorize: {
       get: function () {
