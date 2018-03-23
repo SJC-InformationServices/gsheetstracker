@@ -1,2 +1,2 @@
 
-var OFFERS = Object.create(null,{});
+_OFFERS = Object.create(null,{});

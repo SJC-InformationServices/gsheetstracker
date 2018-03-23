@@ -1,1 +1,1 @@
-var PRODUCTS = Object.create(null,{});
+_PRODUCTS = Object.create(null,{});

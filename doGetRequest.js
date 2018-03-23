@@ -52,6 +52,12 @@ var sjcArchiveOutput = Object.create(null, {
     }
   }
 });
+//DEFINE MODULES 
+
+//DEFINE MODELS Variables
+var _BASE, _TRACKING ,_IMAGES,_PRODUCTS,_OFFERS;
+
+
 function doGet(e) 
 {   
   var lock = LockService.getPublicLock();

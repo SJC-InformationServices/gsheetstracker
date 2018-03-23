@@ -1,6 +1,5 @@
 
-(function (){
-var BASE = Object.create(null, {
+_BASE = Object.create(null, {
     toJson:{
         get:function(){
             var obj = {};
@@ -12,4 +11,3 @@ var BASE = Object.create(null, {
         }
     }
 });
-})();

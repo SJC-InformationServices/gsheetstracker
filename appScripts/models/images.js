@@ -1,1 +1,1 @@
-var IMAGES = Object.create(null,{});
+_IMAGES = Object.create(null,{});
