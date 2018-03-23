@@ -1,5 +1,5 @@
 
-_BASE = Object.create(_SJCSHEETADMIN, {
+_BASE = Object.create(model_sjcSheetAdmin(), {
     toJson:{
         get:function(){
             var obj = {};
