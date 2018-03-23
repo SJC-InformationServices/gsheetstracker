@@ -54,7 +54,7 @@ function modules_sjcarchive() {
     },
     createModel: {
       value: function (type, keyval) {
-        var model = this.MODELS[type];
+        var model = Object.create(this.MODELS[type],keyval);
         return model;
       }
     },
