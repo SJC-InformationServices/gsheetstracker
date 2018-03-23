@@ -12,7 +12,7 @@ function insertRecord(obj)
 {
     try{
                         
-        var etc = Object.create(sjcArchiveOutput,{}).build(JSON.parse(obj));
+        var etc = Object.create("model_"+obj.type,{}).build(JSON.parse(obj));
                 
         return etc.toJson();
     }catch(e){
