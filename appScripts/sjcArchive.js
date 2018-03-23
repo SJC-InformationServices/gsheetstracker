@@ -53,9 +53,9 @@ function modules_sjcarchive() {
       }
     },
     createModel: {
-      value: function (type, keyval) {
-        var model = Object.create(this.MODELS[type], keyval);
-        return model;
+      value: function (type) {
+        
+        return this.MODELS[type];
       }
     }
   });
@@ -84,7 +84,7 @@ function insertRecord(obj) {
   try {
     var archiveOutPut = new modules_sjcarchive();
     var model = archiveOutPut.createModel(obj.type);
-    model.build(obj);
+    model.build();
     return JSON.stringify(model);
     //continue here
   } catch (e) {
