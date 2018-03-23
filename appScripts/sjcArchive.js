@@ -100,7 +100,10 @@ function insertRecord(obj) {
   try {
     var archiveOutPut = new modules_sjcarchive();
     var model = archiveOutPut.createModel(obj.type);
-    model.build(obj);
+    for(var i in obj)
+    {
+      model[i] = obj[i];
+    }
     return JSON.stringify([model,obj,model.build(obj)]);
     //continue here
   } catch (e) {
