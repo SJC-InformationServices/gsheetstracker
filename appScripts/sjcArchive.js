@@ -1,5 +1,5 @@
 function modules_sjcarchive(){
-var sjcArchiveOutput = this.assign(null, {
+var sjcArchiveOutput = Object.create(null, {
     parameters: {
       value: {},
     },
@@ -58,7 +58,7 @@ var sjcArchiveOutput = this.assign(null, {
     },
     createModel:{
       value:function(type,keyval){
-      var model = this["MODESL_"+type];
+      var model = this[type];
         return model;
       }
     },
@@ -71,7 +71,7 @@ var sjcArchiveOutput = this.assign(null, {
       value: function(type,id){}
     }
   });
-return this;
+return sjcArchiveOutput;
 }
 
 function getDataTableAttributes(type)
