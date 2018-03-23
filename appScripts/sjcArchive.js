@@ -1,20 +1,20 @@
-function modules_sjcarchive(){
-var sjcArchiveOutput = Object.create(null, {
+function modules_sjcarchive() {
+  var sjcArchiveOutput = Object.create(null, {
     parameters: {
       value: {},
     },
-    MODELS_TRACKING:{
-      value:new model_tracking()
+    MODELS_TRACKING: {
+      value: new model_tracking()
     },
-    MODELS_OFFERS:{
-        value:new model_offers()
-      },
-      MODELS_PRODUCTS:{
-        value:new model_products()
-      },
-      MODELS_IMAGES:{
-        value:new model_images()
-      },
+    MODELS_OFFERS: {
+      value: new model_offers()
+    },
+    MODELS_PRODUCTS: {
+      value: new model_products()
+    },
+    MODELS_IMAGES: {
+      value: new model_images()
+    },
     authorize: {
       get: function () {
         var email = Session.getActiveUser().getEmail();
@@ -56,64 +56,69 @@ var sjcArchiveOutput = Object.create(null, {
         return results;
       }
     },
-    createModel:{
-      value:function(type,keyval){
-      var model = this[type];
+    createModel: {
+      value: function (type, keyval) {
+        var model = this["MODELS_" + type];
         return model;
       }
     },
-    updateModel:{
-      value:function(type,id,keyval){
-          
+    updateModel: {
+      value: function (type, id, keyval) {
+
       }
     },
-    deleteModel:{
-      value: function(type,id){}
+    deleteModel: {
+      value: function (type, id) {}
     }
   });
-return sjcArchiveOutput;
+  return sjcArchiveOutput;
 }
 
-function getDataTableAttributes(type)
-{
-    try{
+function getDataTableAttributes(type) {
+  try {
     var et = new entity(type);
-    return {type:type,rec:JSON.parse(JSON.stringify(et.records)),attributes:JSON.parse(JSON.stringify(et.attributes))};
-    }catch(e){
-        return {err:e,type:type,rec:JSON.parse(JSON.stringify([])),attributes:JSON.parse(JSON.stringify([]))};
-    }
+    return {
+      type: type,
+      rec: JSON.parse(JSON.stringify(et.records)),
+      attributes: JSON.parse(JSON.stringify(et.attributes))
+    };
+  } catch (e) {
+    return {
+      err: e,
+      type: type,
+      rec: JSON.parse(JSON.stringify([])),
+      attributes: JSON.parse(JSON.stringify([]))
+    };
+  }
 }
 
-function insertRecord(obj)
-{
-    try
-    {  
-        var archiveOutPut = new modules_sjcarchive();              
-        return JSON.stringify(archiveOutPut.createModel(obj));
-        //continue here
-    }catch(e){
-        return JSON.stringify(["error", e.message,obj,this.sjcArchiveOutput]);
-    }
+function insertRecord(obj) {
+  try {
+    var archiveOutPut = new modules_sjcarchive();
+    return JSON.stringify(archiveOutPut.createModel(obj));
+    //continue here
+  } catch (e) {
+    return JSON.stringify(["error", e.message, obj, this.sjcArchiveOutput]);
+  }
 }
 
-function updateRecord(type,keyval,row)
-{    
-return [type,keyval];
-/*try{
-    var prop = PropertiesService.getScriptProperties().getProperty(type);
-    if(prop)
-    {
-        var doc = SpreadsheetApp.openById(prop);
-        var sheet = doc.getSheetByName("Sheet1");
-        var lastRow = sheet.getLastRow(),lastCol=sheet.getLastColumn();
-            
-        var cols = sheet.getRange(2,1,lastRow-1,lastCol);
-        var values = cols.getValues();
-        return values;
-    }else{
-        return false;
-    }}
-    catch(e){
-        return false;
-    }*/
+function updateRecord(type, keyval, row) {
+  return [type, keyval];
+  /*try{
+      var prop = PropertiesService.getScriptProperties().getProperty(type);
+      if(prop)
+      {
+          var doc = SpreadsheetApp.openById(prop);
+          var sheet = doc.getSheetByName("Sheet1");
+          var lastRow = sheet.getLastRow(),lastCol=sheet.getLastColumn();
+              
+          var cols = sheet.getRange(2,1,lastRow-1,lastCol);
+          var values = cols.getValues();
+          return values;
+      }else{
+          return false;
+      }}
+      catch(e){
+          return false;
+      }*/
 }
