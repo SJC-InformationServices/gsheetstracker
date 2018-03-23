@@ -4,7 +4,10 @@ var sjcArchiveOutput = Object.create(null, {
   },
   models:{
     value:{
-      
+      TRACKING:model_tracking(),
+      PRODUCTS:model_products(),
+      OFFERS:model_offers(),
+      IMAGES:model_images()      
     },
   },
   modules:{
