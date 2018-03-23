@@ -10,9 +10,11 @@ function getDataTableAttributes(type)
 
 function insertRecord(obj)
 {
-    try{                   
-        var etc = Object.create(sjcArchiveOutput.models[obj.type],{}).build(JSON.parse(obj));
-        return etc.toJson();
+    try
+    {
+        var archive = Object.create(sjcArchiveOutput);
+        return archive.createModel(obj).toJson();
+        //continue here
     }catch(e){
         return JSON.stringify(["error", e.message,obj,this]);
     }
