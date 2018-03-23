@@ -7,7 +7,7 @@ function modules_sjcarchive() {
       value: Object.create(null, {
             TRACKING: {
               get: function () {
-                return new model_tracking()
+                return new model_tracking();
               }
             },
             OFFERS:  {
