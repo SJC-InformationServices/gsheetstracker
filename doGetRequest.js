@@ -2,6 +2,11 @@ var sjcArchiveOutput = Object.create(null, {
   parameters: {
     value: {},
   },
+  models:{
+    value:{
+      "TRACKING":new track_model(),
+    },
+  },
   authorize: {
     get: function () {
       var email = Session.getActiveUser().getEmail();
