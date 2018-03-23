@@ -3,18 +3,18 @@ var sjcArchiveOutput = Object.create(null, {
     parameters: {
       value: {},
     },
-    models:{
-      value:{
-        TRACKING:model_tracking(),
-        PRODUCTS:model_products(),
-        OFFERS:model_offers(),
-        IMAGES:model_images()      
+    MODELS_TRACKING:{
+      value:new model_tracking()
+    },
+    MODELS_OFFERS:{
+        value:new model_offers()
       },
-    },
-    modules:{
-      value:{
-      }
-    },
+      MODELS_PRODUCTS:{
+        value:new model_products()
+      },
+      MODELS_IMAGES:{
+        value:new model_images()
+      },
     authorize: {
       get: function () {
         var email = Session.getActiveUser().getEmail();
@@ -58,7 +58,7 @@ var sjcArchiveOutput = Object.create(null, {
     },
     createModel:{
       value:function(type,keyval){
-        var model = Object.create(this.models[type],keyval);
+      var model = this.models[type],keyval);
         return model;
       }
     },
