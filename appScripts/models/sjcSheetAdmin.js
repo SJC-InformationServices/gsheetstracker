@@ -5,7 +5,7 @@ function sjcSheetAdmin(type) {
     this.sheetName = "Sheet1";
     this.uniqueKey =  "UPC";
     this.docKey = PropertiesService.getScriptProperties().getProperty(this.type);
-    this.doc = SpreadsheetApp.openById(this.docKey());
+    this.doc = SpreadsheetApp.openById(this.docKey);
     this.sheet = this.doc.getSheetByName(this.sheetName);
     this.lastRow = function () {
         return this.sheet().getLastRow();
