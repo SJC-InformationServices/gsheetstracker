@@ -91,5 +91,11 @@ function sjcSheetAdmin(type) {
         var c_row = this.searchByCol("ID", id);
 
     };
+    this.build = function (obj) {
+            for (var i in obj) {
+                this[i] = obj[i];
+            }
+            return this;
+        };
 
 }
