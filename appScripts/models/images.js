@@ -1,5 +1,4 @@
 function model_images(){
-_IMAGES = Object.create(null,{});
-return _IMAGES;
+    model_base.call(this,"IMAGES");
 }
-
+model_images.prototype = Object.create(model_base.prototype);

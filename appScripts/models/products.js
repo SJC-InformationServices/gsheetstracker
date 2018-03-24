@@ -1,4 +1,4 @@
 function model_products(){
-    _PRODUCTS = Object.create(null,{});
-    return _PRODUCTS;
+    model_base.call(this,"PRODUCTS");
 }
+model_products.prototype = Object.create(model_base.prototype);

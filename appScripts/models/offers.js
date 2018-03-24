@@ -1,4 +1,4 @@
 function model_offers(){
-_OFFERS = Object.create(null,{});
-return _OFFERS;
+    model_base.call(this,"OFFERS");
 }
+model_offers.prototype = Object.create(model_base.prototype);
