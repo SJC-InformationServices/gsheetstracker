@@ -8,10 +8,10 @@ function sjcSheetAdmin(type) {
     this.doc = SpreadsheetApp.openById(this.docKey);
     this.sheet = this.doc.getSheetByName(this.sheetName);
     this.lastRow = function () {
-        return this.sheet().getLastRow();
+        return this.sheet.getLastRow();
     };
     this.lastCol = function () {
-        return this.sheet().getLastColumn();
+        return this.sheet.getLastColumn();
     };
     this.sheetKeys = function () {
         var cacheKey = this.type + "-sheetKeys";
@@ -19,7 +19,7 @@ function sjcSheetAdmin(type) {
         if (cached != null) {
             return cached;
         }
-        var recs = this.sheet().getRange(1, 1, 1, this.lastCol()).getValues()[0];
+        var recs = this.sheet.getRange(1, 1, 1, this.lastCol()).getValues()[0];
         this.cache.put(cacheKey, recs, 180);
         return recs;
     };
@@ -29,12 +29,12 @@ function sjcSheetAdmin(type) {
         if (cached != null) {
             return cached;
         }
-        var recs = this.sheet().getRange(2, 1, this.lastRow() - 1, 1).getValues();
+        var recs = this.sheet.getRange(2, 1, this.lastRow() - 1, 1).getValues();
         this.cache.put(cacheKey, recs, 180);
         return recs;
     };
     this.nextId = function () {
-        var rng = this.sheet().getRange(2, 1, this.lastRow(), 1).getValues();
+        var rng = this.sheet.getRange(2, 1, this.lastRow(), 1).getValues();
         var nextKey = Math.max.apply(null, rng);
         return nextKey;
     };
@@ -42,12 +42,12 @@ function sjcSheetAdmin(type) {
         var c = this.properties[col].colIndex;
         var r = this.lastRow();
 
-        var rec = this.sheet().getRange(2, c + 1, this.lastRow() - 1).getValues();
+        var rec = this.sheet.getRange(2, c + 1, this.lastRow() - 1).getValues();
         var foundIndex = rec.findIndex(value);
 
         if (foundIndex != -1) {
-            var nextRow = this.sheet().getRange(foundIndex + 2, 1).getRowIndex();
-            return this.sheet().getRange(nextRow, 1, 1, this.lastCol()()).getValues()[0];
+            var nextRow = this.sheet.getRange(foundIndex + 2, 1).getRowIndex();
+            return this.sheet.getRange(nextRow, 1, 1, this.lastCol()()).getValues()[0];
         } else {
             return false;
         }
@@ -74,7 +74,7 @@ function sjcSheetAdmin(type) {
                 rowVals.push("");
             }
         }
-        this.sheet().appendRow(rowVals);
+        this.sheet.appendRow(rowVals);
         return keyval.ID;
     };
     this.updateRow = function (id, keyval) {
