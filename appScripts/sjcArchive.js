@@ -29,7 +29,7 @@ function sjcarchive() {
       };
     this.render=function ()
     {
-        var template = HtmlService.createTemplateFromFile(this.template);
+        var template = HtmlService.createTemplateFromFile(this.template());
         results = template.evaluate();
         results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
         results.setTitle('SJC McKesson Archive Manager');
