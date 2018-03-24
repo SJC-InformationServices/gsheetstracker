@@ -58,6 +58,7 @@ function sjcSheetAdmin(type) {
             var uk = this.uniqueKey;
             var isUnique = this.searchByCol(uk, keyval[uk]);
             if (isUnique) {
+                Logger.log({"Error":"Duplicate Entry","obj":keyval});
                 return false;
             }
         }
@@ -77,7 +78,7 @@ function sjcSheetAdmin(type) {
         this.sheet.appendRow(rowVals);
         return keyval.ID;
     };
-    this.updateRow = function (id, keyval) {
+    this.updateRow = function (keyval) {
         var c_row = this.searchByCol("ID", id);
     };
     this.removeRow = function (id) {

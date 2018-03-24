@@ -61,7 +61,8 @@ function insertRecord(obj) {
     var archiveOutPut = new sjcarchive();
     var model = archiveOutPut.MODELS[obj.type];
     model.build(obj);
-    return JSON.stringify([model.record(),model,obj]);
+    var rec = model.save();
+    return JSON.stringify([model.record(),rec]);
     //continue here
   } catch (e) {
     return JSON.stringify(["error", e.message, obj, this.sjcArchiveOutput]);

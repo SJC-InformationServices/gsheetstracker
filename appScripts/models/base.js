@@ -10,9 +10,16 @@ function model_base(type)
         }
         return obj;
     }; 
-    this.save = function(){};
-    this.update = function(){};
-    this.remove= function(){};
+    this.save = function(){
+        //todo: validation Rules etc
+        return this.insertRow(this.record());
+    };
+    this.update = function(){
+        this.updateRow(this.record())
+    };
+    this.remove= function(){
+        this.removeRow(this.record());
+    };
     
 }
 model_base.prototype = Object.create(sjcSheetAdmin.prototype);
