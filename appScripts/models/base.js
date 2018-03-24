@@ -1,8 +1,8 @@
 
 function model_base(type) 
 {
-    sjcSheetAdmin.call(this,type) ;
-    this.toJson =function () {
+    
+    this.modeltoJson =function () {
         var obj = {};
         var k = this.sheetKeys();
         for (var i = 0; i < k.length; i++) {
@@ -13,6 +13,6 @@ function model_base(type)
     this.save = function(){};
     this.update = function(){};
     this.remove= function(){};
-    
+    sjcSheetAdmin.call(this,type) ;
 }
 model_base.prototype = Object.create(sjcSheetAdmin.prototype);
