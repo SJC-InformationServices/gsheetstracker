@@ -17,20 +17,20 @@ function sjcSheetAdmin(type) {
         var cacheKey = this.type + "-sheetKeys";
         var cached = this.cache.get(cacheKey);
         if (cached != null) {
-            return cached;
+            return JSON.parse(cached);
         }
-        var recs = this.sheet.getRange(1, 1, 1, this.lastCol()).getValues();
-        this.cache.put(cacheKey, recs, 180);
+        var recs = this.sheet.getRange(1, 1, 1, this.lastCol()).getValues()[0];
+        this.cache.put(cacheKey, JSON.stringify(recs), 180);
         return recs;
     };
     this.records = function () {
         var cacheKey = this.type + "-records";
         var cached = this.cache.get(cacheKey);
         if (cached != null) {
-            return cached;
+            return JSON.parse(cached);
         }
         var recs = this.sheet.getRange(2, 1, this.lastRow() - 1, 1).getValues();
-        this.cache.put(cacheKey, recs, 180);
+        this.cache.put(cacheKey, JSON.stringify(recs), 180);
         return recs;
     };
     this.nextId = function () {
