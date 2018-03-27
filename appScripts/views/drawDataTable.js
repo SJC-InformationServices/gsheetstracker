@@ -1,5 +1,6 @@
 function drawDataTable(type)
 {
+    this.type = type;
     this.sheetAdmin = new sjcSheetAdmin(type);
 
     this.getTableHead = function()
@@ -15,15 +16,15 @@ function drawDataTable(type)
         return tbl;
     };
 
-    this.tableContents = function(type)
+    this.tableContents = function()
     {
       return {
-        type: type,
+        type: this.type,
         rec: this.sheetAdmin.records(),
         attributes: this.sheetAdmin.sheetKeys()
       };
     }
-
+  }
 function getDataTableContents(type) 
 {
   var ddt = new drawDataTable(type);
