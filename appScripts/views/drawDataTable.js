@@ -14,7 +14,8 @@ function drawDataTable(type)
 }
 drawDataTable.prototype = Object.create(sjcSheetAdmin.prototype);
 
-function getDataTableContents(type) {
+function getDataTableContents(type) 
+{
   this.type = type;
 
   try {
@@ -22,7 +23,7 @@ function getDataTableContents(type) {
     return {
       type: type,
       rec: JSON.parse(JSON.stringify(this.records())),
-      attributes: JSON.parse(JSON.stringify(this.sheetKeys))
+      attributes: JSON.parse(JSON.stringify(this.sheetKeys()))
     };
   } catch (e) {
     return {
