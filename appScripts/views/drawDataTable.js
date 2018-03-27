@@ -1,7 +1,9 @@
 function drawDataTable(type)
 {
     this.sheetAdmin = new sjcSheetAdmin(type);
-    this.getTableHead = function(){
+
+    this.getTableHead = function()
+    {
       var attribs = this.sheetAdmin.sheetKeys();
       var tbl = '<table id="'+this.type+'TABLE" class="display compact" width="98%" cellspacing="0"><thead><tr>';
     
@@ -13,30 +15,19 @@ function drawDataTable(type)
         return tbl;
     };
 
-    this.tableContents = function()
+    this.tableContents = function(type)
     {
-      try{
-    
       return {
         type: type,
-        rec: JSON.parse(JSON.stringify(this.sheetAdmin.records())),
-        attributes: JSON.parse(JSON.stringify(this.sheetAdmin.sheetKeys()))
-      };
-    } catch (e) {
-      return {
-        err: e.message,
-        type: type,
-        rec: JSON.parse(JSON.stringify([])),
-        attributes: JSON.parse(JSON.stringify([]))
+        rec: this.sheetAdmin.records(),
+        attributes: this.sheetAdmin.sheetKeys()
       };
     }
-  };
-}
 
 function getDataTableContents(type) 
 {
   var ddt = new drawDataTable(type);
-  return ddt.tableContents();
+  return ddt.tableContents(type);
    
 }
 
