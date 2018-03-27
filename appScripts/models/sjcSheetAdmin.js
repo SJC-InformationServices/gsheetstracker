@@ -17,10 +17,10 @@ function sjcSheetAdmin(type) {
         var cacheKey = this.type + "-sheetKeys";
         var cached = this.cache.get(cacheKey);
         if (cached != null) {
-            return cached;
+            return JSON.parse(cached);
         }
         var recs = this.sheet.getRange(1, 1, 1, this.lastCol()).getValues()[0];
-        this.cache.put(cacheKey, recs, 180);
+        this.cache.put(cacheKey, JSON.stringify(recs), 180);
         return recs;
     };
     this.records = function () {
