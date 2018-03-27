@@ -64,8 +64,8 @@
   </div>
 </div>
 <script>
-        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableContents("TRACKING");
-        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableContents("IMAGES");
-        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableContents("PRODUCTS");
-        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableContents("OFFERS");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("TRACKING");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("IMAGES");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("PRODUCTS");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("OFFERS");
 </script>
