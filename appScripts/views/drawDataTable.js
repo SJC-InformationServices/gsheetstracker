@@ -12,17 +12,10 @@ function drawDataTable(type)
       }
         tbl += "</tr></thead><tbody></tbody></table>";
         return tbl;
-    }
-}
-drawDataTable.prototype = Object.create(sjcSheetAdmin.prototype);
-
-function getDataTableContents(type) 
-{
-  
-  sjcSheetAdmin.call(this,type);
-  this.tableContents = function(){
-    try{
-  
+    };
+    this.tableContents = function(){
+      try{
+    
       return {
         type: type,
         rec: JSON.parse(JSON.stringify(this.records())),
@@ -36,6 +29,14 @@ function getDataTableContents(type)
         attributes: JSON.parse(JSON.stringify([]))
       };
     }
-  };
+    };
 }
-getDataTableContents.prototype = Object.create(sjcSheetAdmin.prototype);
+drawDataTable.prototype = Object.create(sjcSheetAdmin.prototype);
+
+function getDataTableContents(type) 
+{
+  
+  return new drawDataTable(type).tableContents();
+   
+}
+
