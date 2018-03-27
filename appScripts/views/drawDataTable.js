@@ -23,7 +23,7 @@ function drawDataTable(type)
       };
     } catch (e) {
       return {
-        err: e,
+        err: e.message,
         type: type,
         rec: JSON.parse(JSON.stringify([])),
         attributes: JSON.parse(JSON.stringify([]))
