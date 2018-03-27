@@ -1,6 +1,6 @@
 function drawDataTable(type)
 {
-    
+    sjcSheetAdmin.call(this,type);
     var attribs = this.sheetKeys();
     var tbl = '<table id="'+this.type+'TABLE" class="display compact" width="98%" cellspacing="0"><thead><tr>';
     
@@ -17,9 +17,8 @@ drawDataTable.prototype = Object.create(sjcSheetAdmin.prototype);
 function getDataTableContents(type) 
 {
   
-
-  try
-  {
+  sjcSheetAdmin.call(this,type);
+  try{
   
     return {
       type: type,
