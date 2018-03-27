@@ -7,6 +7,7 @@ function doGet(e)
   try{
     var archiveOutPut = new sjcarchive();
     archiveOutPut.parameters=e.parameter;
+    
    return archiveOutPut.render();   
   }
   catch(e){
