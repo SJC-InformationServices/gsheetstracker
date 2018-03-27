@@ -7,5 +7,4 @@ while (docs.hasNext()){
   var doc = docs.next();
   SCRIPT_PROP.setProperty(doc.getName(),doc.getId());
 }
-SCRIPT_PROP.setProperty('KEYFIELDS',keyFields);
 }
