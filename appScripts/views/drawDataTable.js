@@ -18,7 +18,8 @@ function getDataTableContents(type)
 {
   
 
-  try {
+  try
+  {
   
     return {
       type: type,
@@ -33,5 +34,6 @@ function getDataTableContents(type)
       attributes: JSON.parse(JSON.stringify([]))
     };
   }
+
 }
 getDataTableContents.prototype = Object.create(sjcSheetAdmin.prototype);
