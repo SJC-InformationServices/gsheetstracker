@@ -23,7 +23,7 @@ function sjcSheetAdmin(type) {
         this.cache.put(cacheKey, recs, 180);
         return recs;
     };
-    records = function () {
+    this.records = function () {
         var cacheKey = this.type + "-records";
         var cached = this.cache.get(cacheKey);
         if (cached != null) {
