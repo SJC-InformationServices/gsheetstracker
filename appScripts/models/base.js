@@ -2,7 +2,7 @@
 function model_base(type) 
 {
     sjcSheetAdmin.call(this,type) ;
-    this.record=function () {
+    this.recordSet=function () {
         var obj = {};
         var k = this.sheetKeys();
         for (var i = 0; i < k.length; i++) {
