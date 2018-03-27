@@ -19,7 +19,7 @@ function sjcSheetAdmin(type) {
         if (cached != null) {
             return cached;
         }
-        var recs = this.sheet.getRange(1, 1, 1, this.lastCol()).getValues()[0];
+        var recs = this.sheet.getRange(1, 1, 1, this.lastCol()).getValues();
         this.cache.put(cacheKey, recs, 180);
         return recs;
     };
