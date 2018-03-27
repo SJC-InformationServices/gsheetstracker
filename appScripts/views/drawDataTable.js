@@ -18,11 +18,11 @@ function drawDataTable(type)
 
     this.tableContents = function()
     {
-      return JSON.stringify({
+      return {
         type: this.type,
-        rec: this.sheetAdmin.records(),
-        attributes: this.sheetAdmin.sheetKeys()
-      });
+        rec: JSON.parse(JSON.stringify(this.sheetAdmin.records())),
+        attributes: JSON.parse(JSON.stringify(this.sheetAdmin.sheetKeys()))
+      };
     }
   }
 function getDataTableContents(type) 
