@@ -40,32 +40,32 @@
           </div>
         </div>      
       
-      <? var et = drawDataTable("TRACKING"); ?>
+      <? var et = new drawDataTable("TRACKING"); ?>
       <? output.append(et); ?>
       
   </div>
   <div id="images" class="tab-pane">             
       
-      <? var et = drawDataTable("IMAGES"); ?>
+      <? var et = new drawDataTable("IMAGES"); ?>
       <? output.append(et.tableHead); ?>
       
   </div>
   <div id="products" class="tab-pane">
       
-      <? var et = drawDataTable("PRODUCTS"); ?>
+      <? var et = new drawDataTable("PRODUCTS"); ?>
       <? output.append(et.tableHead); ?>
       
   </div>
   <div id="offers" class="tab-pane">
 
-      <? var et = drawDataTable("OFFERS"); ?>
+      <? var et = new drawDataTable("OFFERS"); ?>
       <? output.append(et.tableHead); ?>
       
   </div>
 </div>
 <script>
-       /* google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableContents("TRACKING");
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableContents("TRACKING");
         google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableContents("IMAGES");
         google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableContents("PRODUCTS");
-        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableContents("OFFERS");*/
+        google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(renderDataTable).getDataTableContents("OFFERS");
 </script>
