@@ -9,29 +9,11 @@ function model_tracking() {
     this.IN_SJC_COUNT = null;
     this.OUT_SJC = null;
     this.OUT_SJC_COUNT = null;
-
-
-
     this.PHOTODONE = null;
-
-
-
     this.PHOTO_DONE_COUNT = null;
-
-
-
     this.RECORD_COMPLETE = null;
-
-
-
     this.LAST_USER = null;
-
-
-
     this.CREATEDON = null;
-
-
-
     this.UPDATEDON = null;
 }
 model_tracking.prototype = Object.create(model_base.prototype);
