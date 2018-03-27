@@ -37,7 +37,7 @@ function sjcSheetAdmin(type) {
                 
             }
         }
-        var recs = this.sheet.getRange(2, 1, this.lastRow() - 1, 1).getValues();
+        var recs = this.sheet.getRange(2, 1, this.lastRow() - 1, 1).getValues()[0];
         this.cache.put(cacheKey, JSON.stringify(recs), 180);
         return recs;
     };
