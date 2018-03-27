@@ -1,6 +1,7 @@
 <script type="text/javascript" async defer>
     function renderDataTable(x){
       console.dir(x);
+      try{
         var tbl=x.type,d=x.rec,attrib=x.attributes,a=[],editor;
         for(var i = 0;i<attrib.length;i++)
         {
@@ -44,7 +45,9 @@
 		]
   });
   
-
+      }catch(e){
+        console.dir(e);
+      }
 
 
   return true;
