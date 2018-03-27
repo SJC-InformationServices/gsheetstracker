@@ -15,7 +15,7 @@ function model_base(type)
         return this.insertRow(this.record());
     };
     this.update = function(){
-        this.updateRow(this.record())
+        this.updateRow(this.record());
     };
     this.remove= function(){
         this.removeRow(this.record());
