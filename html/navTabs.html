@@ -40,25 +40,25 @@
           </div>
         </div>      
       
-      <? var et = new drawDataTable("TRACKING"); ?>
+      <? var et = new drawDataTable("TRACKING").getTableHead(); ?>
       <? output.append(et); ?>
       
   </div>
   <div id="images" class="tab-pane">             
       
-      <? var et = new drawDataTable("IMAGES"); ?>
+      <? var et = new drawDataTable("IMAGES").getTableHead(); ?>
       <? output.append(et.tableHead); ?>
       
   </div>
   <div id="products" class="tab-pane">
       
-      <? var et = new drawDataTable("PRODUCTS"); ?>
+      <? var et = new drawDataTable("PRODUCTS").getTableHead(); ?>
       <? output.append(et.tableHead); ?>
       
   </div>
   <div id="offers" class="tab-pane">
 
-      <? var et = new drawDataTable("OFFERS"); ?>
+      <? var et = new drawDataTable("OFFERS").getTableHead(); ?>
       <? output.append(et.tableHead); ?>
       
   </div>
