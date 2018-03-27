@@ -13,7 +13,8 @@ function drawDataTable(type)
         tbl += "</tr></thead><tbody></tbody></table>";
         return tbl;
     };
-    this.tableContents = function(){
+    this.tableContents = function()
+    {
       try{
     
       return {
@@ -29,14 +30,14 @@ function drawDataTable(type)
         attributes: JSON.parse(JSON.stringify([]))
       };
     }
-    };
+  };
 }
 drawDataTable.prototype = Object.create(sjcSheetAdmin.prototype);
 
 function getDataTableContents(type) 
 {
-  
-  return new drawDataTable(type).tableContents();
+  var ddt = new drawDataTable(type);
+  return ddt.tableContents();
    
 }
 
