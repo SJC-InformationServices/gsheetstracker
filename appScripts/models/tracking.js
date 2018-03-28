@@ -1,6 +1,14 @@
-function model_tracking() {
+class model_tracking_b{
+    
+    constructor(keyval){
+        
+    }
+
+}
+function model_tracking(keyval) {
 
     model_base.call(this,"TRACKING");
+
     this.ID = null;
     this.UPC = null;
     this.TRACKED_UPC = null;
@@ -15,5 +23,10 @@ function model_tracking() {
     this.LAST_USER = null;
     this.CREATEDON = null;
     this.UPDATEDON = null;
+    
+    for(var i in keyval){
+        this[i] = keyval[i];
+    }
+    return this;
 }
 model_tracking.prototype = Object.create(model_base.prototype);

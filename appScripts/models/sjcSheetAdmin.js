@@ -39,12 +39,13 @@ function sjcSheetAdmin(type) {
         }
         try{
         var recs = this.sheet.getRange(2, 1, this.lastRow() - 1, this.lastCol()).getValues();
+        var cacheobj = JSON.stringify(recs);
+        this.cache.put(cacheKey, cacheobj, 180);
+        return recs;
         }catch(e){
             return [];
         }
-
-        this.cache.put(cacheKey, JSON.stringify(recs), 180);
-        return recs;
+        
     };
     this.nextId = function () {
         var rng = this.sheet.getRange(2, 1, this.lastRow(), 1).getValues();

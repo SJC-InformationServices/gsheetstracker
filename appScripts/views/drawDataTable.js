@@ -23,7 +23,7 @@ function drawDataTable(type)
         rec: JSON.parse(JSON.stringify(this.sheetAdmin.records())),
         attributes: JSON.parse(JSON.stringify(this.sheetAdmin.sheetKeys()))
       };
-    }
+    };
   }
 function getDataTableContents(type) 
 {
