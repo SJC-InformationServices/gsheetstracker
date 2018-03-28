@@ -24,8 +24,3 @@ function model_tracking(keyval) {
     return this;
 }
 model_tracking.prototype = Object.create(model_base.prototype);
-Object.defineProperty(model_tracking,"ID",{
-    set:function(){
-        
-    }
-});

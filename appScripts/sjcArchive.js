@@ -1,5 +1,5 @@
 function sjcarchive() {
-  this.parameters= {};
+  this.parameters= {request:'default'};
   this.MODELS = 
     {
         TRACKING: new model_tracking(),
@@ -29,12 +29,22 @@ function sjcarchive() {
       };
     this.render=function ()
     {
+        switch(this.parameters.request)
+        {
+        case 'api':
+        var results = ContentService
+        .createTextOutput(JSON.stringify([]))
+        .setMimeType(ContentService.MimeType.JSON);
+        break;
+        case 'default':
         var template = HtmlService.createTemplateFromFile(this.template());
         results = template.evaluate();
         results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
         results.setTitle('SJC McKesson Archive Manager');
         results.addMetaTag('viewport', 'width=device-width, initial-scale=1');
         return results;
+        break;
+      }
     };  
 }
 
