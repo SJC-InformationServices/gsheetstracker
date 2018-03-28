@@ -40,7 +40,10 @@
 
 
       editor = new $.fn.dataTable.Editor(editorObject);      
-  
+      var colDefs = [];
+      for(var i=0;i<attrib.length;i++){
+        colDefs.push(i);
+      }
       var dt = $('#'+tbl+'TABLE').DataTable({
       dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
       data:d,
@@ -61,8 +64,9 @@
 			{ extend: 'remove', editor: editor }
     ],
     "columnDefs": [ {
-      "targets": Array.from({length:attrib.length}),
-      "searchable": true
+      "targets": colDefs,
+      "searchable": true,
+      "defaultContent": ""
     } ]
   });
   
