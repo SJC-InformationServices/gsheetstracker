@@ -1,10 +1,4 @@
-class model_tracking_b{
-    
-    constructor(keyval){
 
-    }
-
-};
 function model_tracking(keyval) {
 
     model_base.call(this,"TRACKING");
@@ -30,3 +24,8 @@ function model_tracking(keyval) {
     return this;
 }
 model_tracking.prototype = Object.create(model_base.prototype);
+Object.defineProperty(model_tracking,"ID",{
+    set:function(){
+        
+    }
+});
