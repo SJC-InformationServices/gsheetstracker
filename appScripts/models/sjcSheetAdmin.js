@@ -27,24 +27,30 @@ function sjcSheetAdmin(type) {
         this.cache.put(cacheKey, JSON.stringify(recs), 180);
         return recs;
     };
-    this.records = function () {
+    this.records = function () 
+    {
         var cacheKey = this.type + "-records";
         var cached = this.cache.get(cacheKey);
-        if (cached != null) {
-            try{
-            return JSON.parse(cached);
-            }catch(e){
-                
-            }
-        }
-        try{
-        var recs = this.sheet.getRange(2, 1, this.lastRow() - 1, this.lastCol()).getValues();
-        }catch(e){
-            return [];
+        if (cached != null)
+        {
+            try{return JSON.parse(cached);}catch(e){}
         }
 
-        this.cache.put(cacheKey, JSON.stringify(recs), 180);
-        return recs;
+        try
+        {
+            var keys = this.sheetKeys();
+            var values = this.sheet.getRange(2, 1, this.lastRow() - 1, this.lastCol()).getValues();
+            var recs = [];
+            for(var i = 0;i<values.length;i++)
+            {
+                recs.push(array_combine(keys, values[i]));
+            }
+            var cacheobj = JSON.stringify(recs);
+            this.cache.put(cacheKey, cacheobj, 180);
+            return recs;
+        }catch(e){
+            return [];
+        }   
     };
     this.nextId = function () {
         var rng = this.sheet.getRange(2, 1, this.lastRow(), 1).getValues();
