@@ -49,14 +49,21 @@
       autowidth:false,
       deferRender: true,
       keys:true,
-      select:{style:'single',items:'row',blurable:false},                                    
+      select:{
+        style:'single',
+        items:'row',
+        blurable:false},                                    
       idSrc:"ID",
       buttons: [
 			"excel",
 			{ extend: 'create', editor: editor },
 			{ extend: 'edit',   editor: editor },
 			{ extend: 'remove', editor: editor }
-		]
+    ],
+    "columnDefs": [ {
+      "targets": Array.from({length:attrib.length}),
+      "searchable": true
+    } ]
   });
   
 
