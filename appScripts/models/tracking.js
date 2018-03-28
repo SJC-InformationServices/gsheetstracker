@@ -1,10 +1,10 @@
 class model_tracking_b{
     
     constructor(keyval){
-        
+
     }
 
-}
+};
 function model_tracking(keyval) {
 
     model_base.call(this,"TRACKING");
