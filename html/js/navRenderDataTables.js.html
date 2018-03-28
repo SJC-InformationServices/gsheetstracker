@@ -43,8 +43,9 @@
   
       var dt = $('#'+tbl+'TABLE').DataTable({
       dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
-      ajax:{url:"/?api=true&request="+tbl,},
-      paging:false,
+      ajax:{url:"/?api=true&request="+tbl,dataType:"jsonp"},    
+      serverSide: true,
+      paging:true,
       processing:true,
       autowidth:false,
       deferRender: true,
