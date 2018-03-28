@@ -29,12 +29,20 @@ function sjcarchive() {
       };
     this.render=function ()
     {
+      var results;
         switch(this.parameters.request)
         {
         case 'api':
-        var results = ContentService
-        .createTextOutput(JSON.stringify([]))
+        try{
+        var sheets = new sjcSheetAdmin(this.parameters.type);
+        results = ContentService
+        .createTextOutput(JSON.stringify(sheets.records()))
         .setMimeType(ContentService.MimeType.JSON);
+        }catch(e){
+          results = ContentService
+          .createTextOutput(JSON.stringify([]))
+          .setMimeType(ContentService.MimeType.JSON);  
+        }
         break;
         default:
         var template = HtmlService.createTemplateFromFile(this.template());
