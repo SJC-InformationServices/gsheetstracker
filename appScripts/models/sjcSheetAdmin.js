@@ -38,7 +38,13 @@ function sjcSheetAdmin(type) {
             }
         }
         try{
-        var recs = this.sheet.getRange(2, 1, this.lastRow() - 1, this.lastCol()).getValues();
+            var keys = this.sheetKeys;
+            var values = this.sheet.getRange(2, 1, this.lastRow() - 1, this.lastCol()).getValues();
+            var recs = [];
+        for(var i = 0;i<values.length;i++){
+          recs.push(array_combine(keys, values[i]));
+        }
+        
         var cacheobj = JSON.stringify(recs);
         this.cache.put(cacheKey, cacheobj, 180);
         return recs;
