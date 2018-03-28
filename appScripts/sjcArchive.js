@@ -42,9 +42,10 @@ function sjcarchive() {
         results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
         results.setTitle('SJC McKesson Archive Manager');
         results.addMetaTag('viewport', 'width=device-width, initial-scale=1');
-        return results;
+        
         break;
       }
+      return results;
     };  
 }
 
