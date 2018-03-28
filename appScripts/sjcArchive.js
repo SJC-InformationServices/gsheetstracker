@@ -1,5 +1,5 @@
 function sjcarchive() {
-  this.parameters= {request:'default'};
+  this.parameters= {};
   this.MODELS = 
     {
         TRACKING: new model_tracking(),
@@ -36,7 +36,7 @@ function sjcarchive() {
         .createTextOutput(JSON.stringify([]))
         .setMimeType(ContentService.MimeType.JSON);
         break;
-        case 'default':
+        case default:
         var template = HtmlService.createTemplateFromFile(this.template());
         results = template.evaluate();
         results.setFaviconUrl("https://s3.amazonaws.com/sjcarchiveassets/lib/images/favicon.ico");
