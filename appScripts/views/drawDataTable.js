@@ -20,7 +20,7 @@ function drawDataTable(type)
     {
       return {
         type: this.type,
-        rec: JSON.parse(JSON.stringify(this.sheetAdmin.records())),
+        rec: this.sheetAdmin.records(),
         attributes: JSON.parse(JSON.stringify(this.sheetAdmin.sheetKeys()))
       };
     };
