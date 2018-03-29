@@ -2,6 +2,8 @@ function drawDataTable(type)
 {
     this.type = type;
     this.sheetAdmin = new sjcSheetAdmin(type);
+    var modelname = "model_"+type;
+    var model = new this.MODELS[type]();
 
     this.getTableHead = function()
     {
@@ -18,10 +20,11 @@ function drawDataTable(type)
 
     this.tableContents = function()
     {
+      
       return {
         type: this.type,
         rec: this.sheetAdmin.records(),
-        coldef:this.sheetAdmin.attributeSet(),
+        coldef:model.attributeSet(),
         attributes: JSON.parse(JSON.stringify(this.sheetAdmin.sheetKeys()))
       };
     };

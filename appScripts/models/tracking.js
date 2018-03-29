@@ -1,4 +1,8 @@
 
+if(typeof this.MODELS == "undefined"){
+    this.MODELS={};
+}
+this.MODELS.TRACKING = model_tracking;
 function model_tracking(keyval) {
 
     model_base.call(this,"TRACKING");

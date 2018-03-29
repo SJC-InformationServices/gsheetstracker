@@ -1,3 +1,7 @@
+if(typeof this.MODELS == "undefined"){
+    this.MODELS={};
+}
+this.MODELS.PRODUCTS = model_products;
 function model_products(){
     model_base.call(this,"PRODUCTS");
 }

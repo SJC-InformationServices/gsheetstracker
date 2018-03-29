@@ -1,3 +1,8 @@
+if(typeof this.MODELS == "undefined"){
+    this.MODELS={};
+}
+this.MODELS.OFFERS = model_offers;
+
 function model_offers(){
     model_base.call(this,"OFFERS");
 }

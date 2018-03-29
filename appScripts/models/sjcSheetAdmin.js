@@ -1,3 +1,7 @@
+if(typeof this.MODELS == "undefined"){
+    this.MODELS={};
+}
+this.MODELS.sjcSheetAdmin = model_sjcSheetAdmin;
 function sjcSheetAdmin(type) {
 
     this.cache = CacheService.getScriptCache();
