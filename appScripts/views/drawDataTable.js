@@ -28,7 +28,7 @@ function drawDataTable(type)
         editor:model.editor
       };
     }catch(E){
-      return {tableid:model.tableId,datatable:{},editor:{}}
+      return {tableid:model.tableId,datatable:{},editor:{}};
     }
     };
   }
