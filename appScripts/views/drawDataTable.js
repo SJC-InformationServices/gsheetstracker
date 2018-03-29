@@ -40,11 +40,11 @@ function getDataTableContents(type)
 }
 function insertRecord(obj) {
 
-    this.type = obj;
+    /*this.type = obj;
     var modelfunc = eval("model_"+this.type.toLowerCase());
     var model = new modelfunc();
     model.build(obj.rec);
-    model.save();
+    model.save();*/
     return obj;
 }
 
