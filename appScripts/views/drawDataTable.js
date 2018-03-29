@@ -21,12 +21,15 @@ function drawDataTable(type)
 
     this.tableContents = function()
     {
-      
+      try{
       return {
         tableid:model.tableId,
         datatable:model.datatable,
         editor:model.editor
       };
+    }catch(E){
+      return {tableid:model.tableId,datatable:{},editor:{}}
+    }
     };
   }
 function getDataTableContents(type) 
