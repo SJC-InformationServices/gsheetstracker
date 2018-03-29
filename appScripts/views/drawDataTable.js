@@ -3,7 +3,7 @@ function drawDataTable(type)
 {
     this.type = type;
     this.sheetAdmin = new sjcSheetAdmin(type);
-    var model = eval("model_"+type)();
+    var model = eval("model_"+type.toLowerCase())();
 
     this.getTableHead = function()
     {
