@@ -1,8 +1,5 @@
 
-if(typeof this.MODELS == "undefined"){
-    this.MODELS={};
-}
-this.MODELS.TRACKING = model_tracking;
+
 function model_tracking(keyval) {
 
     model_base.call(this,"TRACKING");
@@ -43,3 +40,7 @@ function model_tracking(keyval) {
     return this;
 }
 model_tracking.prototype = Object.create(model_base.prototype);
+if(typeof this.MODELS == "undefined"){
+    this.MODELS={};
+}
+this.MODELS.TRACKING = model_tracking;

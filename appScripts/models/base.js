@@ -1,9 +1,3 @@
-
-if(typeof this.MODELS == "undefined"){
-    this.MODELS={};
-}
-this.MODELS.BASE = model_base;
-
 function model_base(type) 
 {
     sjcSheetAdmin.call(this,type);
@@ -43,3 +37,7 @@ function model_base(type)
     
 }
 model_base.prototype = Object.create(sjcSheetAdmin.prototype);
+if(typeof this.MODELS == "undefined"){
+    this.MODELS={};
+}
+this.MODELS.BASE = model_base;
