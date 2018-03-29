@@ -24,7 +24,7 @@ function drawDataTable(type)
       try{
       return {
         tableid:model.tableId,
-        datatable:model.datatable,
+        datatable:model.dataTable,
         editor:model.editor
       };
     }catch(E){
