@@ -23,10 +23,9 @@ function drawDataTable(type)
     {
       
       return {
-        type: this.type,
-        rec: JSON.parse(JSON.stringify(this.sheetAdmin.records())),
-        coldef:JSON.parse(JSON.stringify(model.columnDefition)),
-        attributes: JSON.parse(JSON.stringify(this.sheetAdmin.sheetKeys()))
+        tableid:model.tableId,
+        datatable:model.datatable,
+        editor:model.editor
       };
     };
   }
