@@ -13,9 +13,9 @@ function model_tracking(keyval) {
         {"data":"OUT_SJC","defaultContent": "","editable":false,"type":"datetime"},
         {"data":"OUT_SJC_CONTENT","defaultContent": "","editable":false},
         {"data":"PHOTODONE","defaultContent": "","type":"datetime"},
-        {"data":"PHOTO_DONE_COUNT","defaultContent": "","searchable": false},
+        {"data":"PHOTO_DONE_COUNT","defaultContent": "",},
         {"data":"RECORD_COMPLETE","defaultContent": "","type":"datetime"},
-        {"data":"LAST_USER","defaultContent": "","searchable": false},
+        {"data":"LAST_USER","defaultContent": "",},
         {"data":"CREATEDON","defaultContent": "","editable":false,"type":"datetime"},
         {"data":"UPDATEDON","defaultContent": "","editable":false,"type":"datetime"}
       ];
