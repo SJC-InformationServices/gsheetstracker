@@ -22,9 +22,11 @@
         {
           colDefs.push({"data":coldef[i].data,"defaultContent":coldef[i].defaultContent});
         }
-        for(var i = 0;i<attrib.length;i++)
+        for(var i = 0;i<colDefs.length;i++)
         {
-          a.push({"name":attrib[i],"type":"text","label":attrib[i]});
+          if(typeof colDefs[i].editable !== "undefined" && colDefs[i].editable){
+            a.push({"name":colDefs[i],"type":"text","label":colDefs[i].toUpperCase()});
+          }
         }
         var editorObject = {
           idSrc:"ID",
