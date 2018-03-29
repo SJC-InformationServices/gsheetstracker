@@ -1,7 +1,12 @@
 
+if(typeof this.MODELS == "undefined"){
+    this.MODELS={};
+}
+this.MODELS.BASE = model_base;
+
 function model_base(type) 
 {
-    sjcSheetAdmin.call(this,type) ;
+    sjcSheetAdmin.call(this,type);
 
     this.attributeSet = function(){
         try{
