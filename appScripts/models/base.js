@@ -10,7 +10,7 @@ function model_base(type)
 
     this.attributeSet = function(){
         try{
-            return this.this.columnDefition;
+            return this.columnDefition;
         }
         catch(E){
             return [
