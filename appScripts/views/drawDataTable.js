@@ -44,12 +44,22 @@ function insertRecord(obj) {
     var modelfunc = eval("model_"+this.type.toLowerCase());
     var model = new modelfunc();
     model.build(obj.rec);
-
+    model.save();
 }
 
-function updateRecord(type, keyval, row) {
-  
+function updateRecord(obj) 
+{
+  if(obj.ID > 0)
+  {
+
+  }
+  return false;
 }
-function deleteRecord(type,keyval,row){
-  
+function deleteRecord(obj)
+{
+  if(obj.ID > 0)
+  {
+
+  }
+  return false;
 }
