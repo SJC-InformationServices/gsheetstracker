@@ -45,7 +45,7 @@ function insertRecord(obj) {
     var model = new modelfunc();
     model.build(obj.rec);
     model.save();
-    
+    return obj;
 }
 
 function updateRecord(obj) 
