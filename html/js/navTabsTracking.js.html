@@ -8,11 +8,13 @@
 
   $merchin.on('submit', function (e) {
     e.preventDefault();
-    var obj = {};
-    obj.type = "TRACKING";
-
+    var obj = {
+      type:"TRACKING",
+      rec:{}
+    };
+    
     var d = new Date();
-    obj.IN_SJC = [
+    obj.rec.IN_SJC = [
       d.getFullYear(),
       d.getMonth() + 1,
       d.getDate()
@@ -21,10 +23,11 @@
     ].join(':');
 
     var rec = $(this).serializeArray();
-    for (var i = 0; i < rec.length; i++) {
+    for (var i = 0; i < rec.length; i++) 
+    {
       var n = rec[i].name;
       var v = rec[i].value;
-      obj[n] = v;
+      obj[rec][n] = v;
     }
     google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
   });
