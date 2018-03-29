@@ -20,15 +20,15 @@ function model_products(){
             "excel",
             {
                 extend: 'create',
-                editor: editor
+                
             },
             {
                 extend: 'edit',
-                editor: editor
+                
             },
             {
                 extend: 'remove',
-                editor: editor
+                
             }
         ],
         columns : [{
