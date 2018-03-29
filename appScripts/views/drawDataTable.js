@@ -6,7 +6,7 @@ function drawDataTable(type)
     var modelname = "model_"+type;
     console.log({message: 'Function Input', initialData: this});
     console.log({message: 'Function Input', initialData: thisObj});
-    var model = new this.MODELS[type]();
+    var model = new thisObj.MODELS[type]();
 
     this.getTableHead = function()
     {
