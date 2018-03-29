@@ -28,7 +28,7 @@ function drawDataTable(type)
         editor:model.editor
       };
     }catch(E){
-      return {tableid:model.tableId,datatable:{},editor:{}};
+      return {tableid:model.tableId,datatable:{},editor:{},error:e.message};
     }
     };
   }
@@ -38,4 +38,17 @@ function getDataTableContents(type)
   return ddt.tableContents(type);
    
 }
+function insertRecord(obj) {
 
+    this.type = obj;
+    var modelfunc = eval("model_"+type.toLowerCase());
+    var model = new modelfunc();
+    
+}
+
+function updateRecord(type, keyval, row) {
+  
+}
+function deleteRecord(type,keyval,row){
+  
+}

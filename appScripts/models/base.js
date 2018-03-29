@@ -10,10 +10,15 @@ function model_base(type)
         }
         return obj;
     }; 
-    
+    this.build = function(keyval){
+        for(var i in keyval)
+        {
+            this[i] = keyval[i];
+        }
+    };
     this.save = function(){
         //todo: validation Rules etc
-        return this.insertRow(this.record());
+        return this.insertRow(this.recordSet());
     };
     this.update = function(){
         this.updateRow(this.record());

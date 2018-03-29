@@ -20,19 +20,13 @@ function model_tracking(keyval) {
         buttons: [
             "excel",
             {
-                extend: 'create',
-                
-            },
-            {
                 extend: 'edit',
-                
             },
             {
-                extend: 'remove',
-                
+                extend: 'remove'
             }
         ],
-        columns : [{
+        columns: [{
                 "data": "ID",
                 "defaultContent": ""
             },
@@ -107,18 +101,22 @@ function model_tracking(keyval) {
             },
             {
                 "name": "IN_SJC",
+                type:   'datetime',
                 "label": "In_SJC"
             },
             {
                 "name": "OUT_SJC",
+                type:   'datetime',
                 "label": "Out_SJC"
             },
             {
                 "name": "PHOTODONE",
+                type:   'datetime',
                 "label": "Photo Done"
             },
             {
                 "name": "RECORD_COMPLETE",
+                type:   'datetime',
                 "label": "Complete"
             },
         ]
