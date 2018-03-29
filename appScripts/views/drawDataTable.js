@@ -24,7 +24,7 @@ function drawDataTable(type)
       return {
         type: this.type,
         rec: this.sheetAdmin.records(),
-        coldef:model.attributeSet(),
+        coldef:JSON.parse(JSON.stringify(model.columnDefition)),
         attributes: JSON.parse(JSON.stringify(this.sheetAdmin.sheetKeys()))
       };
     };

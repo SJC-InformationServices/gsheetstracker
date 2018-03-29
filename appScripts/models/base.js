@@ -1,20 +1,7 @@
 function model_base(type) 
 {
     sjcSheetAdmin.call(this,type);
-
-    this.attributeSet = function(){
-        try{
-            return this.columnDefition;
-        }
-        catch(E){
-            return [
-                {"data":"ID","defaultContent": ""},
-                {"data":"CREATEDON","defaultContent": "","visible":false,"searchable": false},
-                {"data":"UPDATEDON","defaultContent": "","searchable": false}
-            ];
-        }
-    };
-    
+        
     this.recordSet=function () {
         var obj = {};
         var k = this.sheetKeys();
