@@ -3,6 +3,7 @@ function drawDataTable(type)
     this.type = type;
     this.sheetAdmin = new sjcSheetAdmin(type);
     var modelname = "model_"+type;
+    console.dir(this);
     var model = new this.MODELS[type]();
 
     this.getTableHead = function()
