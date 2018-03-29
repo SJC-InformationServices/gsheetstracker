@@ -18,16 +18,13 @@ function model_images(){
         buttons: [
             "excel",
             {
-                extend: 'create',
-                editor: editor
+                extend: 'create'
             },
             {
-                extend: 'edit',
-                editor: editor
+                extend: 'edit'
             },
             {
-                extend: 'remove',
-                editor: editor
+                extend: 'remove'
             }
         ],
         columns : [{
