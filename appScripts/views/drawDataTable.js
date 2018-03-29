@@ -43,7 +43,8 @@ function insertRecord(obj) {
     this.type = obj;
     var modelfunc = eval("model_"+type.toLowerCase());
     var model = new modelfunc();
-    
+    model.build(obj.rec);
+
 }
 
 function updateRecord(type, keyval, row) {
