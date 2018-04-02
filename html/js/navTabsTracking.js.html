@@ -3,12 +3,12 @@
     $merchout = $('#merchout');
 
   function submitComplete(o,jq) {
-    console.dir(o);
+    
     try{
     var tbl = o.tableId;
     var dt = jq(tbl).DataTable().addRow(o.rec).draw();
     }catch(e){
-      console.dir(e);
+      
     }
     
   }
