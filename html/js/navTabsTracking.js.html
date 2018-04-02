@@ -1,4 +1,4 @@
-<script type="text/javascript" defer>
+<script>
   var $merchin = $('#merchin'),
     $merchout = $('#merchout');
 
@@ -39,7 +39,7 @@
       var v = rec[i].value;
       obj.rec[n] = v;
     }
-    google.script.run.withSuccessHandler(submitComplete).insertRecord(obj).withUserObject($);
+    google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
   });
 
   $merchout.on('submit', function (e) {
@@ -62,6 +62,6 @@
       var v = rec[i].value;
       obj[n] = v;
     }
-    google.script.run.withSuccessHandler(submitComplete).updateRecord(obj).withUserObject($);
+    google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
   });
 </script>
