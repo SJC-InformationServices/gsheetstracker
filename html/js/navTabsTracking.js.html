@@ -66,3 +66,9 @@
     google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
   });
 </script>
+<script>
+  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("TRACKING");
+  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("IMAGES");
+  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("PRODUCTS");
+  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("OFFERS");
+</script>
