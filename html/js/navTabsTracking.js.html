@@ -6,11 +6,14 @@
     
     try{
     var tbl = o.tableId;
-    var dt = $(tbl).DataTable().addRows(o.rec);
+    var dt = $(tbl).DataTable().addRow(o.rec).draw();
     }catch(e){
       console.dir(e);
     }
     
+  }
+  function submitFailed(o){
+    console.dir(o);
   }
 
   $merchin.on('submit', function (e) {
