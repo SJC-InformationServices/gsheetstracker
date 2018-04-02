@@ -21,9 +21,11 @@ function model_base(type)
         return this.insertRow(this.recordSet());
     };
     this.update = function(){
+        //todo: check validation Rules 
         this.updateRow(this.record());
     };
     this.remove= function(){
+        //todo: create history
         this.removeRow(this.record());
     };
     
