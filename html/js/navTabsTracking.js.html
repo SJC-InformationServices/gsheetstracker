@@ -2,11 +2,11 @@
   var $merchin = $('#merchin'),
     $merchout = $('#merchout');
 
-  function submitComplete(o) {
+  function submitComplete(o,jq) {
     console.dir(o);
     try{
     var tbl = o.tableId;
-    var dt = $(tbl).DataTable().addRow(o.rec).draw();
+    var dt = jq(tbl).DataTable().addRow(o.rec).draw();
     }catch(e){
       console.dir(e);
     }
@@ -39,7 +39,7 @@
       var v = rec[i].value;
       obj.rec[n] = v;
     }
-    google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
+    google.script.run.withSuccessHandler(submitComplete).insertRecord(obj).withUserObject($);
   });
 
   $merchout.on('submit', function (e) {
@@ -62,6 +62,6 @@
       var v = rec[i].value;
       obj[n] = v;
     }
-    google.script.run.withSuccessHandler(submitComplete).updateRecord(obj);
+    google.script.run.withSuccessHandler(submitComplete).updateRecord(obj).withUserObject($);
   });
 </script>
