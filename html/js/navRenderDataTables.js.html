@@ -33,7 +33,7 @@ function submitComplete(o,obj) {
   console.dir(obj);
   try{
   var tbl = o.tableId;
-  var dt = dataTables[tbl].addRow(o.rec).draw();
+  var dt = obj[tbl].addRow(o.rec).draw();
   }catch(e){
     console.log('error: ' + e.message);
     //console.dir(e);
