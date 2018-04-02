@@ -14,20 +14,21 @@
     dataTables.PRODUCTS = $('#PRODUCTSTABLE').DataTable();
     dataTables.IMAGES = $('#IMAGESTABLE').DataTable();
 
-  function submitComplete(o) {
+  function submitComplete(o,obj) {
     console.dir(this);
     console.dir(o);
+    console.dir(obj);
     try{
     var tbl = o.tableId;
     var dt = dataTables(o.type).addRow(o.rec).draw();
     }catch(e){
       console.log('error: ' + e.message);
-      console.dir(e);
+      //console.dir(e);
     }
     
   }
   function submitFailed(o){
-    console.dir(o);
+    //console.dir(o);
   }
 
   $merchin.on('submit', function (e) {
@@ -53,7 +54,7 @@
       var v = rec[i].value;
       obj.rec[n] = v;
     }
-    google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
+    google.script.run.withSuccessHandler(submitComplete).withUserObject(dataTables).insertRecord(obj);
   });
 
   $merchout.on('submit', function (e) {
