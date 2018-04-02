@@ -53,7 +53,7 @@ function sjcSheetAdmin(type) {
     this.nextId = function () {
         var rng = this.sheet.getRange(2, 1, this.lastRow(), 1).getValues();
         var nextKey = Math.max.apply(null, rng);
-        return nextKey;
+        return nextKey+1;
     };
     this.searchByCol = function (col, value) {
         var c = this.properties[col].colIndex;

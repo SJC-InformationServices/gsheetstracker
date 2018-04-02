@@ -18,7 +18,8 @@ function model_base(type)
     };
     this.save = function(){
         //todo: validation Rules etc
-        return this.insertRow(this.recordSet());
+        this.ID = this.insertRow(this.recordSet());
+        return this.ID;
     };
     this.update = function(){
         //todo: check validation Rules 

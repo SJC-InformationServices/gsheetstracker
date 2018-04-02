@@ -4,6 +4,13 @@
 
   function submitComplete(e) {
     console.dir(e);
+    if(!e.error)
+    {
+    var dt = $(tbl).DataTable().addRows(e);
+    }else{
+      console.dir(e);
+    }
+    
   }
 
   $merchin.on('submit', function (e) {
@@ -12,19 +19,20 @@
 
 
     var obj = {
-      type:"TRACKING",
-      rec:{IN_SJC:[
-        d.getFullYear(),
-        d.getMonth() + 1,
-        d.getDate()
-      ].join('/') + ' ' + [d.getHours(),
-        d.getMinutes()
-      ].join(':')}
+      type: "TRACKING",
+      rec: {
+        IN_SJC: [
+          d.getFullYear(),
+          d.getMonth() + 1,
+          d.getDate()
+        ].join('/') + ' ' + [d.getHours(),
+          d.getMinutes()
+        ].join(':')
+      }
     };
     var rec = $(this).serializeArray();
-    console.dir(rec);
-    for (var i = 0; i < rec.length; i++) 
-    {
+
+    for (var i = 0; i < rec.length; i++) {
       var n = rec[i].name;
       var v = rec[i].value;
       obj.rec[n] = v;

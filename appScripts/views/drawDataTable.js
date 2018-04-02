@@ -43,7 +43,7 @@ function insertRecord(obj){
     var modelfunc = eval("model_"+obj.type.toLowerCase());
     var model = new modelfunc(obj.rec);
     var id = model.save();
-    obj.rec.id = id;
+    obj.rec.ID = id;
     return obj;
   }catch(e){
     return {"error":true,"message":e.message};
