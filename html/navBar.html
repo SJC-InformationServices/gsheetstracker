@@ -1,21 +1,89 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" target="_blank" href="https://stjoseph.com/">
-          <img src="https://s3.amazonaws.com/sjcarchiveassets/lib/images/sjc_logo.svg" alt="">
-      </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="accountDropDown" data-toggle="dropdown">Welcome,<?!= Session.getActiveUser().getEmail() ?>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="accountDropDown">
-                <a class="dropdown-item" href="https://myaccount.google.com">My Account</a>
-                <a class="dropdown-item" id="authorize" href="#">Google Authorize</a>
-                <a class="dropdown-item" id="logout" href="#">Google Logout</a>
-              </div>
-            </li>
-          </ul>
+  <a class="navbar-brand" target="_blank" href="https://stjoseph.com/">
+    <img src="https://s3.amazonaws.com/sjcarchiveassets/lib/images/sjc_logo.svg" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="accountDropDown" data-toggle="dropdown">Welcome,
+          <?!= Session.getActiveUser().getEmail() ?>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="accountDropDown">
+          <a class="dropdown-item" href="https://myaccount.google.com">My Account</a>
+          <a class="dropdown-item" id="authorize" href="#">Google Authorize</a>
+          <a class="dropdown-item" id="logout" href="#">Google Logout</a>
         </div>
-      </nav>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link active" href="#tracking">Tracking</a>
+  </li>
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link" href="#images">Images</a>
+  </li>
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link" href="#products">Products</a>
+  </li>
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link" href="#offers">Offers</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div id="tracking" class="tab-pane active">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <legend>Merch In</legend>
+          <form id="merchin" class="form-signin">
+            <div class="form-label-group">
+              <input type="text" name="UPC" placeholder="upc" id="merchinupc" class="form-control form-control-sm" required="" maxlength="14"
+              />
+              <label for="merchinupc">UPC</label>
+            </div>
+            <button type="submit" id="submit-merchin" class="btn btn-secondary btn-sm">Submit</button>
+          </form>
+        </div>
+        <div class="col-md-4" class="form-signin">
+          <legend>Merch Out</legend>
+          <form id="merchout" class="form-signin">
+            <div class="form-label-group">
+              <input type="text" name="UPC" placeholder="upc" id="merchoutupc" class="form-control form-control-sm" required="" maxlength="14"
+              />
+              <label for="merchoutupc">UPC</label>
+            </div>
+            <button type="submit" id="submit-merchout" class="btn btn-secondary btn-sm">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <? var et = new drawDataTable("TRACKING").getTableHead(); ?>
+      <? output.append(et); ?>
+
+  </div>
+  <div id="images" class="tab-pane">
+
+    <? var et = new drawDataTable("IMAGES").getTableHead(); ?>
+      <? output.append(et); ?>
+
+  </div>
+  <div id="products" class="tab-pane">
+
+    <? var et = new drawDataTable("PRODUCTS").getTableHead(); ?>
+      <? output.append(et); ?>
+
+  </div>
+  <div id="offers" class="tab-pane">
+
+    <? var et = new drawDataTable("OFFERS").getTableHead(); ?>
+      <? output.append(et); ?>
+
+  </div>
+</div>
