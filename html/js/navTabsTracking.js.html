@@ -1,3 +1,67 @@
-<script type="text/javascript" async defer>
-  
+<script type="text/javascript" defer>
+  var $merchin = $('#merchin'),
+    $merchout = $('#merchout');
+
+  function submitComplete(o) {
+    console.dir(o);
+    try{
+    var tbl = o.tableId;
+    var dt = $(tbl).DataTable().addRow(o.rec).draw();
+    }catch(e){
+      console.dir(e);
+    }
+    
+  }
+  function submitFailed(o){
+    console.dir(o);
+  }
+
+  $merchin.on('submit', function (e) {
+    e.preventDefault();
+    var d = new Date();
+
+    var obj = {
+      type: "TRACKING",
+      rec: {
+        IN_SJC: [
+          d.getFullYear(),
+          d.getMonth() + 1,
+          d.getDate()
+        ].join('/') + ' ' + [d.getHours(),
+          d.getMinutes()
+        ].join(':')
+      }
+    };
+    var rec = $(this).serializeArray();
+
+    for (var i = 0; i < rec.length; i++) {
+      var n = rec[i].name;
+      var v = rec[i].value;
+      obj.rec[n] = v;
+    }
+    google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
+  });
+
+  $merchout.on('submit', function (e) {
+    e.preventDefault();
+    var obj = {};
+    obj.type = "TRACKING";
+
+    var d = new Date();
+    obj.IN_SJC = [
+      d.getFullYear(),
+      d.getMonth() + 1,
+      d.getDate()
+    ].join('/') + ' ' + [d.getHours(),
+      d.getMinutes()
+    ].join(':');
+
+    var rec = $(this).serializeArray();
+    for (var i = 0; i < rec.length; i++) {
+      var n = rec[i].name;
+      var v = rec[i].value;
+      obj[n] = v;
+    }
+    google.script.run.withSuccessHandler(submitComplete).updateRecord(obj);
+  });
 </script>
