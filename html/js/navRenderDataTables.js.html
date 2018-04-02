@@ -27,17 +27,12 @@
     return true;
   };
   
-function submitComplete(o,obj) {
-  console.dir(this);
-  console.dir(o);
-  console.dir(obj);
-  try{
-  var tbl = o.tableId;
-  var dt = obj[tbl].addRow(o.rec).draw();
-  }catch(e){
-    console.log('error: ' + e.message);
-    //console.dir(e);
-  }
+function submitComplete(o,obj) 
+{
+  var tblId = "#" + o.type + "TABLE";
+  console.log(tblId);
+  $(tblId).DataTable().addRow(o.rec).draw();
+  
   
 }
 function submitFailed(o){
