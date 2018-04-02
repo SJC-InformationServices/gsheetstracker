@@ -38,15 +38,17 @@ function getDataTableContents(type)
   return ddt.tableContents(type);
    
 }
-function insertRecord(obj) {
-
-    
+function insertRecord(obj){
+  try{
     var modelfunc = eval("model_"+obj.type.toLowerCase());
     var model = new modelfunc();
     model.build(obj.rec);
     var id = model.save();
     obj.rec.id = id;
     return obj;
+  }catch(e){
+    return {"error":true,"message":e.message}
+  }
 }
 
 function updateRecord(obj) 
