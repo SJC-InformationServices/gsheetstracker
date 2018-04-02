@@ -3,13 +3,11 @@
     $merchout = $('#merchout');
 
   function submitComplete(o) {
-    console.dir(o);
-    if(typeof o.error == 'undefinded')
-    {
+    
+    
+    
     var dt = $(tbl).DataTable().addRows(o.rec);
-    }else{
-      console.dir(o);
-    }
+    
     
   }
 
