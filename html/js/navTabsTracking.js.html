@@ -8,26 +8,26 @@
 
   $merchin.on('submit', function (e) {
     e.preventDefault();
+    var d = new Date();
+
+
     var obj = {
       type:"TRACKING",
-      rec:{}
+      rec:{IN_SJC:[
+        d.getFullYear(),
+        d.getMonth() + 1,
+        d.getDate()
+      ].join('/') + ' ' + [d.getHours(),
+        d.getMinutes()
+      ].join(':')}
     };
-    
-    var d = new Date();
-    obj.rec.IN_SJC = [
-      d.getFullYear(),
-      d.getMonth() + 1,
-      d.getDate()
-    ].join('/') + ' ' + [d.getHours(),
-      d.getMinutes()
-    ].join(':');
-
     var rec = $(this).serializeArray();
+    console.dir(rec);
     for (var i = 0; i < rec.length; i++) 
     {
       var n = rec[i].name;
       var v = rec[i].value;
-      obj[rec][n] = v;
+      obj.rec[n] = v;
     }
     google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
   });
