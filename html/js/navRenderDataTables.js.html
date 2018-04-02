@@ -1,6 +1,8 @@
 <script type="text/javascript" defer>
   var dataTables = {};
-  
+  var $merchin = $('#merchin'),
+  $merchout = $('#merchout');
+
   function failedDataTable(x) {
     
     var tbl = x.tableid,
@@ -24,10 +26,6 @@
     dataTables[tbl] = dt;
     return true;
   };
-
-  var $merchin = $('#merchin'),
-  $merchout = $('#merchout');
-  var jq=$;
   
 function submitComplete(o,obj) {
   console.dir(this);
@@ -35,7 +33,7 @@ function submitComplete(o,obj) {
   console.dir(obj);
   try{
   var tbl = o.tableId;
-  var dt = obj.DataTable(tbl).addRow(o.rec).draw();
+  var dt = dataTables[tbl].addRow(o.rec).draw();
   }catch(e){
     console.log('error: ' + e.message);
     //console.dir(e);
@@ -69,7 +67,7 @@ $merchin.on('submit', function (e) {
     var v = rec[i].value;
     obj.rec[n] = v;
   }
-  google.script.run.withSuccessHandler(submitComplete).withUserObject(jq).insertRecord(obj);
+  google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
 });
 
 $merchout.on('submit', function (e) {
