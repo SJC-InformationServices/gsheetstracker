@@ -1,5 +1,7 @@
 function model_tracking(keyval) 
 {
+    //inti prototype
+    model_base.call(this, "TRACKING");
     //Properties
     this.ID = null;
     this.UPC = null;
