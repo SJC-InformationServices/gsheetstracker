@@ -1,4 +1,5 @@
 <script type="text/javascript" defer>
+  
   function failedDataTable(x) {
     
     var tbl = x.tableid,
@@ -26,4 +27,75 @@
 
     return true;
   };
+
+  var $merchin = $('#merchin'),
+  $merchout = $('#merchout');
+  var jq=$;
+  
+function submitComplete(o,obj) {
+  console.dir(this);
+  console.dir(o);
+  console.dir(obj);
+  try{
+  var tbl = o.tableId;
+  var dt = obj.DataTable(tbl).addRow(o.rec).draw();
+  }catch(e){
+    console.log('error: ' + e.message);
+    //console.dir(e);
+  }
+  
+}
+function submitFailed(o){
+  //console.dir(o);
+}
+
+$merchin.on('submit', function (e) {
+  e.preventDefault();
+  var d = new Date();
+
+  var obj = {
+    type: "TRACKING",
+    rec: {
+      IN_SJC: [
+        d.getFullYear(),
+        d.getMonth() + 1,
+        d.getDate()
+      ].join('/') + ' ' + [d.getHours(),
+        d.getMinutes()
+      ].join(':')
+    }
+  };
+  var rec = $(this).serializeArray();
+
+  for (var i = 0; i < rec.length; i++) {
+    var n = rec[i].name;
+    var v = rec[i].value;
+    obj.rec[n] = v;
+  }
+  google.script.run.withSuccessHandler(submitComplete).withUserObject(jq).insertRecord(obj);
+});
+
+$merchout.on('submit', function (e) {
+  e.preventDefault();
+  var obj = {};
+  obj.type = "TRACKING";
+
+  var d = new Date();
+  obj.IN_SJC = [
+    d.getFullYear(),
+    d.getMonth() + 1,
+    d.getDate()
+  ].join('/') + ' ' + [d.getHours(),
+    d.getMinutes()
+  ].join(':');
+
+  var rec = $(this).serializeArray();
+  for (var i = 0; i < rec.length; i++) {
+    var n = rec[i].name;
+    var v = rec[i].value;
+    obj[n] = v;
+  }
+  google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
+});
+
 </script>
