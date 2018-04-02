@@ -2,7 +2,6 @@ function model_tracking(keyval) {
 
     model_base.call(this, "TRACKING");
     this.tableId = "#TRACKINGTABLE";
-
     this.dataTable = {
         dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
         data: this.records(),
@@ -101,22 +100,22 @@ function model_tracking(keyval) {
             },
             {
                 "name": "IN_SJC",
-                type:   'datetime',
+                type: 'datetime',
                 "label": "In_SJC"
             },
             {
                 "name": "OUT_SJC",
-                type:   'datetime',
+                type: 'datetime',
                 "label": "Out_SJC"
             },
             {
                 "name": "PHOTODONE",
-                type:   'datetime',
+                type: 'datetime',
                 "label": "Photo Done"
             },
             {
                 "name": "RECORD_COMPLETE",
-                type:   'datetime',
+                type: 'datetime',
                 "label": "Complete"
             },
         ]

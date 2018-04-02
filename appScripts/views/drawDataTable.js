@@ -41,13 +41,12 @@ function getDataTableContents(type)
 function insertRecord(obj){
   try{
     var modelfunc = eval("model_"+obj.type.toLowerCase());
-    var model = new modelfunc();
-    model.build(obj.rec);
+    var model = new modelfunc(obj.rec);
     var id = model.save();
     obj.rec.id = id;
     return obj;
   }catch(e){
-    return {"error":true,"message":e.message}
+    return {"error":true,"message":e.message};
   }
 }
 
