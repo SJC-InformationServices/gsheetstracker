@@ -1,10 +1,9 @@
-
 function sjcSheetAdmin(type) {
 
     this.cache = CacheService.getScriptCache();
     this.type = type;
     this.sheetName = "Sheet1";
-    this.uniqueKey =  "UPC";
+    this.uniqueKey = "UPC";
     this.docKey = PropertiesService.getScriptProperties().getProperty(this.type);
     this.doc = SpreadsheetApp.openById(this.docKey);
     this.sheet = this.doc.getSheetByName(this.sheetName);
@@ -18,9 +17,9 @@ function sjcSheetAdmin(type) {
         var cacheKey = this.type + "-sheetKeys";
         var cached = this.cache.get(cacheKey);
         if (cached != null) {
-            try{
-            return JSON.parse(cached);
-            }catch(e){
+            try {
+                return JSON.parse(cached);
+            } catch (e) {
 
             }
         }
@@ -28,30 +27,28 @@ function sjcSheetAdmin(type) {
         this.cache.put(cacheKey, JSON.stringify(recs), 180);
         return recs;
     };
-    this.records = function () 
-    {
+    this.records = function () {
         var cacheKey = this.type + "-records";
         var cached = this.cache.get(cacheKey);
-        if (cached != null)
-        {
-            try{return JSON.parse(cached);}catch(e){}
+        if (cached != null) {
+            try {
+                return JSON.parse(cached);
+            } catch (e) {}
         }
 
-        try
-        {
+        try {
             var keys = this.sheetKeys();
             var values = this.sheet.getRange(2, 1, this.lastRow() - 1, this.lastCol()).getValues();
             var recs = [];
-            for(var i = 0;i<values.length;i++)
-            {
+            for (var i = 0; i < values.length; i++) {
                 recs.push(array_combine(keys, values[i]));
             }
             var cacheobj = JSON.stringify(recs);
             this.cache.put(cacheKey, cacheobj, 180);
             return recs;
-        }catch(e){
+        } catch (e) {
             return [];
-        }   
+        }
     };
     this.nextId = function () {
         var rng = this.sheet.getRange(2, 1, this.lastRow(), 1).getValues();
@@ -74,17 +71,21 @@ function sjcSheetAdmin(type) {
     };
 
     this.insertRow = function (keyval) {
-        if (this.uniqueKey == null) {
+        if (this.uniqueKey == null) 
+        {
             var uk = this.uniqueKey;
             var isUnique = this.searchByCol(uk, keyval[uk]);
             if (isUnique) {
-                Logger.log({"Error":"Duplicate Entry","obj":keyval});
+                Logger.log({
+                    "Error": "Duplicate Entry",
+                    "obj": keyval
+                });
                 return false;
             }
         }
         var rowVals = [];
-        var a = this.sheetKeys;
-        keyval.ID = this.nextId;
+        var a = this.sheetKeys();
+        keyval.ID = this.nextId();
         keyval.CREATEDON = new Date();
         keyval.UPDATEDON = new Date();
         for (var i = 0; i < a.length; i++) {
@@ -103,17 +104,16 @@ function sjcSheetAdmin(type) {
     };
     this.removeRow = function (id) {
         var c_row = this.searchByCol("ID", id);
-
     };
     this.build = function (obj) {
-            for (var i in obj) {
-                this[i] = obj[i];
-            }
-            return this;
-        };
+        for (var i in obj) {
+            this[i] = obj[i];
+        }
+        return this;
+    };
 
 }
-if(typeof this.MODELS == "undefined"){
-    this.MODELS={};
+if (typeof this.MODELS == "undefined") {
+    this.MODELS = {};
 }
 this.MODELS.sjcSheetAdmin = sjcSheetAdmin;

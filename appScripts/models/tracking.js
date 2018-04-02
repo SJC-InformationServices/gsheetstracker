@@ -1,6 +1,25 @@
-function model_tracking(keyval) {
+function model_tracking(keyval) 
+{
+    //Properties
+    this.ID = null;
+    this.UPC = null;
+    this.TRACKED_UPC = null;
+    this.DESCRIPTION = null;
+    this.IN_SJC = null;
+    this.IN_SJC_COUNT = null;
+    this.OUT_SJC = null;
+    this.OUT_SJC_COUNT = null;
+    this.PHOTODONE = null;
+    this.PHOTO_DONE_COUNT = null;
+    this.RECORD_COMPLETE = null;
+    this.LAST_USER = null;
+    this.CREATEDON = null;
+    this.UPDATEDON = null;
 
-    model_base.call(this, "TRACKING");
+    for (var i in keyval) {
+        this[i] = keyval[i];
+    }
+
     this.tableId = "#TRACKINGTABLE";
     this.dataTable = {
         dom: "<'row'<'col-sm-3'B><'col-md-5'p><'col-sm-3'l>><'row'<'col-md-6'i><'col-md-4'f>><'row'<'col-md-12't>>",
@@ -119,26 +138,7 @@ function model_tracking(keyval) {
                 "label": "Complete"
             },
         ]
-    };
-
-    this.ID = null;
-    this.UPC = null;
-    this.TRACKED_UPC = null;
-    this.DESCRIPTION = null;
-    this.IN_SJC = null;
-    this.IN_SJC_COUNT = null;
-    this.OUT_SJC = null;
-    this.OUT_SJC_COUNT = null;
-    this.PHOTODONE = null;
-    this.PHOTO_DONE_COUNT = null;
-    this.RECORD_COMPLETE = null;
-    this.LAST_USER = null;
-    this.CREATEDON = null;
-    this.UPDATEDON = null;
-
-    for (var i in keyval) {
-        this[i] = keyval[i];
-    }
+    };    
     return this;
 }
 model_tracking.prototype = Object.create(model_base.prototype);
