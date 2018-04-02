@@ -1,4 +1,5 @@
 <script type="text/javascript" defer>
+  var dataTables = {};
   
   function failedDataTable(x) {
     
@@ -8,8 +9,7 @@
     var dt = $(tbl).DataTable();
   }
 
-  function renderDataTable(x) {
-    
+  function renderDataTable(x) {    
     var tbl = x.tableid,
       dtcfg = x.datatable,
       editcfg = x.editor;
@@ -21,10 +21,7 @@
       }
     }
     var dt = $(tbl).DataTable(dtcfg);
-
-
-
-
+    dataTables[tbl] = dt;
     return true;
   };
 
