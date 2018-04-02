@@ -2,11 +2,11 @@
   var $merchin = $('#merchin'),
     $merchout = $('#merchout');
 
-  function submitComplete(e) {
-    console.dir(e);
-    if(!e.error)
+  function submitComplete(o) {
+    console.dir(o);
+    if(typeof o.error == 'undefinded')
     {
-    var dt = $(tbl).DataTable().addRows(e);
+    var dt = $(tbl).DataTable().addRows(e.rec);
     }else{
       console.dir(e);
     }
