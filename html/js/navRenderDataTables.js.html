@@ -67,7 +67,7 @@ $merchin.on('submit', function (e) {
     var v = rec[i].value;
     obj.rec[n] = v;
   }
-  google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
+  google.script.run.withSuccessHandler(submitComplete).withUserObject(dataTables).insertRecord(obj);
 });
 
 $merchout.on('submit', function (e) {
