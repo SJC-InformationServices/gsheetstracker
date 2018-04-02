@@ -2,13 +2,14 @@
   var $merchin = $('#merchin'),
     $merchout = $('#merchout');
 
-  function submitComplete(o,jq) {
-    
+  function submitComplete(o) {
+    console.dir(o);
     try{
     var tbl = o.tableId;
-    var dt = jq(tbl).DataTable().addRow(o.rec).draw();
+    var dt = $(tbl).DataTable().addRow(o.rec).draw();
     }catch(e){
-      
+      console.log('error: ' + e.message);
+      console.dir(e);
     }
     
   }
