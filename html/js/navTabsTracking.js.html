@@ -3,7 +3,7 @@
     $merchout = $('#merchout');
 
   function submitComplete(o) {
-    
+    console.dir(o);
     try{
     var tbl = o.tableId;
     var dt = $(tbl).DataTable().addRow(o.rec).draw();
