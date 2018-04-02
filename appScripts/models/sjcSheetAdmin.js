@@ -97,6 +97,8 @@ function sjcSheetAdmin(type) {
             }
         }
         this.sheet.appendRow(rowVals);
+        var cacheKey = this.type + "-records";
+        this.cache.remove(cacheKey);
         return keyval.ID;
     };
     this.updateRow = function (keyval) {
