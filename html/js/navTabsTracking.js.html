@@ -1,13 +1,25 @@
 <script>
+  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("TRACKING");
+  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("IMAGES");
+  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("PRODUCTS");
+  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("OFFERS");
+</script>
+
+<script>
   var $merchin = $('#merchin'),
     $merchout = $('#merchout');
+    var dataTables = {};
+    dataTables.TRACKING = $('#TRACKINGTABLE').DataTable();
+    dataTables.OFFERS = $('#OFFERSTABLE').DataTable();
+    dataTables.PRODUCTS = $('#PRODUCTSTABLE').DataTable();
+    dataTables.IMAGES = $('#IMAGESTABLE').DataTable();
 
   function submitComplete(o) {
     console.dir(this);
     console.dir(o);
     try{
     var tbl = o.tableId;
-    var dt = $(tbl).DataTable().addRow(o.rec).draw();
+    var dt = dataTables(o.type).addRow(o.rec).draw();
     }catch(e){
       console.log('error: ' + e.message);
       console.dir(e);
@@ -66,10 +78,4 @@
     }
     google.script.run.withSuccessHandler(submitComplete).insertRecord(obj);
   });
-</script>
-<script>
-  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("TRACKING");
-  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("IMAGES");
-  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("PRODUCTS");
-  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("OFFERS");
 </script>
