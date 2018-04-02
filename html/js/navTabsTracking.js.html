@@ -1,11 +1,4 @@
 <script>
-  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("TRACKING");
-  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("IMAGES");
-  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("PRODUCTS");
-  google.script.run.withSuccessHandler(renderDataTable).withFailureHandler(failedDataTable).getDataTableContents("OFFERS");
-</script>
-
-<script>
   var $merchin = $('#merchin'),
     $merchout = $('#merchout');
     var dataTables = {};
@@ -20,7 +13,7 @@
     console.dir(obj);
     try{
     var tbl = o.tableId;
-    var dt = dataTables(o.type).addRow(o.rec).draw();
+    var dt = obj(o.type).addRow(o.rec).draw();
     }catch(e){
       console.log('error: ' + e.message);
       //console.dir(e);
